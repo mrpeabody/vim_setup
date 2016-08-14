@@ -9,7 +9,9 @@
 - **Node.js** 
 
 On **Ubuntu**, it makes sense to make a symlink in order to be able to run 'node' instead of 'nodejs':
-```sudo ln -s `which nodejs` /usr/bin/node```
+```
+sudo ln -s `which nodejs` /usr/bin/node
+```
 
 ### Features
 This setup is been created having **Python** and **JavaScript** in mind, 
