@@ -7,8 +7,10 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     sudo apt-get install python-dev python3-dev
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # Mac OSX
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew install macvim --with-override-system-vim
     brew install cmake
+fi
 
 # copy required files
 cp setup/vimrc.txt ~/.vimrc
