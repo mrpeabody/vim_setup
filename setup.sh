@@ -1,8 +1,14 @@
 #!/usr/bin/env bash
 
 # Install dependencies first
-brew install macvim --with-override-system-vim
-brew install cmake
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    # Linux x86-64 (Ubuntu)
+    sudo apt-get install build-essential cmake
+    sudo apt-get install python-dev python3-dev
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    # Mac OSX
+    brew install macvim --with-override-system-vim
+    brew install cmake
 
 # copy required files
 cp setup/vimrc.txt ~/.vimrc
