@@ -3,8 +3,7 @@
 # Install dependencies first
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
     # Linux x86-64 (Ubuntu)
-    sudo apt-get install build-essential cmake
-    sudo apt-get install python-dev python3-dev
+    sudo apt-get install build-essential cmake python-dev python3-dev
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # Mac OSX
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
