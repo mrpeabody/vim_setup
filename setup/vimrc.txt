@@ -82,8 +82,13 @@ let mapleader=","
 " set binary
 " set noeol
 " Centralize backups, swapfiles and undo history
-map <C-J> <C-W>j<C-W>_ " open and maximize the split below
-map <C-K> <C-W>k<C-W>_ " open and maximize the split above
+" Splits config
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+set splitbelow
+set splitright
 set wmh=0 " reduces splits to a single line 
 
 " Enable per-directory .vimrc files and disable unsafe commands in them
