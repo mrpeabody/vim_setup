@@ -15,7 +15,7 @@ fi
 cp setup/vimrc.txt ~/.vimrc
 rm -rf ~/.vim
 cp -r setup/dot_vim ~/.vim
-cp setup/dot_tern_config ~/.tern_config
+cp setup/dot_tern_config ~/.tern-config
 cp setup/ycm_extra_conf.py ~/.ycm_extra_conf.py
 
 # setup vim plugin manager
