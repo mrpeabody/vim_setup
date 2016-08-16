@@ -3,7 +3,8 @@
 # Install dependencies first
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
     # Linux x86-64 (Ubuntu)
-    sudo apt-get install -y vim build-essential cmake python-dev python3-dev
+    sudo apt-get install -y vim python-dev python3-dev
+    sudo apt-get install -y build-essential cmake 
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # Mac OSX
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -24,7 +25,14 @@ vim +PluginInstall +qall
 
 # setup autocomplete plugin
 cd ~/.vim/bundle/YouCompleteMe
-./install.py --tern-completer "$1"
+if [[ $1 ]]; then
+    ./install.py "--tern-completer $1"
+else
+    ./install.py --tern-completer
+fi
 
 # everything is done
 echo 'Your vim setup is finished. Happy hacking!'
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    echo 'Please restart your terminal'
+fi
