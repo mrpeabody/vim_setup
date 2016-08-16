@@ -26,7 +26,7 @@ vim +PluginInstall +qall
 # setup autocomplete plugin
 cd ~/.vim/bundle/YouCompleteMe
 if [[ $1 ]]; then
-    ./install.py "--tern-completer $1"
+    ./install.py --tern-completer $1
 else
     ./install.py --tern-completer
 fi
