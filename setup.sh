@@ -24,7 +24,7 @@ vim +PluginInstall +qall
 
 # setup autocomplete plugin
 cd ~/.vim/bundle/YouCompleteMe
-./install.py --clang-completer --tern-completer
+./install.py --tern-completer "$1"
 
 # everything is done
 echo 'Your vim setup is finished. Happy hacking!'

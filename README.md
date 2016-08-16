@@ -2,6 +2,8 @@
 
 1. Clone this repo anywhere on your machine
 2. Run **setup.sh**: ```./setup.sh```
+    - Optionally, if you need the support for C-languages (Java, C++, etc), 
+    there's an optional clang support: ```./setup.sh --clang-completer```
 3. Enjoy your new fresh vim!
 
 ### Prerequisites
