@@ -111,7 +111,8 @@ set t_Co=256
 colorscheme happy_hacking
 " colorscheme monokai
 set colorcolumn=120
-highlight ColorColumn ctermbg=7
+set wrap linebreak nolist
+highlight ColorColumn ctermbg=236
 " Highlight current line
 "set cursorline
 " Make tabs as wide as four spaces
