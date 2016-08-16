@@ -111,8 +111,9 @@ set t_Co=256
 colorscheme happy_hacking
 " colorscheme monokai
 set colorcolumn=120
+highlight ColorColumn ctermbg=7
 " Highlight current line
-" set cursorline
+"set cursorline
 " Make tabs as wide as four spaces
 set tabstop=4
 set shiftwidth=4
@@ -177,11 +178,6 @@ if has("autocmd")
     filetype on
     " Treat .json files as .js
     autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
-endif
-" Change cursor shape between insert and normal mode in iTerm2.app
-if $TERM_PROGRAM =~ "iTerm"
-    let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
-    let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
 endif
 set timeoutlen=1000 ttimeoutlen=0
 noremap % v%
