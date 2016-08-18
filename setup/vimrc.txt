@@ -20,12 +20,9 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'marijnh/tern_for_vim'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'tell-k/vim-autopep8'
-Plugin 'scrooloose/syntastic'
 Plugin 'auto-pairs-gentle'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'pangloss/vim-javascript'
+Plugin 'sheerun/vim-polyglot'
 Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'mxw/vim-jsx'
 Plugin 'lepture/vim-jinja'
 " Track the engine.
 Plugin 'SirVer/ultisnips'
@@ -33,7 +30,7 @@ Plugin 'SirVer/ultisnips'
 " " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'severin-lemaignan/vim-minimap'
+" Plugin 'severin-lemaignan/vim-minimap'
 
 " make YCM compatible with UltiSnips
 let g:ycm_key_list_select_completion=[]
@@ -187,7 +184,7 @@ nnoremap <silent> <F6> :!clear;python3 %<CR>
 nnoremap <silent> <F5> :!clear;python %<CR>
 let g:minimap_highlight='Visual'
 " autocmd! VimEnter * Minimap
-map <C-m> :MinimapToggle<CR>
+" map <C-m> :MinimapToggle<CR>
 
 " Filesystem Tree
 " autocmd vimenter * NERDTree
