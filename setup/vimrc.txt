@@ -230,3 +230,5 @@ nnoremap td  :tabclose<CR>
 
 " add semicolon at the end
 inoremap <leader>; <C-o>A;<Esc>
+autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
+
