@@ -112,7 +112,7 @@ set colorcolumn=120
 set wrap linebreak nolist
 highlight ColorColumn ctermbg=236
 " Highlight current line
-"set cursorline
+set cursorline
 " Make tabs as wide as four spaces
 set tabstop=4
 set shiftwidth=4
