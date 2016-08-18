@@ -4,5 +4,7 @@
         "underscore",
         "jquery"
     ],
-    "plugins": {}
+    "plugins": {
+        "node": {}
+    }
 }
