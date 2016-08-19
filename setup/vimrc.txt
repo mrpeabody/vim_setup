@@ -55,8 +55,6 @@ call vundle#end()            " required
 
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_confirm_extra_conf=0
-"let g:ycm_python_binary_path = 'python3'
-let python_highlight_all=1
 let g:airline_powerline_fonts = 1
 let g:used_javascript_libs = 'jquery,react'
 let g:AutoPairsUseInsertedCount = 1
@@ -92,6 +90,8 @@ nnoremap <C-H> <C-W><C-H>
 set splitbelow
 set splitright
 set wmh=0 " reduces splits to a single line 
+
+set pastetoggle=<F3>
 
 " Disable arrow keys
 noremap <Up> <NOP>
