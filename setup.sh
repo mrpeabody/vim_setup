@@ -5,11 +5,13 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     # Linux x86-64 (Ubuntu)
     sudo apt-get install -y vim python-dev python3-dev
     sudo apt-get install -y build-essential cmake 
+    sudo pip install autopep8
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # Mac OSX
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew install macvim --with-override-system-vim
     brew install cmake
+    pip install autopep8
 fi
 
 # copy required files
