@@ -4,7 +4,7 @@
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
     # Linux x86-64 (Ubuntu)
     sudo apt-get install -y vim python-dev python3-dev
-    sudo apt-get install -y build-essential cmake 
+    sudo apt-get install -y build-essential cmake python-pip
     sudo pip install autopep8
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # Mac OSX
