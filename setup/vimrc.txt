@@ -34,6 +34,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'airblade/vim-gitgutter'
 " Plugin 'severin-lemaignan/vim-minimap'
+Plugin 'mhartington/oceanic-next'
 
 " make YCM compatible with UltiSnips
 let g:ycm_key_list_select_completion=[]
@@ -106,7 +107,6 @@ set wmh=0 " reduces splits to a single line
 nnoremap <silent> _ :vertical resize -5<cr>
 nnoremap <silent> + :vertical resize +5<cr>
 nnoremap <silent> - :resize -5<cr>
-nnoremap <silent> = :resize +5<cr>
 
 " Hit f3 in order to have a 'normal' paste in the insert mode
 set pastetoggle=<F3>
@@ -150,6 +150,7 @@ set t_Co=256
 " colorscheme predawn
 " colorscheme zenburn
 colorscheme happy_hacking
+" colorscheme OceanicNext
 " colorscheme monokai
 set colorcolumn=120
 set wrap linebreak nolist
