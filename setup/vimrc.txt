@@ -23,6 +23,7 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'othree/jsdoc-syntax.vim'
 Plugin 'othree/jspc.vim'
+Plugin 'maksimr/vim-jsbeautify'
 Plugin 'alvan/vim-closetag'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'heavenshell/vim-jsdoc'
@@ -49,6 +50,7 @@ let g:autopep8_max_line_length=120
 let g:autopep8_disable_show_diff=1
 let g:polyglot_disabled = ['markdown']
 let g:vim_json_syntax_conceal = 0
+let g:javascript_plugin_flow = 1
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -239,6 +241,7 @@ set timeoutlen=1000 ttimeoutlen=0
 noremap % v%
 nnoremap <silent> <F6> :!clear;python3 %<CR>
 nnoremap <silent> <F5> :!clear;python %<CR>
+nnoremap <silent> <F9> :call JsBeautify()<CR>
 let g:minimap_highlight='Visual'
 " autocmd! VimEnter * Minimap
 " map <C-m> :MinimapToggle<CR>
@@ -275,12 +278,8 @@ nnoremap tt  :tabedit<Space>
 nnoremap tn  :tabnext<Space>
 nnoremap tm  :tabm<Space>
 nnoremap td  :tabclose<CR>
-" Alternatively use
-"nnoremap th :tabnext<CR>
-"nnoremap tl :tabprev<CR>
-"nnoremap tn :tabnew<CR>
 
-" add semicolon at the end
+" Set up the best markdown flavor as the default one
 autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
 
 " fix for very large screens (can't see the cursor)

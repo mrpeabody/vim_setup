@@ -24,6 +24,8 @@ therefore it has some advanced features:
     - fully format the whole file: ```F8```
 - Autocomplete using **Python** Jedi (IDE)
 - Out-of-the-Box support of main **JavaScript** libraries (autocomplete, syntax, etc)
+- JavaScript/JSON/JSX/HTML/CSS Indentation and Beautify: 
+    - fully format the whole file: `F9`
 - Large collection of Python and **JavaScript** snippets
 - Run the file using **Python**: ```F5```
 - Run the file using **Python3**: ```F6```

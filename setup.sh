@@ -6,12 +6,14 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     sudo apt-get install -y vim python-dev python3-dev
     sudo apt-get install -y build-essential cmake python-pip
     sudo pip install autopep8
+    sudo pip install jsbeautifier
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # Mac OSX
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew install vim --with-override-system-vim
     brew install cmake
     pip install autopep8
+    pip install jsbeautifier
 fi
 
 # copy required files
@@ -24,6 +26,9 @@ cp setup/ycm_extra_conf.py ~/.ycm_extra_conf.py
 # setup vim plugin manager
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
+
+# setup jsBeautify Plugin
+cd ~/.vim/bundle/vim-jsbeautify && git submodule update --init --recursive
 
 # setup autocomplete plugin
 cd ~/.vim/bundle/YouCompleteMe
