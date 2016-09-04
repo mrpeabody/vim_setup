@@ -143,7 +143,7 @@ set secure
 syntax on
 
 " Color scheme
-set background=dark
+" set background=dark
 set t_Co=256
 " colorscheme wombat256mod
 " colorscheme hybrid
@@ -288,3 +288,5 @@ if has('mouse_sgr')
     set ttymouse=sgr
 endif
 
+" Disable Macro recorder
+map q <Nop>
