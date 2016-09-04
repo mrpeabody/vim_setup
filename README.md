@@ -1,4 +1,4 @@
-## VIM automatic installation for MacOS X and Ubuntu x86-64
+## Vim/Neovim automatic installation for MacOS X/Ubuntu/Windows Bash
 
 1. Clone this repo anywhere on your machine
 2. Run **setup.sh**: ```./setup.sh```
@@ -31,7 +31,6 @@ therefore it has some advanced features:
 
 The setup also contains:
 
-- Minimap like Sublime
 - Autocomplete (use ```Ctrl+N``` or ```Ctrl+R``` to navigate through the list of suggestions)
 - Snippets: type a keyword (or select from the list of suggestions), then hit Tab to insert the snippet
 and then go through its placeholders
