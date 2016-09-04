@@ -25,6 +25,7 @@ therefore it has some advanced features:
 - Autocomplete using **Python** Jedi (IDE)
 - Out-of-the-Box support of main **JavaScript** libraries (autocomplete, syntax, etc)
 - JavaScript/JSON/JSX/HTML/CSS Indentation and Beautify: 
+    - format selection: `Ctrl-F`
     - fully format the whole file: `F9`
 - Large collection of Python and **JavaScript** snippets
 - Run the file using **Python**: ```F5```

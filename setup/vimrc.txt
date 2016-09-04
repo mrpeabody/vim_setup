@@ -62,6 +62,18 @@ let g:used_javascript_libs = 'jquery,react'
 let g:AutoPairsUseInsertedCount = 1
 au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
 
+" JsBeautify bindings
+autocmd FileType javascript noremap <buffer>  <F9> :call JsBeautify()<cr>
+autocmd FileType json noremap <buffer> <F9> :call JsonBeautify()<cr>
+autocmd FileType jsx noremap <buffer> <F9> :call JsxBeautify()<cr>
+autocmd FileType html noremap <buffer> <F9> :call HtmlBeautify()<cr>
+autocmd FileType css noremap <buffer> <F9> :call CSSBeautify()<cr>
+autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
+autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
+autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
+autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
+autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
+
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
 
@@ -241,7 +253,7 @@ set timeoutlen=1000 ttimeoutlen=0
 noremap % v%
 nnoremap <silent> <F6> :!clear;python3 %<CR>
 nnoremap <silent> <F5> :!clear;python %<CR>
-nnoremap <silent> <F9> :call JsBeautify()<CR>
+" nnoremap <silent> <F9> :call JsBeautify()<CR>
 let g:minimap_highlight='Visual'
 " autocmd! VimEnter * Minimap
 " map <C-m> :MinimapToggle<CR>
