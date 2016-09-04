@@ -4,7 +4,6 @@ set nocompatible
 
 filetype off                  " required
 filetype plugin indent on    " required
-set completeopt-=preview
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -23,6 +22,7 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'othree/jsdoc-syntax.vim'
 Plugin 'othree/jspc.vim'
+Plugin 'othree/csscomplete.vim'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'alvan/vim-closetag'
 Plugin 'Valloric/MatchTagAlways'
@@ -54,6 +54,19 @@ let g:javascript_plugin_flow = 1
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+
+" Autocomplete 
+set completeopt=longest,menuone
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+autocmd FileType css,less setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+inoremap <C-Space> <C-x><C-o>
+inoremap <C-@> <C-Space>
+au FileType css imap : :<space><c-x><c-o><c-p>
 
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_confirm_extra_conf=0
@@ -306,3 +319,10 @@ map q <Nop>
 
 " Special filetype settings for JSON
 au FileType json setl ts=2 sts=2 et shiftwidth=2
+
+" Map uppercase commands as well as lowercase
+command WQ wq
+command Wq wq
+command W w
+command Q q
+
