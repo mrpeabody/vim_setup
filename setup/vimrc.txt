@@ -115,12 +115,14 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 set splitbelow
 set splitright
-set wmh=0 " reduces splits to a single line 
+
+" reduces splits to a single line 
+set wmh=0
 
 " resize current buffer by +/- 5 
 nnoremap <silent> _ :vertical resize -5<cr>
 nnoremap <silent> + :vertical resize +5<cr>
-nnoremap <silent> - :resize -5<cr>
+nnoremap <silent> - :resize +5<cr>
 
 " Hit f3 in order to have a 'normal' paste in the insert mode
 set pastetoggle=<F3>
@@ -301,3 +303,6 @@ endif
 
 " Disable Macro recorder
 map q <Nop>
+
+" Special filetype settings for JSON
+au FileType json setl ts=2 sts=2 et shiftwidth=2
