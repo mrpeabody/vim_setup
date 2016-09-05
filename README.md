@@ -38,3 +38,12 @@ The setup also contains:
 - Snippets: type a keyword (or select from the list of suggestions), then hit Tab to insert the snippet
 and then go through its placeholders
 - other very neat plugins like parenthesis and quotes handling, etc.
+
+#### Neovim support ####
+This setup should work for Neovim as well. The easiest way to use the same settings for both apps is to make 
+symlinks for Neovim:
+
+```
+ln -s ~/.vim ~/.config/nvim
+ln -s ~/.vimrc ~/.config/nvim/init.vim
+```
