@@ -23,6 +23,7 @@ Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'othree/jsdoc-syntax.vim'
 Plugin 'othree/jspc.vim'
 Plugin 'othree/csscomplete.vim'
+Plugin 'othree/yajs.vim'
 Plugin 'gorodinskiy/vim-coloresque'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'alvan/vim-closetag'
@@ -52,7 +53,7 @@ let g:UltiSnipsSnippetDirectories=["CustomSnippets", "UltiSnips"]
 
 let g:autopep8_max_line_length=120
 let g:autopep8_disable_show_diff=1
-let g:polyglot_disabled = ['markdown']
+let g:polyglot_disabled = ['markdown', 'javascript']
 let g:vim_json_syntax_conceal = 0
 let g:javascript_plugin_flow = 1
 
@@ -195,7 +196,12 @@ set colorcolumn=120
 set wrap linebreak nolist
 if (has("termguicolors"))
    set termguicolors
- endif
+endif
+ " enable italics, disabled by default
+let g:oceanic_next_terminal_italic = 1
+
+" enable bold, disabled by default
+let g:oceanic_next_terminal_bold = 1
 
 " Showing 120 symbols ruler
 highlight ColorColumn ctermbg=236
