@@ -23,7 +23,7 @@ Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'othree/jsdoc-syntax.vim'
 Plugin 'othree/jspc.vim'
 Plugin 'othree/csscomplete.vim'
-Plugin 'ap/vim-css-color'
+Plugin 'gorodinskiy/vim-coloresque'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'alvan/vim-closetag'
 Plugin 'Valloric/MatchTagAlways'
@@ -49,7 +49,6 @@ let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
 let g:UltiSnipsListSnippets = '<c-b>'
 let g:UltiSnipsSnippetsDir="~/.vim/CustomSnippets"
 let g:UltiSnipsSnippetDirectories=["CustomSnippets", "UltiSnips"]
-autocmd filetype html set filetype=html.css.javascript
 
 let g:autopep8_max_line_length=120
 let g:autopep8_disable_show_diff=1
