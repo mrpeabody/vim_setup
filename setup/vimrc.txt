@@ -23,6 +23,7 @@ Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'othree/jsdoc-syntax.vim'
 Plugin 'othree/jspc.vim'
 Plugin 'othree/csscomplete.vim'
+Plugin 'ap/vim-css-color'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'alvan/vim-closetag'
 Plugin 'Valloric/MatchTagAlways'
@@ -45,8 +46,10 @@ let g:ycm_key_list_previous_completion=[]
 let g:UltiSnipsExpandTrigger='<tab>'
 let g:UltiSnipsJumpForwardTrigger='<tab>'
 let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
+let g:UltiSnipsListSnippets = '<c-b>'
 let g:UltiSnipsSnippetsDir="~/.vim/CustomSnippets"
 let g:UltiSnipsSnippetDirectories=["CustomSnippets", "UltiSnips"]
+autocmd filetype html set filetype=html.css.javascript
 
 let g:autopep8_max_line_length=120
 let g:autopep8_disable_show_diff=1
@@ -61,10 +64,10 @@ call vundle#end()            " required
 set completeopt=longest,menuone
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
-  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+            \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
 inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
-  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+            \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
 autocmd FileType css,less setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
@@ -276,7 +279,6 @@ set timeoutlen=1000 ttimeoutlen=0
 noremap % v%
 nnoremap <silent> <F6> :!clear;python3 %<CR>
 nnoremap <silent> <F5> :!clear;python %<CR>
-" nnoremap <silent> <F9> :call JsBeautify()<CR>
 let g:minimap_highlight='Visual'
 " autocmd! VimEnter * Minimap
 " map <C-m> :MinimapToggle<CR>
@@ -289,16 +291,16 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ "Unknown"   : "?"
-    \}
+            \ "Modified"  : "✹",
+            \ "Staged"    : "✚",
+            \ "Untracked" : "✭",
+            \ "Renamed"   : "➜",
+            \ "Unmerged"  : "═",
+            \ "Deleted"   : "✖",
+            \ "Dirty"     : "✗",
+            \ "Clean"     : "✔︎",
+            \ "Unknown"   : "?"
+            \}
 let NERDTreeIgnore = ['\.pyc$']
 
 " Disable autocommenting
@@ -333,4 +335,3 @@ command WQ wq
 command Wq wq
 command W w
 command Q q
-
