@@ -45,7 +45,8 @@ let g:ycm_key_list_previous_completion=[]
 let g:UltiSnipsExpandTrigger='<tab>'
 let g:UltiSnipsJumpForwardTrigger='<tab>'
 let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
-let g:UltiSnipsSnippetDirectories=["CustomSnippets"]
+let g:UltiSnipsSnippetsDir="~/.vim/CustomSnippets"
+let g:UltiSnipsSnippetDirectories=["CustomSnippets", "UltiSnips"]
 
 let g:autopep8_max_line_length=120
 let g:autopep8_disable_show_diff=1

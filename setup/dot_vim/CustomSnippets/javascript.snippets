@@ -1,3 +1,65 @@
+snippet '':f "object method string"
+'${1:${2:#thing}:${3:click}}': function(element) {
+	${VISUAL}$0
+}${10:,}
+endsnippet
+
+snippet :f "Object Method"
+${1:method_name}: function(${3:attribute}) {
+	${VISUAL}$0
+}${10:,}
+endsnippet
+
+snippet :, "Object Value JS"
+${1:value_name}: ${0:value},
+endsnippet
+
+snippet : "Object key key: 'value'"
+${1:key}: ${2:"${3:value}"}${4:, }
+endsnippet
+
+snippet af
+function(${1:args}) {
+    $4
+}
+endsnippet
+
+snippet vf
+${1:var} ${2:function_name} = function(${3:args}) {
+    $4
+};
+$0
+endsnippet
+
+snippet if
+if (${1:true}) {
+    $2
+}
+$0
+endsnippet
+
+snippet ife
+if (${1:true}) {
+    $2
+}
+else {
+    $3
+}
+$0
+endsnippet
+
+snippet ifee
+if (${1:true}) {
+    $2
+}
+else if (${3:true}) {
+    $4
+}
+else {
+    $5
+}
+$0
+endsnippet
 
 snippet cev
 console.error('$1: ', ${1:err});
@@ -7,10 +69,6 @@ endsnippet
 snippet clv
 console.log('$1: ', ${1});
 endsnippet
-
-############
-# PROMISES #
-############
 
 ############
 # PROMISES #
@@ -68,98 +126,4 @@ snippet })c "then" i
 }).catch(function(err) {
   $1
 })
-endsnippet
-
-
-#########
-# REACT #
-#########
-
-snippet rpta
-$1: React.PropTypes.array,
-endsnippet
-
-snippet rptb
-$1: React.PropTypes.bool,
-endsnippet
-
-snippet rptf
-$1: React.PropTypes.func,
-endsnippet
-
-snippet rptn
-$1: React.PropTypes.number,
-endsnippet
-
-snippet rpto
-$1: React.PropTypes.object,
-endsnippet
-
-snippet rpts
-$1: React.PropTypes.string,
-endsnippet
-
-snippet component
-class $1 extends React.Component {
-  static propTypes = {
-  }
-
-  render() {
-    return (
-      <div></div>
-    )
-  }
-}
-endsnippet
-
-snippet edcomp
-import React from 'react'
-
-export default class $1 extends React.Component {
-  static propTypes = {
-  }
-
-  render() {
-    return (
-      <div>$1</div>
-    )
-  }
-}
-endsnippet
-
-snippet edview
-import React from 'react'
-import { connect } from 'react-redux'
-
-class $1 extends React.Component {
-  static propTypes = {
-  }
-
-  render() {
-    return (
-      <div>$1</div>
-    )
-  }
-}
-
-const mapStateToProps = state => ({
-})
-
-const mapDispatchToProps = {
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)($1)
-endsnippet
-
-###########
-# IMPORTS #
-###########
-
-snippet implo
-import _ from 'lodash'
-endsnippet
-
-snippet impreact
-import React from 'react'
-
 endsnippet
