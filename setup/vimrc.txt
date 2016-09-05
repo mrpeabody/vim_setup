@@ -37,7 +37,6 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'airblade/vim-gitgutter'
 " Plugin 'severin-lemaignan/vim-minimap'
-Plugin 'mhartington/oceanic-next'
 
 " make YCM compatible with UltiSnips
 let g:ycm_key_list_select_completion=[]
