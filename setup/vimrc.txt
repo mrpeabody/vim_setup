@@ -182,17 +182,20 @@ set secure
 syntax on
 
 " Color scheme
-" set background=dark
+set background=dark
 set t_Co=256
 " colorscheme wombat256mod
 " colorscheme hybrid
 " colorscheme predawn
 " colorscheme zenburn
-colorscheme happy_hacking
-" colorscheme OceanicNext
+" colorscheme happy_hacking
+colorscheme OceanicNext
 " colorscheme monokai
 set colorcolumn=120
 set wrap linebreak nolist
+if (has("termguicolors"))
+   set termguicolors
+ endif
 
 " Showing 120 symbols ruler
 highlight ColorColumn ctermbg=236
