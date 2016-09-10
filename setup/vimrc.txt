@@ -32,6 +32,8 @@ Plugin 'heavenshell/vim-jsdoc'
 Plugin 'lepture/vim-jinja'
 " Track the engine.
 Plugin 'SirVer/ultisnips'
+Plugin 'lfilho/cosco.vim'
+
 "
 " " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
@@ -58,6 +60,10 @@ let g:javascript_plugin_flow = 1
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
+
+" Semicolon/Comma automatization
+autocmd FileType javascript,css nmap <silent> <Leader>; :CommaOrSemiColon<CR>
+autocmd FileType javascript,css imap <silent> <Leader>; <c-o>:CommaOrSemiColon<CR>
 
 " Autocomplete 
 set completeopt=longest,menuone
