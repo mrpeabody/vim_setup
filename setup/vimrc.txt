@@ -62,8 +62,8 @@ let g:javascript_plugin_flow = 1
 call vundle#end()            " required
 
 " Semicolon/Comma automatization
-autocmd FileType javascript,css nmap <silent> <Leader>; :CommaOrSemiColon<CR>
-autocmd FileType javascript,css imap <silent> <Leader>; <c-o>:CommaOrSemiColon<CR>
+autocmd FileType javascript,css,c,cpp,java,csharp nmap <silent> <Leader>; :CommaOrSemiColon<CR>
+autocmd FileType javascript,css,c,cpp,java,csharp imap <silent> <Leader>; <c-o>:CommaOrSemiColon<CR>
 
 " Autocomplete 
 set completeopt=longest,menuone
