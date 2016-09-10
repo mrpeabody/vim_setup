@@ -229,7 +229,7 @@ highlight Search guibg=yellow guifg=black"
 nnoremap <CR> :nohlsearch<CR>/<BS>
 
 " Auto pairs setup
-let g:AutoPairsFlyMode = 1
+let g:AutoPairsFlyMode = 0
 
 " Ignore case of searches
 set ignorecase
