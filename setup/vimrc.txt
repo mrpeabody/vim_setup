@@ -104,7 +104,9 @@ autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
 autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
-set clipboard=unnamed
+if (executable('pbcopy') || executable('xclip') || executable('xsel')) && has('clipboard')
+  set clipboard=unnamed
+endif
 
 " Enhance command-line completion
 set wildmenu
