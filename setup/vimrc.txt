@@ -355,3 +355,9 @@ command WQ wq
 command Wq wq
 command W w
 command Q q
+
+" Folding settings
+setlocal foldmethod=syntax
+au BufRead * normal zR
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap <Space> zf
