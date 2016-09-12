@@ -29,15 +29,15 @@ Plugin 'alvan/vim-closetag'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'heavenshell/vim-jsdoc'
 Plugin 'lepture/vim-jinja'
-" Track the engine.
 Plugin 'SirVer/ultisnips'
 Plugin 'lfilho/cosco.vim'
+Plugin 'tmhedberg/SimpylFold'
 
-"
-" " Snippets are separated from the engine. Add this if you want them:
+" Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 Plugin 'airblade/vim-gitgutter'
 " Plugin 'severin-lemaignan/vim-minimap'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -361,3 +361,4 @@ setlocal foldmethod=syntax
 au BufRead * normal zR
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
+let g:SimpylFold_docstring_preview = 1
