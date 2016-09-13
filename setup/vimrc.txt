@@ -32,6 +32,7 @@ Plugin 'lepture/vim-jinja'
 Plugin 'SirVer/ultisnips'
 Plugin 'lfilho/cosco.vim'
 Plugin 'tmhedberg/SimpylFold'
+Plugin 'Yggdroot/indentLine'
 
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
