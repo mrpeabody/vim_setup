@@ -33,6 +33,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'lfilho/cosco.vim'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'Yggdroot/indentLine'
+Plugin 'terryma/vim-multiple-cursors'
 
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
@@ -45,6 +46,9 @@ call vundle#end()            " required
 
 filetype plugin indent on    " required
 
+" Multiple cursors setup
+nnoremap <silent> <C-g> :MultipleCursorsFind <C-R>/<CR>
+vnoremap <silent> <C-g> :MultipleCursorsFind <C-R>/<CR>
 
 " make YCM compatible with UltiSnips
 let g:ycm_key_list_select_completion=[]
@@ -345,7 +349,7 @@ if has('mouse_sgr')
 endif
 
 " Disable Macro recorder
-map q <Nop>
+"map q <Nop>
 
 " Special filetype settings for JSON
 au FileType json setl ts=2 sts=2 et shiftwidth=2
