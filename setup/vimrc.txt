@@ -362,8 +362,10 @@ command W w
 command Q q
 
 " Folding settings
-setlocal foldmethod=syntax
-au BufRead * normal zR
+set foldmethod=syntax
+autocmd InsertLeave,WinEnter * setlocal foldmethod=syntax
+autocmd InsertEnter,WinLeave * setlocal foldmethod=manual
+au BufEnter * normal zR
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 let g:SimpylFold_docstring_preview = 1
