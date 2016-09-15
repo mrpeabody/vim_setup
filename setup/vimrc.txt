@@ -365,7 +365,7 @@ command Q q
 set foldmethod=syntax
 autocmd InsertLeave,WinEnter * setlocal foldmethod=syntax
 autocmd InsertEnter,WinLeave * setlocal foldmethod=manual
-au BufEnter * normal zR
+autocmd BufWinEnter * silent! :%foldopen!
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 let g:SimpylFold_docstring_preview = 1

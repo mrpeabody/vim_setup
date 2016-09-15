@@ -38,6 +38,9 @@ else
     ./install.py --tern-completer
 fi
 
+cd ~/.vim/bundle/tern_for_vim
+npm install
+
 # everything is done
 echo 'Your vim setup is finished. Happy hacking!'
 if [[ "$OSTYPE" == "darwin"* ]]; then
