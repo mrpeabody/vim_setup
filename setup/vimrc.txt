@@ -389,3 +389,6 @@ nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 let g:SimpylFold_docstring_preview = 1
 
+" .swp files location
+set directory=$HOME/.vim/swapfiles//
+
