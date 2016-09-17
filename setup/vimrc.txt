@@ -35,6 +35,7 @@ Plugin 'tmhedberg/SimpylFold'
 Plugin 'Yggdroot/indentLine'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'nacitar/a.vim'
+Plugin 'rdolgushin/gitignore.vim'
 
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
