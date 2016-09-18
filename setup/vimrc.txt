@@ -49,12 +49,6 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 " Multiple cursors setup
-let g:multi_cursor_use_default_mapping=0
-let g:multi_cursor_next_key='<C-m>'
-let g:multi_cursor_prev_key='<C-p>'
-let g:multi_cursor_skip_key='<C-x>'
-let g:multi_cursor_quit_key='<Esc>'
-
 set lazyredraw
 nnoremap <silent> <C-g> :MultipleCursorsFind <C-R>/<CR>
 vnoremap <silent> <C-g> :MultipleCursorsFind <C-R>/<CR>
@@ -332,7 +326,7 @@ let g:minimap_highlight='Visual'
 " autocmd VimEnter * wincmd p
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-map <C-n> :NERDTreeToggle<CR>
+map <Leader>n  :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:NERDTreeIndicatorMapCustom = {
             \ "Modified"  : "✹",
