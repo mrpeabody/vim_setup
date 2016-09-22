@@ -37,6 +37,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'nacitar/a.vim'
 Plugin 'rdolgushin/gitignore.vim'
 Plugin 'restore_view.vim'
+Plugin 'vim-scripts/vim-auto-save'
 
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
@@ -391,3 +392,7 @@ set directory=$HOME/.vim/swapfiles//
 set viewoptions=cursor,folds,slash,unix
 let g:skipview_files = ['*\.vim']
 
+
+" Autosave settings
+let g:auto_save = 1
+let g:auto_save_in_insert_mode = 0
