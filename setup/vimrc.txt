@@ -36,6 +36,7 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'nacitar/a.vim'
 Plugin 'rdolgushin/gitignore.vim'
+Plugin 'restore_view.vim'
 
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
@@ -112,7 +113,7 @@ let g:used_javascript_libs = 'jquery,react'
 let g:AutoPairsUseInsertedCount = 1
 
 " JsBeautify bindings
-autocmd FileType javascript noremap <buffer>  <F9> :call JsBeautify()<cr>
+autocmd FileType javascript noremap <buffer> <F9> :call JsBeautify()<cr>
 autocmd FileType json noremap <buffer> <F9> :call JsonBeautify()<cr>
 autocmd FileType jsx noremap <buffer> <F9> :call JsxBeautify()<cr>
 autocmd FileType html noremap <buffer> <F9> :call HtmlBeautify()<cr>
@@ -121,7 +122,6 @@ autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
 autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
 autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
 autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
-autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
 
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 if (executable('pbcopy') || executable('xclip') || executable('xsel')) && has('clipboard')
@@ -386,4 +386,8 @@ let g:SimpylFold_docstring_preview = 1
 
 " .swp files location
 set directory=$HOME/.vim/swapfiles//
+
+" state autosave
+set viewoptions=cursor,folds,slash,unix
+let g:skipview_files = ['*\.vim']
 
