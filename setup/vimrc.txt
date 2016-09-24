@@ -1,4 +1,3 @@
-
 " Make Vim more useful
 set nocompatible
 
@@ -36,13 +35,14 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'nacitar/a.vim'
 Plugin 'rdolgushin/gitignore.vim'
-Plugin 'restore_view.vim'
+" state autosave (uncomment to use IDE-like saved state for files - folds/cursor position, etc)
+" Plugin 'restore_view.vim'
 Plugin 'vim-scripts/vim-auto-save'
 
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
 Plugin 'airblade/vim-gitgutter'
-" Plugin 'severin-lemaignan/vim-minimap'
+Plugin 'severin-lemaignan/vim-minimap'
 
 
 " All of your Plugins must be added before the following line
@@ -213,18 +213,14 @@ syntax on
 " Color scheme
 set background=dark
 set t_Co=256
-" colorscheme wombat256mod
-" colorscheme hybrid
-" colorscheme predawn
-" colorscheme zenburn
-" colorscheme happy_hacking
 colorscheme OceanicNext
-" colorscheme monokai
+" Other options already installed: wombat256mod, hybrid, predawn, zenburn, happy_hacking, monokai
 set colorcolumn=120
 set wrap linebreak nolist
 if (has("termguicolors"))
    set termguicolors
 endif
+
  " enable italics, disabled by default
 let g:oceanic_next_terminal_italic = 1
 
@@ -235,7 +231,7 @@ let g:oceanic_next_terminal_bold = 1
 highlight ColorColumn ctermbg=236
 
 " Highlight current line
-" set cursorline
+set cursorline
 
 " Make tabs as wide as four spaces
 set expandtab
@@ -300,6 +296,7 @@ set showcmd
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
 
+
 " Strip trailing whitespace (,ss)
 function! StripWhitespace()
     let save_cursor = getpos(".")
@@ -310,17 +307,23 @@ function! StripWhitespace()
 endfunction
 noremap <leader>ss :call StripWhitespace()<CR>
 
+
 " Save a file as root (,W)
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
+
 
 " Automatic commands
 set timeoutlen=1000 ttimeoutlen=0
 noremap % v%
 nnoremap <silent> <F6> :!clear;python3 %<CR>
 nnoremap <silent> <F5> :!clear;python %<CR>
+
+
+" Minimap settings
 let g:minimap_highlight='Visual'
 " autocmd! VimEnter * Minimap
-" map <C-m> :MinimapToggle<CR>
+map <Leader>m  :MinimapToggle<CR>
+
 
 " Filesystem Tree
 " autocmd vimenter * NERDTree
@@ -342,8 +345,10 @@ let g:NERDTreeIndicatorMapCustom = {
             \}
 let NERDTreeIgnore = ['\.pyc$']
 
+
 " Disable autocommenting
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
 
 " Tabs
 nnoremap th  :tabfirst<CR>
@@ -355,25 +360,31 @@ nnoremap tn  :tabnext<Space>
 nnoremap tm  :tabm<Space>
 nnoremap td  :tabclose<CR>
 
+
 " Set up the best markdown flavor as the default one
 autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
+
 
 " fix for very large screens (can't see the cursor)
 if has('mouse_sgr')
     set ttymouse=sgr
 endif
 
+
 " Disable Macro recorder
-"map q <Nop>
+map q <Nop>
+
 
 " Special filetype settings for JSON
 au FileType json setl ts=2 sts=2 et shiftwidth=2
+
 
 " Map uppercase commands as well as lowercase
 command WQ wq
 command Wq wq
 command W w
 command Q q
+
 
 " Folding settings
 set foldmethod=syntax
@@ -388,11 +399,12 @@ let g:SimpylFold_docstring_preview = 1
 " .swp files location
 set directory=$HOME/.vim/swapfiles//
 
-" state autosave
-set viewoptions=cursor,folds,slash,unix
-let g:skipview_files = ['*\.vim']
+
+" state autosave (uncomment to use IDE-like saved state for files - folds/cursor position, etc)
+" set viewoptions=cursor,folds,slash,unix
+" let g:skipview_files = ['*\.vim']
 
 
 " Autosave settings
-let g:auto_save = 1
+let g:auto_save = 0
 let g:auto_save_in_insert_mode = 0
