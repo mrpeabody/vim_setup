@@ -387,10 +387,15 @@ command Q q
 
 
 " Folding settings
-set foldmethod=syntax
-autocmd BufWinEnter * silent! :%foldopen!
-autocmd WinEnter * setlocal foldmethod=syntax
-autocmd WinLeave * setlocal foldmethod=manual
+if &diff
+    set foldmethod=diff
+    highlight! link DiffText MatchParen
+else
+    set foldmethod=syntax
+    autocmd BufWinEnter * silent! :%foldopen!
+    autocmd WinEnter * setlocal foldmethod=syntax
+    autocmd WinLeave * setlocal foldmethod=manual
+endif
 
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
