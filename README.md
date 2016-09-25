@@ -59,12 +59,13 @@ git config --global merge.conflictstyle diff3
 git config --global alias.d difftool
 ```
 
-Usage:
+**Usage**:
+
 - `git difftool` or `git d` then two states to compare. If no states mentioned, will compare the last committed 
 changes with uncommitted ones. Even though this mode is designed to compare versions, it's still possible to use it
-as a quick fix tool - a change can be undone to the previous state with `do` command
+as a quick fix tool - a change can be undone to the previous state with `do` command.
 
-- `git mergetool` will open a vim in the merge mode. Use `:diffget RE/BA/LO` to select remote, base (previous) or local
+- `git mergetool` will open a vim in the merge mode. Use `:diffget RE/BA/LO` to select remote, base (previous), or local
 version as the merged one.
 
 - in both modes, navigate through changes by using `Ctrl + [` for jump to next change and `Ctrl + ]` to jump to 
