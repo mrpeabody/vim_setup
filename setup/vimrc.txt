@@ -44,7 +44,7 @@ Plugin 'vim-scripts/vim-auto-save'
 Plugin 'honza/vim-snippets'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'severin-lemaignan/vim-minimap'
-
+Plugin 'tpope/vim-surround'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -264,7 +264,7 @@ set ignorecase
 set incsearch
 
 " Always show status line
-" set laststatus=2
+set laststatus=2
 
 " Respect modeline in files
 set modeline
@@ -414,3 +414,7 @@ set directory=$HOME/.vim/swapfiles//
 " Autosave settings
 let g:auto_save = 0
 let g:auto_save_in_insert_mode = 0
+
+
+" Use VIM as a MAN page viewer
+let $PAGER=''
