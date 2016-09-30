@@ -39,6 +39,7 @@ Plugin 'rdolgushin/gitignore.vim'
 " state autosave (uncomment to use IDE-like saved state for files - folds/cursor position, etc)
 " Plugin 'restore_view.vim'
 Plugin 'vim-scripts/vim-auto-save'
+Plugin 'tpope/vim-commentary'
 
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
