@@ -22,7 +22,7 @@ Plugin 'othree/jsdoc-syntax.vim'
 Plugin 'othree/jspc.vim'
 Plugin 'othree/csscomplete.vim'
 Plugin 'othree/yajs.vim'
-Plugin 'gorodinskiy/vim-coloresque'
+Plugin 'chrisbra/colorizer'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'alvan/vim-closetag'
 Plugin 'Valloric/MatchTagAlways'
@@ -419,3 +419,11 @@ let g:auto_save_in_insert_mode = 0
 
 " Use VIM as a MAN page viewer
 let $PAGER=''
+
+
+" indentation guide character
+let g:indentLine_char = '┆'
+
+" colorize CSS
+"let g:colorizer_auto_color = 1
+let g:colorizer_auto_filetype='css,html,jinja,javascript'
