@@ -58,8 +58,9 @@ sudo ln -s `which nodejs` /usr/bin/node
 - fix indentation of a current block (inside of a function/if/loop): `=aB`
 - fix indentation of a current line (in NORMAL mode): `==`
 
-##### Multiple Cursors:
+##### Multiple Cursors: #####
 In order to select multiple occurences of the same word, press:
+
 - `Ctrl + N` to start/select next occurence
 - `Ctrl + X` to skip current selection and move to the next one
 - `Ctrl + P` to select a previous word/unselect current word
