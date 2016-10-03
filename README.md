@@ -24,8 +24,8 @@ sudo ln -s `which nodejs` /usr/bin/node
 
 ##### Folding:
 - toggle fold for a block/method/class: `<Space>`
-- fold everything: `z + M`
-- unfold everything: `z + R`
+- fold everything: `zM`
+- unfold everything: `zR`
 
 ##### Scrolling through the code:
 - Moves screen up one line: `Ctrl + y` 
@@ -94,7 +94,7 @@ therefore it has some advanced features:
 
 The setup also contains:
 
-- Autocomplete (use `Ctrl+N` or `Ctrl+R` to navigate through the list of suggestions)
+- Autocomplete (use `Ctrl + N` or `Ctrl + R` to navigate through the list of suggestions)
 - Snippets: type a keyword (or select from the list of suggestions), then hit Tab to insert the snippet
 and then go through its placeholders
 - other very neat plugins like parenthesis and quotes handling, etc.
@@ -128,5 +128,5 @@ as a quick fix tool - a change can be undone to the previous state with `do` com
 - `git mergetool` will open a vim in the merge mode. Use `:diffget RE/BA/LO` to select remote, base (previous), or local
 version as the merged one.
 
-- in both modes, navigate through changes by using `[ + c` for jump to next change and `] + c` to jump to 
+- in both modes, navigate through changes by using `[c` for jump to next change and `]c` to jump to 
 previous change.
