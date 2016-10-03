@@ -41,7 +41,7 @@ sudo ln -s `which nodejs` /usr/bin/node
 - Navigate between splits: `Ctrl + h/j/k/l` 
 - Align all splits equally: `Ctrl + W, then =`
 - Swap two splits: `Ctrl + W, then R`
-- Resize vertical split: `Shift + **-/+**`
+- Resize vertical split: `Shift + -/+`
 - Increase the horizontal split: `-`
 
 ##### Tabs (like in sublime/atom/pycharm):
