@@ -69,6 +69,7 @@ After multiple occurences are selected, any action over the selection is appropr
 
 ##### Other small features:
 - flip function arguments/list elements/dictionary key-value pairs inline or stacked vertically: `<,> then a`
+![Wrap/Unwrap arguments](https://camo.githubusercontent.com/9a8e220911e514ce29198d9b7827c05085fb3e35/68747470733a2f2f666f6f736f66742e6e65742f70726f6a656374732f76696d2d617267777261702f696d672f64656d6f2e676966 "Wrap/Unwrap arguments")
 - remove trailing whitespace: `<,> then ss`
 - add a comma/semicolon at the end of the line (detects automatically, works in both NORMAL and INSERT modes): `<,> then ;`
 - Show/Hide minimap of the code: `<,> then M`
