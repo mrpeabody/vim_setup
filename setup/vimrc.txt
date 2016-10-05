@@ -436,7 +436,6 @@ nnoremap <silent> <leader>a :ArgWrap<CR>
 
 " Bottom line settings (Lightline plugin)
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
