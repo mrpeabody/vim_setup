@@ -218,9 +218,11 @@ syntax on
 " Color scheme
 set background=dark
 set t_Co=256
-colorscheme monokai
-" colorscheme OceanicNext
-" Other options already installed: wombat256mod, hybrid, predawn, zenburn, happy_hacking, monokai
+colorscheme OceanicNext
+" Other options already installed: 
+" wombat256mod, hybrid, predawn, zenburn, happy_hacking, monokai, amcolors, lucario, stereokai, onedark
+" in case of onedark, uncomment the following line
+" let g:onedark_termcolors=256
 set colorcolumn=120
 set wrap linebreak nolist
 if (has("termguicolors"))
