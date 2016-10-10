@@ -22,7 +22,7 @@ Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'othree/jsdoc-syntax.vim'
 Plugin 'othree/jspc.vim'
 Plugin 'othree/csscomplete.vim'
-" Plugin 'othree/yajs.vim'
+Plugin 'othree/yajs.vim'
 Plugin 'chrisbra/colorizer'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'alvan/vim-closetag'
@@ -218,7 +218,8 @@ syntax on
 " Color scheme
 set background=dark
 set t_Co=256
-colorscheme OceanicNext
+colorscheme monokai
+" colorscheme OceanicNext
 " Other options already installed: wombat256mod, hybrid, predawn, zenburn, happy_hacking, monokai
 set colorcolumn=120
 set wrap linebreak nolist
