@@ -442,8 +442,12 @@ nnoremap <silent> <leader>a :ArgWrap<CR>
 let g:lightline = {
       \ 'mode_map': { 'c': 'NORMAL' },
       \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
+      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
+      \ 'right': [ ['lineinfo'], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
       \ },
+      \   'component': {
+      \     'lineinfo': '⭡ %3l:%-2v', 'line': '%l', 'column': '%c', 'close': '%999X X '
+      \   },
       \ 'component_function': {
       \   'modified': 'LightLineModified',
       \   'readonly': 'LightLineReadonly',
@@ -458,6 +462,7 @@ let g:lightline = {
       \ 'subseparator': { 'left': "\u2b81", 'right': "\u2b83" }
       \ }
 
+" \ 'component': { 'lineinfo': '\u2b61 %3l:%-2v' },
 
 function! LightLineModified()
   return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
