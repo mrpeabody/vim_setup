@@ -220,10 +220,11 @@ set background=dark
 set t_Co=256
 colorscheme OceanicNext
 " Other options already installed: 
-" wombat256mod, hybrid, predawn, zenburn, happy_hacking, monokai, amcolors, lucario, stereokai, onedark
+" wombat256mod, hybrid, predawn, zenburn, happy_hacking, monokai, amcolors, lucario, stereokai, onedark, py-darcula,
+" xcode-default
 " in case of onedark, uncomment the following line
 " let g:onedark_termcolors=256
-set colorcolumn=120
+set colorcolumn=121
 set wrap linebreak nolist
 if (has("termguicolors"))
    set termguicolors
