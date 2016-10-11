@@ -478,7 +478,8 @@ endfunction
 function! LightLineFugitive()
   if &ft !~? 'vimfiler\|gundo' && exists("*fugitive#head")
     let branch = fugitive#head()
-    return branch !=# '' ? '⭠ '.branch : ''
+    let gitStats = GitGutterGetHunkSummary()
+    return branch !=# '' ? '+'.gitStats[0].' ~'.gitStats[1].' -'.gitStats[2].' ⭠ '.branch : ''
   endif
   return ''
 endfunction
