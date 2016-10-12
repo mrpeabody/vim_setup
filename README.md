@@ -6,6 +6,14 @@
     there's an optional clang support: `./setup.sh --clang-completer`
 3. Enjoy your new fresh vim!
 
+4. (Optional) in order for a fancy bottom panel to work, install and use the included Monaco patched 
+font for Mac, 
+for other systems patched fonts can be found [here](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts).
+
+Alternatively, in `.vimrc`, comment out or delete the existing settings and uncomment ones for non-patched font.
+Non-patched version would also require to remove the Plugin `'ryanoasis/vim-devicons'` (simply remove the line)
+
+
 ### Prerequisites
 - **Python** and **Python3**
 - **Node.js** 
