@@ -49,6 +49,7 @@ Plugin 'severin-lemaignan/vim-minimap'
 Plugin 'tpope/vim-surround'
 Plugin 'foosoft/vim-argwrap'
 Plugin 'itchyny/lightline.vim'
+Plugin 'ryanoasis/vim-devicons'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -156,7 +157,7 @@ set ttyfast
 set gdefault
 
 " Use UTF-8 without BOM
-set encoding=utf-8 nobomb
+set encoding=utf-8
 
 " Change mapleader
 let mapleader=","
@@ -491,11 +492,11 @@ function! LightLineFugitive()
 endfunction
 
 function! LightLineFileformat()
-  return winwidth(0) > 70 ? &fileformat : ''
+  return winwidth(0) > 70 ? WebDevIconsGetFileFormatSymbol(): ''
 endfunction
 
 function! LightLineFiletype()
-  return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
+  return winwidth(0) > 70 ? (&filetype !=# '' ? WebDevIconsGetFileTypeSymbol().' '.&filetype : 'no ft') : ''
 endfunction
 
 function! LightLineFileencoding()
@@ -599,3 +600,6 @@ function MyTabLine()
 	endif
 	return s
 endfunction
+
+" Devicons settings
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
