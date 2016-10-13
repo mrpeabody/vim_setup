@@ -76,6 +76,15 @@ In order to select multiple occurences of the same word, press:
 After multiple occurences are selected, any action over the selection is appropriate: `c/d/i/a` etc.
 ![Demo](https://github.com/terryma/vim-multiple-cursors/blob/master/assets/example1.gif?raw=true "Multiple Selections")
 
+##### Move lines: #####
+- Move current line/selection up: `Ctrl + k`
+- Move current line/selection down: `Ctrl + j`
+
+**Note**: If moving line(s) causes folding, just open all folds in the file through: `zR`
+
+![Demo](https://camo.githubusercontent.com/c06acab07e6bf0bb27086c9694fe2f456101d21c/687474703a2f2f692e696d6775722e636f6d2f524d76384b734a2e676966 "Moving line(s)")
+
+
 ##### Other small features:
 - flip function arguments/list elements/dictionary key-value pairs inline or stacked vertically: `<,> then a`
 ![Wrap/Unwrap arguments](https://camo.githubusercontent.com/9a8e220911e514ce29198d9b7827c05085fb3e35/68747470733a2f2f666f6f736f66742e6e65742f70726f6a656374732f76696d2d617267777261702f696d672f64656d6f2e676966 "Wrap/Unwrap arguments")
