@@ -37,6 +37,7 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'nacitar/a.vim'
 Plugin 'rdolgushin/gitignore.vim'
+Plugin 'matze/vim-move'
 " state autosave (uncomment to use IDE-like saved state for files - folds/cursor position, etc)
 " Plugin 'restore_view.vim'
 Plugin 'vim-scripts/vim-auto-save'
@@ -601,5 +602,10 @@ function MyTabLine()
 	return s
 endfunction
 
+
 " Devicons settings
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+
+
+" Line move plugin
+let g:move_key_modifier = 'C'
