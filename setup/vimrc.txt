@@ -41,7 +41,7 @@ Plugin 'matze/vim-move'
 
 " state autosave (uncomment to use IDE-like saved state for files - folds/cursor position, etc)
 " Plugin 'restore_view.vim'
-Plugin 'vim-scripts/vim-auto-save'
+" Plugin 'vim-scripts/vim-auto-save'
 Plugin 'tpope/vim-commentary'
 
 " Snippets are separated from the engine. Add this if you want them:
@@ -51,6 +51,7 @@ Plugin 'severin-lemaignan/vim-minimap'
 Plugin 'tpope/vim-surround'
 Plugin 'foosoft/vim-argwrap'
 Plugin 'itchyny/lightline.vim'
+" Uncomment the below plugin in no patched font is available
 Plugin 'ryanoasis/vim-devicons'
 
 " All of your Plugins must be added before the following line
@@ -443,95 +444,6 @@ let g:colorizer_auto_filetype='css,html,jinja,javascript'
 " Arguments/lists/dicts inline/per line
 nnoremap <silent> <leader>a :ArgWrap<CR>
 
-" Bottom line settings (Lightline plugin)
-let g:lightline = {
-      \ 'mode_map': { 'c': 'NORMAL' },
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
-      \ 'right': [ ['lineinfo'], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
-      \ },
-      \   'component': {
-      \     'lineinfo': '⭡ %3l:%-2v', 'line': '%l', 'column': '%c', 'close': '%999X X '
-      \   },
-      \ 'component_function': {
-      \   'modified': 'LightLineModified',
-      \   'readonly': 'LightLineReadonly',
-      \   'fugitive': 'LightLineFugitive',
-      \   'filename': 'LightLineFilename',
-      \   'fileformat': 'LightLineFileformat',
-      \   'filetype': 'LightLineFiletype',
-      \   'fileencoding': 'LightLineFileencoding',
-      \   'mode': 'LightLineMode',
-      \ },
-      \ 'separator': { 'left': "\u2b80", 'right': "\u2b82" },
-      \ 'subseparator': { 'left': "\u2b81", 'right': "\u2b83" }
-      \ }
-
-" \ 'component': { 'lineinfo': '\u2b61 %3l:%-2v' },
-
-function! LightLineModified()
-  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-endfunction
-
-function! LightLineReadonly()
-  return &readonly ? '⭤' : ''
-endfunction
-
-function! LightLineFilename()
-  return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
-        \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
-        \  &ft == 'unite' ? unite#get_status_string() :
-        \  &ft == 'vimshell' ? vimshell#get_status_string() :
-        \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
-        \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
-endfunction
-
-function! LightLineFugitive()
-  if &ft !~? 'vimfiler\|gundo' && exists("*fugitive#head")
-    let branch = fugitive#head()
-    let gitStats = GitGutterGetHunkSummary()
-    return branch !=# '' ? '+'.gitStats[0].' ~'.gitStats[1].' -'.gitStats[2].' ⭠ '.branch : ''
-  endif
-  return ''
-endfunction
-
-function! LightLineFileformat()
-  return winwidth(0) > 70 ? WebDevIconsGetFileFormatSymbol(): ''
-endfunction
-
-function! LightLineFiletype()
-  return winwidth(0) > 70 ? (&filetype !=# '' ? WebDevIconsGetFileTypeSymbol().' '.&filetype : 'no ft') : ''
-endfunction
-
-function! LightLineFileencoding()
-  return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
-endfunction
-
-function! LightLineMode()
-  return winwidth(0) > 60 ? lightline#mode() : ''
-endfunction
-" Uncomment the following text if no patched font is included
-" let g:lightline = {
-"       \ 'active': {
-"       \   'left': [ [ 'mode', 'paste' ],
-"       \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
-"       \ },
-"       \ 'component': {
-"       \   'readonly': '%{&filetype=="help"?"":&readonly?"⭤":""}',
-"       \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
-"       \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
-"       \ },
-"       \ 'component_visible_condition': {
-"       \   'readonly': '(&filetype!="help"&& &readonly)',
-"       \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
-"       \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
-"       \ },
-"       \ 'separator': { 'left': '', 'right': '' },
-"       \ 'subseparator': { 'left': '|', 'right': '|' }
-"       \ }
-
-"set noshowmode
-
 
 " Tab title improvements
 set tabline=%!MyTabLine()  " custom tab pages line
@@ -612,3 +524,81 @@ let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 
 " Line move plugin
 let g:move_key_modifier = 'C'
+
+
+" Bottom line settings (Lightline plugin)
+" Modify g:font_patched to 0 if no patched font is installed
+let g:font_patched = 1
+let g:separator_left_symbol = g:font_patched ? "\u2b80":""
+let g:separator_right_symbol = g:font_patched?"\u2b82":""
+let g:subseparator_left_symbol = g:font_patched?"\u2b81":"|"
+let g:subseparator_right_symbol = g:font_patched?"\u2b83":"|"
+let g:line_number_symbol = g:font_patched?"⭡":"L/N"
+let g:read_only_symbol = g:font_patched?"⭤":"RO"
+let g:git_symbol = g:font_patched?"⭠":""
+
+let g:lightline = {
+      \ 'mode_map': { 'c': 'NORMAL' },
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
+      \ 'right': [ ['lineinfo'], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+      \ },
+      \   'component': {
+      \     'lineinfo': g:line_number_symbol.' %3l:%-2v', 'line': '%l', 'column': '%c', 'close': '%999X X '
+      \   },
+      \ 'component_function': {
+      \   'modified': 'LightLineModified',
+      \   'readonly': 'LightLineReadonly',
+      \   'fugitive': 'LightLineFugitive',
+      \   'filename': 'LightLineFilename',
+      \   'fileformat': 'LightLineFileformat',
+      \   'filetype': 'LightLineFiletype',
+      \   'fileencoding': 'LightLineFileencoding',
+      \   'mode': 'LightLineMode',
+      \ },
+      \ 'separator': { 'left': g:separator_left_symbol, 'right': g:separator_right_symbol},
+      \ 'subseparator': { 'left':g:subseparator_left_symbol, 'right': g:subseparator_right_symbol}
+      \ }
+
+function! LightLineModified()
+  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
+
+function! LightLineReadonly()
+  return &readonly ? g:read_only_symbol : ''
+endfunction
+
+function! LightLineFilename()
+  return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
+        \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
+        \  &ft == 'unite' ? unite#get_status_string() :
+        \  &ft == 'vimshell' ? vimshell#get_status_string() :
+        \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
+        \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+endfunction
+
+function! LightLineFugitive()
+  if &ft !~? 'vimfiler\|gundo' && exists("*fugitive#head")
+    let branch = fugitive#head()
+    let gitStats = GitGutterGetHunkSummary()
+    return branch !=# '' ? '+'.gitStats[0].' ~'.gitStats[1].' -'.gitStats[2].' '.g:git_symbol.' '.branch : ''
+  endif
+  return ''
+endfunction
+
+function! LightLineFileformat()
+  return winwidth(0) > 70 ? (g:font_patched ? WebDevIconsGetFileFormatSymbol() : &fileformat) : ''
+endfunction
+
+function! LightLineFiletype()
+  return winwidth(0) > 70 ? (&filetype !=# '' ? (g:font_patched ? WebDevIconsGetFileTypeSymbol().' '.&filetype : &filetype) : 'no ft') : ''
+endfunction
+
+function! LightLineFileencoding()
+  return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
+endfunction
+
+function! LightLineMode()
+  return winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
+
