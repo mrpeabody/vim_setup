@@ -60,6 +60,7 @@ call vundle#end()            " required
 
 filetype plugin indent on    " required
 
+
 " Multiple cursors setup
 set lazyredraw
 nnoremap <silent> <C-g> :MultipleCursorsFind <C-R>/<CR>
@@ -76,9 +77,18 @@ function Multiple_cursors_after()
     let g:ycm_filetype_whitelist = s:old_ycm_whitelist
 endfunction
 
+
+" YouCompleteMe settings
+let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_confirm_extra_conf=0
+let g:used_javascript_libs = 'jquery,react'
+let g:AutoPairsUseInsertedCount = 1
+
+
 " make YCM compatible with UltiSnips
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
+
 
 " better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger='<tab>'
@@ -88,15 +98,22 @@ let g:UltiSnipsListSnippets = '<c-b>'
 let g:UltiSnipsSnippetsDir=expand("~/.vim/CustomSnippets")
 let g:UltiSnipsSnippetDirectories=["CustomSnippets", "UltiSnips"]
 
+
+" Auto-PEP8 settings
 let g:autopep8_max_line_length=120
 let g:autopep8_disable_show_diff=1
+
+
+" Polyglot plugin settings
 let g:polyglot_disabled = ['markdown', 'javascript']
 let g:vim_json_syntax_conceal = 0
 let g:javascript_plugin_flow = 1
 
+
 " Semicolon/Comma automatization
 autocmd FileType javascript,css,c,cpp,java,cs nmap <silent> <Leader>; :CommaOrSemiColon<CR>
 autocmd FileType javascript,css,c,cpp,java,cs imap <silent> <Leader>; <c-o>:CommaOrSemiColon<CR>
+
 
 " Autocomplete 
 set completeopt=longest,menuone
@@ -117,11 +134,6 @@ autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 inoremap <C-Space> <C-x><C-o>
 inoremap <C-@> <C-Space>
 
-let g:ycm_autoclose_preview_window_after_completion=1
-let g:ycm_confirm_extra_conf=0
-let g:airline_powerline_fonts = 1
-let g:used_javascript_libs = 'jquery,react'
-let g:AutoPairsUseInsertedCount = 1
 
 " JsBeautify bindings
 autocmd FileType javascript noremap <buffer> <F9> :call JsBeautify()<cr>
@@ -134,25 +146,32 @@ autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
 autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
 autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
 
+"
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 if (executable('pbcopy') || executable('xclip') || executable('xsel')) && has('clipboard')
   set clipboard=unnamed
 endif
 
+
 " Enhance command-line completion
 set wildmenu
 
+"
 " Allow cursor keys in insertode
 set esckeys
+
 
 " Allow backspace in insert mode
 set backspace=indent,eol,start
 
+
 " vim indentation settings
 set autoindent
 
-" Highlight matching parenthesis/braces by default
+
+" Highlight matching parentheses/braces by default
 set showmatch
+
 
 " Optimize for fast terminal connections
 set ttyfast
@@ -166,9 +185,11 @@ set encoding=utf-8
 " Change mapleader
 let mapleader=","
 
+
 " Don’t add empty newlines at the end of files
 " set binary
 " set noeol
+
 
 " Splits config
 nnoremap <C-J> <C-W><C-J>
@@ -178,16 +199,20 @@ nnoremap <C-H> <C-W><C-H>
 set splitbelow
 set splitright
 
+
 " reduces splits to a single line 
 set wmh=0
+
 
 " resize current buffer by +/- 5 
 nnoremap <silent> _ :vertical resize -5<cr>
 nnoremap <silent> + :vertical resize +5<cr>
 nnoremap <silent> - :resize +5<cr>
 
+
 " Hit f3 in order to have a 'normal' paste in the insert mode
 set pastetoggle=<F3>
+
 
 " Disable arrow keys in both insert and normal mode
 nnoremap <Up> <NOP>
@@ -202,6 +227,7 @@ inoremap <Up> <NOP>
 inoremap <Down> <NOP>
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
+
 
 " Disable mouse scroll
 inoremap <ScrollWheelUp> <NOP> 
@@ -232,8 +258,10 @@ autocmd FileType html setlocal wrap
 set exrc
 set secure
 
+
 " Enable syntax highlighting
 syntax on
+
 
 " A vertical line that delimits 120 chars
 set colorcolumn=121
@@ -445,10 +473,6 @@ if &diff
 else
     set foldmethod=syntax
     set foldlevel=99
-    " set nofoldenable
-    " autocmd BufWinEnter * silent! :%foldopen!
-    " autocmd WinEnter * setlocal foldmethod=syntax
-    " autocmd WinLeave * setlocal foldmethod=manual
 endif
 
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
@@ -575,9 +599,9 @@ let g:separator_left_symbol = g:font_patched ? "\u2b80":""
 let g:separator_right_symbol = g:font_patched?"\u2b82":""
 let g:subseparator_left_symbol = g:font_patched?"\u2b81":"|"
 let g:subseparator_right_symbol = g:font_patched?"\u2b83":"|"
-let g:line_number_symbol = g:font_patched?"⭡":"L/N"
-let g:read_only_symbol = g:font_patched?"⭤":"RO"
-let g:git_symbol = g:font_patched?"⭠":""
+let g:line_number_symbol = g:font_patched?"\u2b61":"L/N"
+let g:read_only_symbol = g:font_patched?"\u2b64":"RO"
+let g:git_symbol = g:font_patched?"\u2b60":""
 
 let g:lightline = {
       \ 'mode_map': { 'c': 'NORMAL' },
