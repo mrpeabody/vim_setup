@@ -4,10 +4,10 @@
 2. Run **setup.sh**: `./setup.sh`
     - Optionally, if you need the support for C-languages (Java, C++, etc), 
     there's an optional clang support: `./setup.sh --clang-completer`
-3. Enjoy your new fresh vim!
-4. (Optional) in order for a fancy bottom panel to look great, install and use the included Monaco patched 
+3. In order for a fancy bottom panel to look great, install and use the included Monaco patched 
 font for Mac, for other systems patched fonts can be found [here](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts). 
-Alternatively, in `.vimrc`, change the `g:font_patched` variable to **0** and comment out the `Plugin 'ryanoasis/vim-devicons'` line.
+Otherwise, in `~/.vimrc`, change the `g:font_patched` variable to **0** and comment out the `Plugin 'ryanoasis/vim-devicons'` line.
+4. Enjoy your new fresh vim!
 
 
 ### Prerequisites
