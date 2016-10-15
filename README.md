@@ -77,9 +77,10 @@ After multiple occurences are selected, any action over the selection is appropr
 ![Demo](https://github.com/terryma/vim-multiple-cursors/blob/master/assets/example1.gif?raw=true "Multiple Selections")
 
 ##### Move lines: #####
-- before moving, unfold everything: `zR`
 - Move current line/selection up: `Ctrl + k`
 - Move current line/selection down: `Ctrl + j`
+
+**Note**: If moving line(s) causes folding, just open all folds in the file through: `zR`
 
 ![Demo](https://camo.githubusercontent.com/c06acab07e6bf0bb27086c9694fe2f456101d21c/687474703a2f2f692e696d6775722e636f6d2f524d76384b734a2e676966 "Moving line(s)")
 
