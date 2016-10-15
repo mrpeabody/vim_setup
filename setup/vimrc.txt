@@ -43,6 +43,7 @@ Plugin 'matze/vim-move'
 " Plugin 'restore_view.vim'
 " Plugin 'vim-scripts/vim-auto-save'
 Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-repeat'
 
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
