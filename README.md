@@ -91,27 +91,36 @@ After multiple occurences are selected, any action over the selection is appropr
 
 
 ### Python/JavaScript specific Features
+
 This setup is been created having **Python** and **JavaScript** in mind, 
 therefore it has some advanced features:
 
 - Full Support of **PEP8** (auto indentation, beautify)
-    - fully format the whole file: `F8`
 - Autocomplete using **Python** Jedi (IDE)
-- Out-of-the-Box support of main **JavaScript** libraries (autocomplete, syntax, etc)
-- JavaScript/JSON/JSX/HTML/CSS Indentation and Beautify: 
-    - format selection: `Ctrl-F`
-    - fully format the whole file: `F9`
+- JavaScript/JSON/JSX/HTML/CSS Indentation and Beautify
 - Large collection of Python and **JavaScript** snippets
-- Run the file using **Python**: `F5`
-- Run the file using **Python3**: `F6`
+- Out-of-the-Box support of main **JavaScript** libraries (autocomplete, syntax, etc)
 
 
-The setup also contains:
+##### Special hotkeys #####
 
+**Python**:
+- fully format the whole file: `F8`
+- run the file using **Python**: `F5`
+- run the file using **Python3**: `F6`
+
+**JavaScript**:
+    - fully format the whole file: `F9`
+    - format selection: `Ctrl-F`
+    - create a function's JSDoc: `Ctrl-L` in the function body or on its signature
+
+
+### Miscellaneous
 - Autocomplete (use `Ctrl + N` or `Ctrl + R` to navigate through the list of suggestions)
 - Snippets: type a keyword (or select from the list of suggestions), then hit Tab to insert the snippet
 and then go through its placeholders
-- other very neat plugins like parenthesis and quotes handling, etc.
+- other very neat plugins like parentheses and quotes handling, etc.
+
 
 #### Neovim support ####
 This setup should work for Neovim as well. The easiest way to use the same settings for both apps is to make 
@@ -122,7 +131,7 @@ ln -s ~/.vim ~/.config/nvim
 ln -s ~/.vimrc ~/.config/nvim/init.vim
 ```
 
-#### (Neo)vim as a git diff/merge tool ####
+#### vim as a git diff/merge tool ####
 The following commands will make git use vim as a diff/merge tool:
 
 ```

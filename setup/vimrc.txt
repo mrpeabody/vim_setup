@@ -360,7 +360,7 @@ let NERDTreeIgnore = ['\.pyc$']
 
 
 " Disable autocommenting
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+" autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 
 " Tabs
@@ -392,6 +392,11 @@ map q <Nop>
 au FileType json setl ts=2 sts=2 et shiftwidth=2
 
 
+" JSDoc Generation hotkey (should be used on the function signature)
+nmap <silent> <C-l> ?function<cr>:noh<cr><Plug>(jsdoc)
+" nmap <silent> <C-l> <Plug>(jsdoc)
+
+
 " Map uppercase commands as well as lowercase
 command WQ wq
 command Wq wq
@@ -416,6 +421,7 @@ nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 let g:SimpylFold_docstring_preview = 1
 
+
 " .swp files location
 set directory=$HOME/.vim/swapfiles//
 
@@ -437,9 +443,11 @@ let $PAGER=''
 " indentation guide character
 let g:indentLine_char = '┆'
 
+
 " colorize CSS
 "let g:colorizer_auto_color = 1
 let g:colorizer_auto_filetype='css,html,jinja,javascript'
+
 
 " Arguments/lists/dicts inline/per line
 nnoremap <silent> <leader>a :ArgWrap<CR>
