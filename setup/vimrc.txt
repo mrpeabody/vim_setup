@@ -176,6 +176,7 @@ set showmatch
 " Optimize for fast terminal connections
 set ttyfast
 
+
 " Add the g flag to search/replace by default
 set gdefault
 
@@ -455,7 +456,7 @@ au FileType json setl ts=2 sts=2 et shiftwidth=2
 
 
 " JSDoc Generation hotkey (should be used on the function signature)
-nmap <silent> <C-l> ?function<cr>:noh<cr><Plug>(jsdoc)
+nmap <silent> <leader>l ?function<cr>:noh<cr><Plug>(jsdoc)
 " nmap <silent> <C-l> <Plug>(jsdoc)
 
 
@@ -589,7 +590,7 @@ let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 
 
 " Line move plugin
-let g:move_key_modifier = 'C'
+let g:move_key_modifier = 'A'
 
 
 " Bottom line settings (Lightline plugin)

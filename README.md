@@ -71,8 +71,8 @@ After multiple occurences are selected, any action over the selection is appropr
 ![Demo](https://github.com/terryma/vim-multiple-cursors/blob/master/assets/example1.gif?raw=true "Multiple Selections")
 
 ##### Move lines: #####
-- Move current line/selection up: `Ctrl + k`
-- Move current line/selection down: `Ctrl + j`
+- Move current line/selection up: `Alt + k`
+- Move current line/selection down: `Alt + j`
 
 **Note**: If moving line(s) causes folding, just open all folds in the file through: `zR`
 
@@ -112,7 +112,7 @@ therefore it has some advanced features:
 **JavaScript**:
     - fully format the whole file: `F9`
     - format selection: `Ctrl-F`
-    - create a function's JSDoc: `Ctrl-L` in the function body or on its signature
+    - create a function's JSDoc: `<,> then L` in the function body or on its signature
 
 
 ### Miscellaneous
