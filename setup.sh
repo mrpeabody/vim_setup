@@ -5,6 +5,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     # Linux x86-64 (Ubuntu)
     sudo apt-get install -y vim python-dev python3-dev
     sudo apt-get install -y build-essential cmake python-pip
+    sudo apt-get install -y exuberant-ctags
     sudo pip install autopep8
     sudo pip install jsbeautifier
 elif [[ "$OSTYPE" == "darwin"* ]]; then
@@ -12,6 +13,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew install vim --without-python --with-python3 --with-override-system-vim
     brew install cmake
+    brew install ctags
     pip install autopep8
     pip install jsbeautifier
 fi

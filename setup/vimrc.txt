@@ -52,6 +52,7 @@ Plugin 'severin-lemaignan/vim-minimap'
 Plugin 'tpope/vim-surround'
 Plugin 'foosoft/vim-argwrap'
 Plugin 'itchyny/lightline.vim'
+Plugin 'majutsushi/tagbar'
 " Uncomment the below plugin in no patched font is available
 Plugin 'ryanoasis/vim-devicons'
 
@@ -458,6 +459,10 @@ au FileType json setl ts=2 sts=2 et shiftwidth=2
 " JSDoc Generation hotkey (should be used on the function signature)
 nmap <silent> <leader>l ?function<cr>:noh<cr><Plug>(jsdoc)
 " nmap <silent> <C-l> <Plug>(jsdoc)
+
+
+" Tagbar (Code structure hotkey)
+map <silent> <Leader>b  :TagbarToggle<CR>
 
 
 " Map uppercase commands as well as lowercase

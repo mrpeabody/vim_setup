@@ -51,7 +51,8 @@ sudo ln -s `which nodejs` /usr/bin/node
 - Switch between tabs:
     - Previous/Next tab: `tk / tj`
     - First/Last tab: `th / tl`
-    - go to the Nth tab: `tn <1-9>`
+    - go to the Nth tab: `tn <1-9>, then Enter`
+    - move the tab to the Nth position (starting with 0): `tm <0-9>, then Enter`
 - Close a tab: `td`
 
 ##### Formatting:
@@ -77,6 +78,10 @@ After multiple occurences are selected, any action over the selection is appropr
 **Note**: If moving line(s) causes folding, just open all folds in the file through: `zR`
 
 ![Demo](https://camo.githubusercontent.com/c06acab07e6bf0bb27086c9694fe2f456101d21c/687474703a2f2f692e696d6775722e636f6d2f524d76384b734a2e676966 "Moving line(s)")
+
+
+##### Code structure view (just like in PyCharm) #####
+- Show / Hide the code structure: `<,> then b`
 
 
 ##### Other small features:
