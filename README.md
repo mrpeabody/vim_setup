@@ -129,6 +129,14 @@ and then go through its placeholders
 - other very neat plugins like parentheses and quotes handling, etc.
 
 
+#### ALT key ####
+In order for **ALT** key to work, do the following:
+- on Mac:
+    - iTerm2: `Preferences -> Profiles -> Keys -> Left option key acts as:` set to `+Esc`
+    - Terminal: `Preferences -> Profiles -> Use Option as Meta key` check
+- on Linux (Ubuntu): uncomment the code block (search for `ALT key`) in `~/.vimrc`
+
+
 #### Neovim support ####
 This setup should work for Neovim as well. The easiest way to use the same settings for both apps is to make 
 symlinks for Neovim:
