@@ -62,19 +62,19 @@ sudo ln -s `which nodejs` /usr/bin/node
 - fix indentation of a current line (in NORMAL mode): `==`
 
 ##### Multiple Cursors: #####
-In order to select multiple occurences of the same word, press:
+In order to select multiple occurrences of the same word, press:
 
-- `Ctrl + N` to start/select next occurence
+- `Ctrl + N` to start/select next occurrence
 - `Ctrl + X` to skip current selection and move to the next one
 - `Ctrl + P` to select a previous word/unselect current word
 
-After multiple occurences are selected, any action over the selection is appropriate: `c/d/i/a` etc.
+After multiple occurrences are selected, any action over the selection is appropriate: `c/d/i/a` etc.
 ![Demo](https://github.com/terryma/vim-multiple-cursors/blob/master/assets/example1.gif?raw=true "Multiple Selections")
 
 ##### Move lines: #####
 - Move current line/selection up: `Alt + k`
 - Move current line/selection down: `Alt + j`
-Hint: if your ALT key is not working, look [below](#alt_key) for the solution.
+Hint: if your ALT key is not working, look [below](#markdown-header-alt-key) for the solution.
 
 **Note**: If moving line(s) causes folding, just open all folds in the file through: `zR`
 
@@ -130,7 +130,6 @@ and then go through its placeholders
 - other very neat plugins like parentheses and quotes handling, etc.
 
 
-<a name="alt_key"></a>
 #### ALT key ####
 In order for **ALT** key to work, do the following:
 
