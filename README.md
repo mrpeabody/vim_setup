@@ -74,6 +74,7 @@ After multiple occurences are selected, any action over the selection is appropr
 ##### Move lines: #####
 - Move current line/selection up: `Alt + k`
 - Move current line/selection down: `Alt + j`
+Hint: if your ALT key is not working, look [below](#alt_key) for the solution.
 
 **Note**: If moving line(s) causes folding, just open all folds in the file through: `zR`
 
@@ -129,11 +130,14 @@ and then go through its placeholders
 - other very neat plugins like parentheses and quotes handling, etc.
 
 
+<a name="alt_key"></a>
 #### ALT key ####
 In order for **ALT** key to work, do the following:
+
 - on Mac:
     - iTerm2: `Preferences -> Profiles -> Keys -> Left option key acts as:` set to `+Esc`
     - Terminal: `Preferences -> Profiles -> Use Option as Meta key` check
+
 - on Linux (Ubuntu): uncomment the code block (search for `ALT key`) in `~/.vimrc`
 
 
