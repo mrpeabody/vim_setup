@@ -595,6 +595,12 @@ let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 
 
 " Line move plugin
+let c='a'
+while c <= 'z'
+      exec "set <A-".c.">=\e".c
+        exec "imap \e".c." <A-".c.">"
+          let c = nr2char(1+char2nr(c))
+      endw
 let g:move_key_modifier = 'A'
 
 
