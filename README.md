@@ -130,13 +130,10 @@ and then go through its placeholders
 
 
 #### ALT key ####
-In order for **ALT** key to work, do the following:
+In order for **ALT** key to work on Mac, do the following:
 
-- on Mac:
-    - iTerm2: `Preferences -> Profiles -> Keys -> Left option key acts as:` set to `+Esc`
-    - Terminal: `Preferences -> Profiles -> Use Option as Meta key` check
-
-- on Linux (Ubuntu): uncomment the code block (search for `ALT key`) in `~/.vimrc`
+- iTerm2: `Preferences -> Profiles -> Keys -> Left option key acts as:` set to `+Esc`
+- Terminal: `Preferences -> Profiles -> Use Option as Meta key` check
 
 
 #### Neovim support ####
