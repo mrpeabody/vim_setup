@@ -598,12 +598,14 @@ let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  Uncomment the below if on linux in order to make ALT key work  "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" let c='a'
-" while c <= 'z'
-"     exec "set <A-".c.">=\e".c
-"     exec "imap \e".c." <A-".c.">"
-"     let c = nr2char(1+char2nr(c))
-" endw
+if !has("nvim")
+    let c='a'
+    while c <= 'z'
+        exec "set <A-".c.">=\e".c
+        exec "imap \e".c." <A-".c.">"
+        let c = nr2char(1+char2nr(c))
+    endw
+endif
 """"""""""""""""""""
 "  End of comment  "
 """"""""""""""""""""
