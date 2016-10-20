@@ -613,6 +613,7 @@ let g:move_key_modifier = 'A'
 
 
 " Bottom line settings (Lightline plugin)
+set noshowmode
 " Modify g:font_patched to 0 if no patched font is installed
 let g:font_patched = 1
 let g:separator_left_symbol = g:font_patched ? "\u2b80":""
@@ -624,6 +625,7 @@ let g:read_only_symbol = g:font_patched?"\u2b64":"RO"
 let g:git_symbol = g:font_patched?"\u2b60":""
 
 let g:lightline = {
+      \ 'colorscheme': 'default',
       \ 'mode_map': { 'c': 'NORMAL' },
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
