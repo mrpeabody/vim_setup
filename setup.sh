@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Install dependencies first
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     # Linux x86-64 (Ubuntu)
     sudo apt-get install -y nodejs npm git python3 python3-pip python-pip vim python-wheel python3-wheel python-setuptools python3-setuptools build-essential
     sudo apt-get install -y vim python-dev python3-dev
