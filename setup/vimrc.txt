@@ -660,7 +660,7 @@ function! LightLineFilename()
   let fname = expand('%:f')
   return fname == 'ControlP' && has_key(g:lightline, 'ctrlp_item') ? g:lightline.ctrlp_item :
         \ fname == '__Tagbar__' ? g:lightline.fname :
-        \ fname =~ 'NERD_tree' ? '' :
+        \ fname =~ 'NERD_tree' ? 'Files' :
         \ &ft == 'vimfiler' ? vimfiler#get_status_string() :
         \ &ft == 'unite' ? unite#get_status_string() :
         \ &ft == 'vimshell' ? vimshell#get_status_string() :
@@ -669,12 +669,26 @@ function! LightLineFilename()
         \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
 endfunction
 
+" function! LightLineFugitive()
+"   if &ft !~? 'vimfiler\|gundo' && exists("*fugitive#head")
+"     let branch = fugitive#head()
+"     let gitStats = GitGutterGetHunkSummary()
+"     return branch !=# '' ? '+'.gitStats[0].' ~'.gitStats[1].' -'.gitStats[2].' '.g:git_symbol.' '.branch : ''
+"   endif
+"   return ''
+" endfunction
+
 function! LightLineFugitive()
-  if &ft !~? 'vimfiler\|gundo' && exists("*fugitive#head")
-    let branch = fugitive#head()
-    let gitStats = GitGutterGetHunkSummary()
-    return branch !=# '' ? '+'.gitStats[0].' ~'.gitStats[1].' -'.gitStats[2].' '.g:git_symbol.' '.branch : ''
-  endif
+  try
+    if expand('%:t') !~? 'Tagbar\|Gundo\|NERD' && &ft !~? 'vimfiler' && exists('*fugitive#head')
+      let mark = ''  " edit here for cool mark
+      let branch = fugitive#head()
+      let gitStats = GitGutterGetHunkSummary()
+      return branch !=# '' ? '+'.gitStats[0].' ~'.gitStats[1].' -'.gitStats[2].' '.g:git_symbol.' '.branch : ''
+      " return branch !=# '' ? mark.branch : ''
+    endif
+  catch
+  endtry
   return ''
 endfunction
 
@@ -691,6 +705,19 @@ function! LightLineFileencoding()
 endfunction
 
 function! LightLineMode()
-  return winwidth(0) > 60 ? lightline#mode() : ''
+  let fname = expand('%:t')
+  return fname == '__Tagbar__' ? 'Tagbar' :
+        \ fname == 'ControlP' ? 'CtrlP' :
+        \ fname == '__Gundo__' ? 'Gundo' :
+        \ fname == '__Gundo_Preview__' ? 'Gundo Preview' :
+        \ fname =~ 'NERD_tree' ? '' :
+        \ &ft == 'unite' ? 'Unite' :
+        \ &ft == 'vimfiler' ? 'VimFiler' :
+        \ &ft == 'vimshell' ? 'VimShell' :
+        \ winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
+
+" function! LightLineMode()
+"   return winwidth(0) > 60 ? lightline#mode() : ''
+" endfunction
 
