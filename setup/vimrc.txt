@@ -669,23 +669,12 @@ function! LightLineFilename()
         \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
 endfunction
 
-" function! LightLineFugitive()
-"   if &ft !~? 'vimfiler\|gundo' && exists("*fugitive#head")
-"     let branch = fugitive#head()
-"     let gitStats = GitGutterGetHunkSummary()
-"     return branch !=# '' ? '+'.gitStats[0].' ~'.gitStats[1].' -'.gitStats[2].' '.g:git_symbol.' '.branch : ''
-"   endif
-"   return ''
-" endfunction
-
 function! LightLineFugitive()
   try
     if expand('%:t') !~? 'Tagbar\|Gundo\|NERD' && &ft !~? 'vimfiler' && exists('*fugitive#head')
-      let mark = ''  " edit here for cool mark
       let branch = fugitive#head()
       let gitStats = GitGutterGetHunkSummary()
-      return branch !=# '' ? '+'.gitStats[0].' ~'.gitStats[1].' -'.gitStats[2].' '.g:git_symbol.' '.branch : ''
-      " return branch !=# '' ? mark.branch : ''
+      return winwidth(0) > 70? (branch !=# '' ? '+'.gitStats[0].' ~'.gitStats[1].' -'.gitStats[2].' '.g:git_symbol.' '.branch : '') : (branch !=# '' ? g:git_symbol.' '.branch : '')
     endif
   catch
   endtry
@@ -716,8 +705,4 @@ function! LightLineMode()
         \ &ft == 'vimshell' ? 'VimShell' :
         \ winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
-
-" function! LightLineMode()
-"   return winwidth(0) > 60 ? lightline#mode() : ''
-" endfunction
 
