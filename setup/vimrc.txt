@@ -613,13 +613,22 @@ let g:move_key_modifier = 'A'
 set noshowmode
 " Modify g:font_patched to 0 if no patched font is installed
 let g:font_patched = 1
-let g:separator_left_symbol = g:font_patched ? "\u2b80":""
-let g:separator_right_symbol = g:font_patched?"\u2b82":""
-let g:subseparator_left_symbol = g:font_patched?"\u2b81":"|"
-let g:subseparator_right_symbol = g:font_patched?"\u2b83":"|"
-let g:line_number_symbol = g:font_patched?"\u2b61":"L/N"
-let g:read_only_symbol = g:font_patched?"\u2b64":"RO"
-let g:git_symbol = g:font_patched?"\u2b60":""
+
+" let g:separator_left_symbol = g:font_patched ? "\u2b80":""
+" let g:separator_right_symbol = g:font_patched?"\u2b82":""
+" let g:subseparator_left_symbol = g:font_patched?"\u2b81":"|"
+" let g:subseparator_right_symbol = g:font_patched?"\u2b83":"|"
+" let g:line_number_symbol = g:font_patched?"\u2b61":"L/N"
+" let g:read_only_symbol = g:font_patched?"\u2b64":"RO"
+" let g:git_symbol = g:font_patched?"\u2b60":""
+
+let g:separator_left_symbol = g:font_patched ? "\ue0b0":""
+let g:separator_right_symbol = g:font_patched?"\ue0b2":""
+let g:subseparator_left_symbol = g:font_patched?"\ue0b1":"|"
+let g:subseparator_right_symbol = g:font_patched?"\ue0b3":"|"
+let g:line_number_symbol = g:font_patched?"\ue0a1":"L/N"
+let g:read_only_symbol = g:font_patched?"\ue0a2":"RO"
+let g:git_symbol = g:font_patched?"\ue0a0":""
 
 let g:lightline = {
       \ 'colorscheme': 'default',
