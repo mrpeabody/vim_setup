@@ -77,7 +77,7 @@ After multiple occurrences are selected, any action over the selection is approp
 
 **Note**: if your ALT key is not working, look [below](#markdown-header-alt-key) for the solution.
 
-![Demo](https://camo.githubusercontent.com/c06acab07e6bf0bb27086c9694fe2f456101d21c/687474703a2f2f692e696d6775722e636f6d2f524d76384b734a2e676966 "Moving line(s)")
+![Demo](https://camo.githubusercontent.com/c06acab07e6bf0bb27086c9694fe2f456101d21c/687474703a2f2f692e696d6775722e636f6d2f524d76384b734a2e676966 "Moving line[s]")
 
 
 ##### Code structure view (just like in PyCharm) #####
