@@ -487,6 +487,12 @@ let g:SimpylFold_docstring_preview = 1
 set directory=$HOME/.vim/swapfiles//
 
 
+" Neovim Ctrl+H fix
+if has('nvim')
+     nmap <BS> <C-W>h
+ endif
+
+
 " State autosave (uncomment to use IDE-like saved state for files - folds/cursor position, etc)
 " set viewoptions=cursor,folds,slash,unix
 " let g:skipview_files = ['*\.vim']
@@ -592,9 +598,6 @@ let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 
 
 " Line move plugin
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"  Uncomment the below if on linux in order to make ALT key work  "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if !has("nvim")
     let c='a'
     while c <= 'z'
@@ -603,24 +606,15 @@ if !has("nvim")
         let c = nr2char(1+char2nr(c))
     endw
 endif
-""""""""""""""""""""
-"  End of comment  "
-""""""""""""""""""""
+
 let g:move_key_modifier = 'A'
 
 
 " Bottom line settings (Lightline plugin)
 set noshowmode
+
 " Modify g:font_patched to 0 if no patched font is installed
 let g:font_patched = 1
-
-" let g:separator_left_symbol = g:font_patched ? "\u2b80":""
-" let g:separator_right_symbol = g:font_patched?"\u2b82":""
-" let g:subseparator_left_symbol = g:font_patched?"\u2b81":"|"
-" let g:subseparator_right_symbol = g:font_patched?"\u2b83":"|"
-" let g:line_number_symbol = g:font_patched?"\u2b61":"L/N"
-" let g:read_only_symbol = g:font_patched?"\u2b64":"RO"
-" let g:git_symbol = g:font_patched?"\u2b60":""
 
 let g:separator_left_symbol = g:font_patched ? "\ue0b0":""
 let g:separator_right_symbol = g:font_patched?"\ue0b2":""
