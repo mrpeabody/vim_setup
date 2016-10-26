@@ -3,20 +3,21 @@
 # Install dependencies first
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     # Linux x86-64 (Ubuntu)
-    sudo apt-get install -y nodejs npm git python3 python3-pip python-pip vim vim-nox-py2 python-wheel python3-wheel python-setuptools python3-setuptools build-essential
-    sudo apt-get install -y vim python-dev python3-dev
+    sudo apt-get install -y nodejs npm git python-pip vim vim-nox-py2 python-wheel python-setuptools build-essential python-dev
     sudo apt-get install -y cmake
     sudo apt-get install -y exuberant-ctags
     sudo pip install autopep8
+    sudo pip install jedi
     sudo pip install jsbeautifier
     sudo ln -s `which nodejs` /usr/bin/node
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # Mac OSX
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    brew install vim --with-python --with-python3 --with-override-system-vim
+    brew install vim --with-override-system-vim
     brew install cmake
     brew install ctags
     pip install autopep8
+    pip install jedi
     pip install jsbeautifier
 fi
 
