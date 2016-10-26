@@ -38,6 +38,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'nacitar/a.vim'
 Plugin 'rdolgushin/gitignore.vim'
 Plugin 'matze/vim-move'
+Plugin 'rhysd/clever-f.vim'
 
 " state autosave (uncomment to use IDE-like saved state for files - folds/cursor position, etc)
 " Plugin 'restore_view.vim'
@@ -103,6 +104,12 @@ let g:UltiSnipsSnippetDirectories=["CustomSnippets", "UltiSnips"]
 " Auto-PEP8 settings
 let g:autopep8_max_line_length=120
 let g:autopep8_disable_show_diff=1
+
+
+" Clever F settings
+let g:clever_f_smart_case = 1
+let g:clever_f_across_no_line = 1
+let g:clever_f_fix_key_direction = 1
 
 
 " Polyglot plugin settings
