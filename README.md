@@ -101,7 +101,7 @@ This setup is been created having **Python** and **JavaScript** in mind,
 therefore it has some advanced features:
 
 - Full Support of **PEP8** (auto indentation, beautify)
-- Autocomplete using **Python** Jedi (IDE)
+- Autocomplete using **Python** Jedi (IDE), including function signatures and argument hints
 - JavaScript/JSON/JSX/HTML/CSS Indentation and Beautify
 - Large collection of Python and **JavaScript** snippets
 - Out-of-the-Box support of main **JavaScript** libraries (autocomplete, syntax, etc)
@@ -114,6 +114,7 @@ therefore it has some advanced features:
 - fully format the whole file: `F8`
 - run the file using **Python**: `F5`
 - run the file using **Python3**: `F6`
+- show method/class documentation: `<,> then d`
 
 **JavaScript**:
 
