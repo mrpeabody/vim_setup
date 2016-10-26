@@ -3,7 +3,7 @@
 # Install dependencies first
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     # Linux x86-64 (Ubuntu)
-    sudo apt-get install -y nodejs npm git python3 python3-pip python-pip vim python-wheel python3-wheel python-setuptools python3-setuptools build-essential
+    sudo apt-get install -y nodejs npm git python3 python3-pip python-pip vim vim-nox-py2 python-wheel python3-wheel python-setuptools python3-setuptools build-essential
     sudo apt-get install -y vim python-dev python3-dev
     sudo apt-get install -y cmake
     sudo apt-get install -y exuberant-ctags
@@ -13,7 +13,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # Mac OSX
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    brew install vim --without-python --with-python3 --with-override-system-vim
+    brew install vim --with-python --with-python3 --with-override-system-vim
     brew install cmake
     brew install ctags
     pip install autopep8
