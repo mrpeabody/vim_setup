@@ -15,6 +15,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew install vim --with-override-system-vim
     brew install cmake
+    brew install node
     brew install ctags
     pip install autopep8
     pip install jedi
