@@ -23,7 +23,8 @@ Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'othree/jsdoc-syntax.vim'
 Plugin 'othree/jspc.vim'
 Plugin 'othree/csscomplete.vim'
-"Plugin 'othree/yajs.vim'
+Plugin 'jelera/vim-javascript-syntax'
+" Plugin 'othree/yajs.vim'
 Plugin 'chrisbra/colorizer'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'alvan/vim-closetag'
@@ -129,7 +130,7 @@ let g:clever_f_fix_key_direction = 1
 " Polyglot plugin settings
 let g:polyglot_disabled = ['markdown', 'javascript']
 let g:vim_json_syntax_conceal = 0
-let g:javascript_plugin_flow = 1
+let g:javascript_plugin_flow = 0
 
 
 " Semicolon/Comma automatization
@@ -137,7 +138,7 @@ autocmd FileType javascript,css,c,cpp,java,cs nmap <silent> <Leader>; :CommaOrSe
 autocmd FileType javascript,css,c,cpp,java,cs imap <silent> <Leader>; <c-o>:CommaOrSemiColon<CR>
 
 
-" Autocomplete 
+" Autocomplete
 set completeopt=longest,menuone
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
@@ -223,11 +224,11 @@ set splitbelow
 set splitright
 
 
-" reduces splits to a single line 
+" reduces splits to a single line
 set wmh=0
 
 
-" resize current buffer by +/- 5 
+" resize current buffer by +/- 5
 nnoremap <silent> _ :vertical resize -5<cr>
 nnoremap <silent> + :vertical resize +5<cr>
 nnoremap <silent> - :resize +5<cr>
@@ -253,7 +254,7 @@ inoremap <Right> <NOP>
 
 
 " Disable mouse scroll
-inoremap <ScrollWheelUp> <NOP> 
+inoremap <ScrollWheelUp> <NOP>
 inoremap <ScrollWheelDown> <NOP>
 nmap <ScrollWheelUp> <NOP>
 nmap <S-ScrollWheelUp> <NOP>
@@ -295,17 +296,17 @@ highlight ColorColumn ctermbg=236
 set background=dark
 set t_Co=256
 colorscheme OceanicNext
-" Other options already installed: 
+" Other options already installed:
 " wombat256mod, hybrid, predawn, zenburn, happy_hacking, monokai, amcolors, lucario, stereokai, onedark, py-darcula,
 " xcode-default
 " in case of onedark, uncomment the following line
 " let g:onedark_termcolors=256
 
 if (has("termguicolors"))
-   set termguicolors
+    set termguicolors
 endif
 
- " enable italics, disabled by default
+" enable italics, disabled by default
 let g:oceanic_next_terminal_italic = 1
 
 " enable bold, disabled by default
@@ -502,7 +503,6 @@ endif
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 let g:SimpylFold_docstring_preview = 1
-
 
 " .swp files location
 set directory=$HOME/.vim/swapfiles//
