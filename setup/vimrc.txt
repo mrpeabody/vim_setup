@@ -298,7 +298,7 @@ if (has("termguicolors"))
     set termguicolors
 endif
 
-colorscheme tender
+colorscheme OceanicNext
 "
 " enable italics, disabled by default
 let g:oceanic_next_terminal_italic = 1
@@ -307,8 +307,8 @@ let g:oceanic_next_terminal_italic = 1
 let g:oceanic_next_terminal_bold = 1
 
 " Other options already installed:
-" wombat256mod, hybrid, predawn, zenburn, happy_hacking, monokai, amcolors, lucario, stereokai, onedark, py-darcula,
-" xcode-default
+" wombat256mod, hybrid, predawn, zenburn, happy_hacking, monokai, amcolors, lucario, stereokai, tender, py-darcula,
+" xcode-default, railscasts, tender
 " in case of onedark, uncomment the following line
 " let g:onedark_termcolors=256
 
