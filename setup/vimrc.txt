@@ -21,7 +21,6 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'othree/jsdoc-syntax.vim'
-Plugin 'othree/jspc.vim'
 Plugin 'othree/csscomplete.vim'
 Plugin 'jelera/vim-javascript-syntax'
 " Plugin 'othree/yajs.vim'
@@ -295,22 +294,23 @@ highlight ColorColumn ctermbg=236
 " Color scheme
 set background=dark
 set t_Co=256
-colorscheme OceanicNext
-" Other options already installed:
-" wombat256mod, hybrid, predawn, zenburn, happy_hacking, monokai, amcolors, lucario, stereokai, onedark, py-darcula,
-" xcode-default
-" in case of onedark, uncomment the following line
-" let g:onedark_termcolors=256
-
 if (has("termguicolors"))
     set termguicolors
 endif
 
+colorscheme tender
+"
 " enable italics, disabled by default
 let g:oceanic_next_terminal_italic = 1
 
 " enable bold, disabled by default
 let g:oceanic_next_terminal_bold = 1
+
+" Other options already installed:
+" wombat256mod, hybrid, predawn, zenburn, happy_hacking, monokai, amcolors, lucario, stereokai, onedark, py-darcula,
+" xcode-default
+" in case of onedark, uncomment the following line
+" let g:onedark_termcolors=256
 
 
 " Highlight current line
