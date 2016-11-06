@@ -86,6 +86,7 @@ let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_confirm_extra_conf=0
 let g:used_javascript_libs = 'jquery,react'
 let g:AutoPairsUseInsertedCount = 1
+let g:tern_show_argument_hints='on_move'
 
 
 " jedi-vim settings
