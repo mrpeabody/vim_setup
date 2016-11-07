@@ -299,7 +299,7 @@ if (has("termguicolors"))
     set termguicolors
 endif
 
-colorscheme stereokai
+colorscheme codeschool
 "
 " enable italics, disabled by default
 " let g:oceanic_next_terminal_italic = 1
@@ -309,7 +309,7 @@ colorscheme stereokai
 
 " Other options already installed:
 " wombat256mod, hybrid, predawn, zenburn, happy_hacking, monokai, amcolors, lucario, stereokai, tender, py-darcula,
-" xcode-default, railscasts, tender
+" xcode-default, railscasts, tender, vimbrains, codeschool
 " in case of onedark, uncomment the following line
 " let g:onedark_termcolors=256
 
