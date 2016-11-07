@@ -299,13 +299,13 @@ if (has("termguicolors"))
     set termguicolors
 endif
 
-colorscheme codeschool
+colorscheme OceanicNext
 "
 " enable italics, disabled by default
-" let g:oceanic_next_terminal_italic = 1
+let g:oceanic_next_terminal_italic = 1
 
 " enable bold, disabled by default
-" let g:oceanic_next_terminal_bold = 1
+let g:oceanic_next_terminal_bold = 1
 
 " Other options already installed:
 " wombat256mod, hybrid, predawn, zenburn, happy_hacking, monokai, amcolors, lucario, stereokai, tender, py-darcula,
