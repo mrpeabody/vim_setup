@@ -25,6 +25,7 @@ fi
 
 # copy required files
 cp setup/vimrc.txt ~/.vimrc
+cp setup/gvimrc.txt ~/.gvimrc
 rm -rf ~/.vim
 cp -r setup/dot_vim ~/.vim
 cp setup/dot_tern_config ~/.tern-config

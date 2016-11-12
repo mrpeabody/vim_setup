@@ -1,0 +1,5 @@
+set guifont=Monaco\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11
+set guioptions-=R
+set guioptions-=r 
+" Disable all blinking:
+set guicursor+=a:blinkon0
