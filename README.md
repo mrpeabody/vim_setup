@@ -107,6 +107,7 @@ After multiple occurrences are selected, any action over the selection is approp
 - Show/Hide the file tree (NERD Tree): `<,> then N`
 - Go to next/previous git change in code: `]c` / `[c`
 - Undo a git change (if the cursor on the changed line/area): `<,> then hu`
+- toggle Relative/Absolute line numbers: `Alt + L`
 
 
 ### Python/JavaScript specific Features

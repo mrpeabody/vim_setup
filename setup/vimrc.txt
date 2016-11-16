@@ -134,6 +134,19 @@ let g:vim_json_syntax_conceal = 0
 let g:javascript_plugin_flow = 0
 
 
+" Toggle vim line numbers
+function! NumberToggle()
+    if(&relativenumber == 1)
+        set norelativenumber
+        set number
+    else
+        set relativenumber
+    endif
+endfunc
+
+nmap <silent> <A-l> :call NumberToggle()<CR>
+
+
 " Semicolon/Comma automatization
 autocmd FileType javascript,css,c,cpp,java,cs nmap <silent> <Leader>; :CommaOrSemiColon<CR>
 autocmd FileType javascript,css,c,cpp,java,cs imap <silent> <Leader>; <c-o>:CommaOrSemiColon<CR>
