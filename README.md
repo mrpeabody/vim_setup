@@ -46,6 +46,7 @@ sudo ln -s `which nodejs` /usr/bin/node
 - Resize vertical split: `Shift + -/+`
 - Increase the horizontal split: `-`
 
+
 ##### Tabs (like in sublime/atom/pycharm):
 - Create new tab: `tt`, then enter the file path to open
 - Switch between tabs:
@@ -55,11 +56,13 @@ sudo ln -s `which nodejs` /usr/bin/node
     - move the tab to the Nth position (starting with 0): `tm <0-9>, then Enter`
 - Close a tab: `td`
 
+
 ##### Formatting:
 - fix indentation of a selected region: `=`
 - fix indentation of the whole file: `gg=G`
 - fix indentation of a current block (inside of a function/if/loop): `=aB`
 - fix indentation of a current line (in NORMAL mode): `==`
+
 
 ##### Multiple Cursors: #####
 In order to select multiple occurrences of the same word, press:
@@ -70,6 +73,7 @@ In order to select multiple occurrences of the same word, press:
 
 After multiple occurrences are selected, any action over the selection is appropriate: `c/d/i/a` etc.
 ![Demo](https://github.com/terryma/vim-multiple-cursors/blob/master/assets/example1.gif?raw=true "Multiple Selections")
+
 
 ##### Move lines: #####
 - Move current line/selection up: `Alt + k`
@@ -82,6 +86,15 @@ After multiple occurrences are selected, any action over the selection is approp
 
 ##### Code structure view (just like in PyCharm) #####
 - Show / Hide the code structure: `<,> then b`
+
+
+##### Open File(s) Quickly  #####
+![File search demo](https://camo.githubusercontent.com/e15ac916ab9a14dd07135cb2d985cc7333200a38/687474703a2f2f692e696d6775722e636f6d2f614f63774877742e706e67 "File search Demo")
+- Hit `Ctrl + p` to open file search menu, then start typing to get search results
+- Use `Ctrl + j/k` to navigate trhough search results
+- Use `Ctrl + z` to select/deselect multiple files
+- Open the file(s) in a split/vertical split/tab: `Ctrl + x / v / t`
+- Close search menu: `Esc`
 
 
 ##### Other small features:
