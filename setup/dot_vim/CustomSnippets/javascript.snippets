@@ -1,7 +1,7 @@
 snippet ready "jQuery ready() method"
 $(document).ready(function() {
     $1
-});
+});$0
 endsnippet
 
 snippet ajax
@@ -160,7 +160,11 @@ snippet })c "then" i
 })
 endsnippet
 
-snippet re "require" i
+snippet re "require" b
 var ${1:module_name} = require('${2:$1}');$0
+endsnippet
+
+snippet rec "require" b
+const ${1:module_name} = require('${2:$1}');$0
 endsnippet
 
