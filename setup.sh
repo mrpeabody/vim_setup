@@ -13,7 +13,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # Mac OSX
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    brew install vim --with-override-system-vim
+    brew install vim --with-override-system-vi
     brew install cmake
     brew install python
     brew install node
