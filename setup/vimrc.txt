@@ -313,7 +313,7 @@ if (has("termguicolors"))
     set termguicolors
 endif
 
-colorscheme OceanicNext
+colorscheme OceanicNext2
 "
 " enable italics, disabled by default
 let g:oceanic_next_terminal_italic = 1
