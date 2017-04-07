@@ -10,6 +10,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     sudo pip install jedi
     sudo pip install jsbeautifier
     sudo ln -s `which nodejs` /usr/bin/node
+    sudo npm install -g typescript
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # Mac OSX
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -21,6 +22,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     pip install autopep8
     pip install jedi
     pip install jsbeautifier
+    npm install -g typescript
 fi
 
 # copy required files
@@ -48,6 +50,10 @@ fi
 
 cd ~/.vim/bundle/tern_for_vim
 npm install
+
+# setup the vimproc plugin (for typescript plugin)
+cd ~/.vim/bundle/vimproc.vim
+make
 
 # everything is done
 echo 'Your vim setup is finished. Happy hacking!'

@@ -23,7 +23,6 @@ Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'othree/jsdoc-syntax.vim'
 Plugin 'othree/csscomplete.vim'
 Plugin 'jelera/vim-javascript-syntax'
-" Plugin 'othree/yajs.vim'
 Plugin 'chrisbra/colorizer'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'alvan/vim-closetag'
@@ -41,6 +40,10 @@ Plugin 'rdolgushin/gitignore.vim'
 Plugin 'matze/vim-move'
 Plugin 'rhysd/clever-f.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'Quramy/tsuquyomi'
+Plugin 'Quramy/vim-js-pretty-template'
+Plugin 'Quramy/ng-tsserver'
 
 " state autosave (uncomment to use IDE-like saved state for files - folds/cursor position, etc)
 " Plugin 'restore_view.vim'
@@ -56,8 +59,10 @@ Plugin 'tpope/vim-surround'
 Plugin 'foosoft/vim-argwrap'
 Plugin 'itchyny/lightline.vim'
 Plugin 'majutsushi/tagbar'
+
 " Uncomment the below plugin in no patched font is available
 Plugin 'ryanoasis/vim-devicons'
+Plugin 'djoshea/vim-autoread'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -83,15 +88,36 @@ endfunction
 
 
 " YouCompleteMe settings
-let g:ycm_autoclose_preview_window_after_completion=1
-let g:ycm_confirm_extra_conf=0
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_confirm_extra_conf = 0
 let g:used_javascript_libs = 'jquery,react,d3'
 let g:AutoPairsUseInsertedCount = 1
 let g:tern_show_argument_hints='on_move'
+let g:ycm_filetype_specific_completion_to_disable = { 'python': 1 }
+
+let g:ycm_show_diagnostics_ui = 0
+
+if !exists("g:ycm_semantic_triggers")
+    let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers =  {
+            \   'c' : ['->', '.'],
+            \   'objc' : ['->', '.'],
+            \   'ocaml' : ['.', '#'],
+            \   'cpp,objcpp' : ['->', '.', '::'],
+            \   'perl' : ['->'],
+            \   'php' : ['->', '::', '"', "'", 'use ', 'namespace ', '\'],
+            \   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir,go' : ['.'],
+            \   'html': ['<', '"', '</', ' '],
+            \   'vim' : ['re![_a-za-z]+[_\w]*\.'],
+            \   'ruby' : ['.', '::'],
+            \   'lua' : ['.', ':'],
+            \   'erlang' : [':'],
+            \   'haskell' : ['.', 're!.']
+            \ }
 
 
 " jedi-vim settings
-let g:ycm_filetype_specific_completion_to_disable = { 'python': 1 }
 let g:jedi#show_call_signatures_delay = 0
 let g:jedi#show_call_signatures = 1
 let g:jedi#goto_command = ""
@@ -147,9 +173,14 @@ endfunc
 nmap <silent> <A-l> :call NumberToggle()<CR>
 
 
+" Typescript completion plugin
+let g:tsuquyomi_completion_detail = 0
+autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
+
+
 " Semicolon/Comma automatization
-autocmd FileType javascript,css,c,cpp,java,cs nmap <silent> <Leader>; :CommaOrSemiColon<CR>
-autocmd FileType javascript,css,c,cpp,java,cs imap <silent> <Leader>; <c-o>:CommaOrSemiColon<CR>
+autocmd FileType javascript,typescript,css,c,cpp,java,cs nmap <silent> <Leader>; :CommaOrSemiColon<CR>
+autocmd FileType javascript,typescript,css,c,cpp,java,cs imap <silent> <Leader>; <c-o>:CommaOrSemiColon<CR>
 
 
 " Autocomplete
@@ -322,8 +353,8 @@ let g:oceanic_next_terminal_italic = 1
 let g:oceanic_next_terminal_bold = 1
 
 " Other options already installed:
-" brogrammer, wombat256mod, hybrid, predawn, zenburn, happy_hacking, monokai, amcolors, lucario, stereokai, tender, 
-" py-darcula, xcode-default, railscasts, vimbrains, codeschool
+" wombat256mod, hybrid, predawn, zenburn, happy_hacking, monokai, amcolors, lucario, stereokai, tender, py-darcula,
+" xcode-default, railscasts, tender, vimbrains, codeschool
 " in case of onedark, uncomment the following line
 " let g:onedark_termcolors=256
 
