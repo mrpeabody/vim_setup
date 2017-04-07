@@ -174,7 +174,7 @@ nmap <silent> <A-l> :call NumberToggle()<CR>
 
 
 " Typescript completion plugin
-let g:tsuquyomi_completion_detail = 0
+let g:tsuquyomi_completion_detail = 1
 autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
 
 
@@ -599,7 +599,7 @@ let g:indentLine_char = '┆'
 
 " colorize CSS
 "let g:colorizer_auto_color = 1  " doesn't work for some reason
-let g:colorizer_auto_filetype='css,html,jinja,javascript'
+let g:colorizer_auto_filetype='css,html,jinja,javascript,typescript'
 
 
 " Arguments/lists/dicts inline/per line
@@ -798,4 +798,8 @@ function! TagbarStatusFunc(current, sort, fname, ...) abort
     let g:lightline.fname = a:fname
   return lightline#statusline(0)
 endfunction
+
+
+" Js/Ts template strings support
+autocmd FileType typescript JsPreTmpl jinja
 
