@@ -800,5 +800,6 @@ function! TagbarStatusFunc(current, sort, fname, ...) abort
 endfunction
 
 " Js/Ts template strings support
-autocmd FileType typescript JsPreTmpl jsx
+autocmd FileType typescript JsPreTmpl jinja
+autocmd FileType typescript syn clear foldBraces
 
