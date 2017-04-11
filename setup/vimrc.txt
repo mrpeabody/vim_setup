@@ -799,3 +799,6 @@ function! TagbarStatusFunc(current, sort, fname, ...) abort
   return lightline#statusline(0)
 endfunction
 
+" Js/Ts template strings support
+autocmd FileType typescript JsPreTmpl jsx
+
