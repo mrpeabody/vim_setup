@@ -1,21 +1,17 @@
-## Vim/Neovim automatic installation for MacOS X/Ubuntu/Windows Bash
+## Vim/Neovim automatic installation for MacOS X/Ubuntu/Debian/Mint
 
 1. Clone this repo anywhere on your machine
 2. Run **setup.sh**: `./setup.sh`
     - Optionally, if you need the advanced support for C-languages (Java, C++, etc): `./setup.sh --clang-completer`
-3. Install and use the included Monaco patched font for Mac, for other systems patched fonts can be found 
-[here](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts). Otherwise, in `~/.vimrc`, change the **g:font_patched** variable to **0** and comment out the `Plugin 'ryanoasis/vim-devicons'` line.
+3. Install and use one of the included patched fonts for Mac/Ubuntu/Mint. The most popular dev fonts are included in the
+`fonts` directory, more can be found [here](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts). 
+Otherwise, in `~/.vimrc`, change the **g:font_patched** variable to **0** and comment out the `Plugin 'ryanoasis/vim-devicons'` line.
 4. Enjoy your new fresh vim!
 
 
 ### Prerequisites
-- **Python** and **Python3**
+- **Python**
 - **Node.js** 
-
-On **Ubuntu**, it makes sense to make a symlink in order to be able to run 'node' instead of 'nodejs':
-```
-sudo ln -s `which nodejs` /usr/bin/node
-```
 
 ### Some Features
 
@@ -110,16 +106,17 @@ After multiple occurrences are selected, any action over the selection is approp
 - Toggle Relative/Absolute line numbers: `Alt + L`
 
 
-### Python/JavaScript specific Features
+### Python/JavaScript/TypeScript specific Features
 
-This setup is been created having **Python** and **JavaScript** in mind, 
+This setup is been created having **Python** and **JavaScript/TypeScript** in mind, 
 therefore it has some advanced features:
 
 - Full Support of **PEP8** (auto indentation, beautify)
 - Autocomplete using **Python** Jedi (IDE), including function signatures and argument hints
+- IDE-level support of **TypeScript**, including function signatures and type-awareness
 - JavaScript/JSON/JSX/HTML/CSS Indentation and Beautify
-- Large collection of Python and **JavaScript** snippets
 - Out-of-the-Box support of main **JavaScript** libraries (autocomplete, syntax, etc)
+- Large collection of Python and **JavaScript/TypeScript** snippets
 
 
 ##### Special hotkeys #####
@@ -136,6 +133,13 @@ therefore it has some advanced features:
 - fully format the whole file: `F9`
 - format selection: `Ctrl-F`
 - create a function's JSDoc: `<,> then L` in the function body or on its signature
+
+**TypeScript**:
+- create a function's JSDoc: `<,> then L` in the function body or on its signature
+- navigate to the location where a symbol is defined: `Ctrl + ]`
+- show location(s) where a symbol is referenced: `Ctrl + ^`
+- show the type of a symbol under cursor: `<,> then t`
+
 
 
 ### Miscellaneous
