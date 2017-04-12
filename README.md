@@ -104,6 +104,8 @@ After multiple occurrences are selected, any action over the selection is approp
 - Go to next/previous git change in code: `]c` / `[c`
 - Undo a git change (if the cursor on the changed line/area): `<,> then hu`
 - Toggle Relative/Absolute line numbers: `Alt + L`
+- Going through syntax errors/warnings: `]e` / `[e`
+- Open a list of syntax errors (if any): `:lopen`
 
 
 ### Python/JavaScript/TypeScript specific Features

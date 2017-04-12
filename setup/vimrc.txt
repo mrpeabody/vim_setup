@@ -40,11 +40,11 @@ Plugin 'rdolgushin/gitignore.vim'
 Plugin 'matze/vim-move'
 Plugin 'rhysd/clever-f.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Quramy/tsuquyomi'
 Plugin 'Quramy/vim-js-pretty-template'
 Plugin 'Quramy/ng-tsserver'
-
 
 " state autosave (uncomment to use IDE-like saved state for files - folds/cursor position, etc)
 " Plugin 'restore_view.vim'
@@ -161,6 +161,22 @@ let g:vim_json_syntax_conceal = 0
 let g:javascript_plugin_flow = 0
 
 
+" Syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi'] " TypeScript checker
+let g:syntastic_javascript_checkers = ['jshint']
+
+nmap <silent>]e :lnext<CR>
+nmap <silent>[e :lprevious<CR>
+
+
 " Toggle vim line numbers
 function! NumberToggle()
     if(&relativenumber == 1)
@@ -176,9 +192,8 @@ nmap <silent> <A-l> :call NumberToggle()<CR>
 
 " Typescript completion plugin
 let g:tsuquyomi_completion_detail = 1
-autocmd FileType typescript nmap <buffer> <Leader>d : <C-u>echo tsuquyomi#hint()<CR>
-autocmd FileType typescript nmap <buffer> <Leader>e <Plug>(TsuquyomiRenameSymbol)
-autocmd FileType typescript nmap <buffer> <Leader>E <Plug>(TsuquyomiRenameSymbolC)
+autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
+let g:tsuquyomi_disable_quickfix = 1
 
 
 " Semicolon/Comma automatization
@@ -207,16 +222,14 @@ inoremap <C-@> <C-Space>
 
 
 " JsBeautify bindings
-autocmd FileType *jsx* noremap <buffer> <F9> :call JsxBeautify()<cr>
 autocmd FileType javascript noremap <buffer> <F9> :call JsBeautify()<cr>
-autocmd FileType typescript noremap <buffer> <F9> :call JsBeautify()<cr>
 autocmd FileType json noremap <buffer> <F9> :call JsonBeautify()<cr>
+autocmd FileType jsx noremap <buffer> <F9> :call JsxBeautify()<cr>
 autocmd FileType html noremap <buffer> <F9> :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <F9> :call CSSBeautify()<cr>
-autocmd FileType *jsx* vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
 autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
-autocmd FileType typescript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
 autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
+autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
 autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
 
 "
@@ -805,7 +818,7 @@ function! TagbarStatusFunc(current, sort, fname, ...) abort
 endfunction
 
 
-" Js/Ts template strings support (comment this if you prefer folding over template strings colored)
+" Js/Ts template strings support
 autocmd FileType typescript JsPreTmpl jinja
 autocmd FileType typescript syn clear foldBraces
 

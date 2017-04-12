@@ -9,8 +9,10 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     sudo pip install autopep8
     sudo pip install jedi
     sudo pip install jsbeautifier
+    sudo pip install flake8
     sudo ln -s `which nodejs` /usr/bin/node
     sudo npm install -g typescript
+    sudo npm install -g jshint
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # Mac OSX
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -22,7 +24,9 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     pip install autopep8
     pip install jedi
     pip install jsbeautifier
+    pip install flake8
     npm install -g typescript
+    npm install -g jshint
 fi
 
 # copy required files
