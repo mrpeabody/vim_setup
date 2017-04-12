@@ -818,7 +818,7 @@ function! TagbarStatusFunc(current, sort, fname, ...) abort
 endfunction
 
 
-" Js/Ts template strings support
-autocmd FileType typescript JsPreTmpl jinja
-autocmd FileType typescript syn clear foldBraces
+" TypeScript template strings support (uncomment for colored template strings)
+" autocmd FileType typescript JsPreTmpl jinja
+" autocmd FileType typescript syn clear foldBraces
 
