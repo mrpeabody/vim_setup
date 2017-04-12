@@ -139,6 +139,7 @@ therefore it has some advanced features:
 - navigate to the location where a symbol is defined: `Ctrl + ]`
 - show location(s) where a symbol is referenced: `Ctrl + ^`
 - show the type of a symbol under cursor: `<,> then t`
+- refactor (change name of) a symbol under cursor: `<,> then e`
 
 
 
