@@ -114,11 +114,12 @@ This setup is been created having **Python** and **JavaScript/TypeScript** in mi
 therefore it has some advanced features:
 
 - Full Support of **PEP8** (auto indentation, beautify)
+- Syntax validation, including formatting recommendations
 - Autocomplete using **Python** Jedi (IDE), including function signatures and argument hints
 - IDE-level support of **TypeScript**, including function signatures and type-awareness
 - JavaScript/JSON/JSX/HTML/CSS Indentation and Beautify
 - Out-of-the-Box support of main **JavaScript** libraries (autocomplete, syntax, etc)
-- Large collection of Python and **JavaScript/TypeScript** snippets
+- Large collection of **Python** and **JavaScript/TypeScript** snippets
 
 
 ##### Special hotkeys #####
@@ -137,6 +138,7 @@ therefore it has some advanced features:
 - create a function's JSDoc: `<,> then L` in the function body or on its signature
 
 **TypeScript**:
+
 - create a function's JSDoc: `<,> then L` in the function body or on its signature
 - navigate to the location where a symbol is defined: `Ctrl + ]`
 - show location(s) where a symbol is referenced: `Ctrl + ^`
