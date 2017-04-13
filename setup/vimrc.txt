@@ -617,6 +617,18 @@ let $PAGER=''
 " indentation guide character
 let g:indentLine_char = '┆'
 
+" Vim
+" guide color
+let g:indentLine_color_term = 239
+
+" "GVim
+let g:indentLine_color_gui = '#A4E57E'
+
+" none X terminal
+let g:indentLine_color_tty_light = 7 " (default: 4)
+let g:indentLine_color_dark = 1 " (default: 2)
+
+
 
 " colorize CSS
 "let g:colorizer_auto_color = 1  " doesn't work for some reason
