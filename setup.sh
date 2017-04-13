@@ -36,6 +36,7 @@ rm -rf ~/.vim
 cp -r setup/dot_vim ~/.vim
 cp setup/dot_tern_config ~/.tern-config
 cp setup/ycm_extra_conf.py ~/.ycm_extra_conf.py
+cp setup/jshintrc.txt ~/.jshintrc
 
 # setup vim plugin manager
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
