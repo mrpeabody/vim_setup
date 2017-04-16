@@ -130,6 +130,9 @@ therefore it has some advanced features:
 - run the file using **Python**: `F5`
 - run the file using **Python3**: `F6`
 - show method/class documentation: `<,> then d`
+- navigate to the location where a symbol is defined: `Ctrl + ]`
+- show location(s) where a symbol is referenced: `Ctrl + ^`
+- refactor (change name of) a symbol under cursor: `<,> then e`
 
 **JavaScript**:
 
@@ -169,6 +172,10 @@ symlinks for Neovim:
 ln -s ~/.vim ~/.config/nvim
 ln -s ~/.vimrc ~/.config/nvim/init.vim
 ```
+
+Neovim requires python package from PIP in order to function with this setup:
+`pip install neovim`
+
 
 #### vim as a git diff/merge tool ####
 The following commands will make git use vim as a diff/merge tool:
