@@ -148,6 +148,7 @@ let g:UltiSnipsSnippetDirectories=["CustomSnippets", "UltiSnips"]
 " Auto-PEP8 settings
 let g:autopep8_max_line_length=120
 let g:autopep8_disable_show_diff=1
+autocmd FileType python noremap <buffer> <F8> :call Autopep8()<CR>
 
 
 " Clever F settings
@@ -168,11 +169,22 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_loc_list_height = 10
+let g:syntastic_error_symbol = '!!'
+let g:syntastic_style_error_symbol = '!!'
+let g:syntastic_warning_symbol = '??'
+let g:syntastic_style_warning_symbol = '??'
+let g:syntastic_enable_highlighting = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi'] " TypeScript checker
 let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_mode_map = {
+            \ 'mode': 'passive',
+            \ 'active_filetypes':
+            \ ['javascript', 'typescript', 'python'] }
+
 
 nmap <silent>]e :lnext<CR>
 nmap <silent>[e :lprevious<CR>
@@ -739,7 +751,7 @@ let g:lightline = {
       \ 'mode_map': { 'c': 'NORMAL' },
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
-      \ 'right': [ ['lineinfo'], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+      \ 'right': [ ['syntastic', 'lineinfo'], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
       \ },
       \   'component': {
       \     'lineinfo': g:line_number_symbol.' %3l:%-2v', 'line': '%l', 'column': '%c', 'close': '%999X X '
@@ -752,7 +764,13 @@ let g:lightline = {
       \   'fileformat': 'LightLineFileformat',
       \   'filetype': 'LightLineFiletype',
       \   'fileencoding': 'LightLineFileencoding',
-      \   'mode': 'LightLineMode',
+      \   'mode': 'LightLineMode'
+      \ },
+      \ 'component_expand': {
+      \   'syntastic': 'SyntasticStatuslineFlag'
+      \ },
+      \ 'component_type': {
+      \   'syntastic': 'warning'
       \ },
       \ 'separator': { 'left': g:separator_left_symbol, 'right': g:separator_right_symbol},
       \ 'subseparator': { 'left':g:subseparator_left_symbol, 'right': g:subseparator_right_symbol}
@@ -822,6 +840,18 @@ function! TagbarStatusFunc(current, sort, fname, ...) abort
     let g:lightline.fname = a:fname
   return lightline#statusline(0)
 endfunction
+
+function! s:syntastic()
+    SyntasticCheck
+    call lightline#update()
+endfunction
+
+augroup AutoSyntastic
+    autocmd!
+    execute "autocmd FileType " .
+                \join(g:syntastic_mode_map["active_filetypes"], ",") .
+                \" autocmd BufWritePost <buffer> :call s:syntastic()"
+augroup END
 
 
 " TypeScript template strings support (uncomment for colored template strings)
