@@ -139,6 +139,10 @@ therefore it has some advanced features:
 - fully format the whole file: `F8`
 - format selection: `Ctrl-F`
 - create a function's JSDoc: `<,> then L` in the function body or on its signature
+- navigate to the location where a symbol is defined: `Ctrl + ]`
+- show location(s) where a symbol is referenced: `Ctrl + ^`
+- show the type of a symbol under cursor: `<,> then t`
+- refactor (change name of) a symbol under cursor: `<,> then e`
 
 **TypeScript**:
 
