@@ -238,11 +238,11 @@ inoremap <C-@> <C-Space>
 
 
 " JsBeautify bindings
-autocmd FileType javascript noremap <buffer> <F9> :call JsBeautify()<cr>
-autocmd FileType json noremap <buffer> <F9> :call JsonBeautify()<cr>
-autocmd FileType jsx noremap <buffer> <F9> :call JsxBeautify()<cr>
-autocmd FileType html noremap <buffer> <F9> :call HtmlBeautify()<cr>
-autocmd FileType css noremap <buffer> <F9> :call CSSBeautify()<cr>
+autocmd FileType javascript noremap <buffer> <F8> :call JsBeautify()<cr>
+autocmd FileType json noremap <buffer> <F8> :call JsonBeautify()<cr>
+autocmd FileType jsx noremap <buffer> <F8> :call JsxBeautify()<cr>
+autocmd FileType html noremap <buffer> <F8> :call HtmlBeautify()<cr>
+autocmd FileType css noremap <buffer> <F8> :call CSSBeautify()<cr>
 autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
 autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
 autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>

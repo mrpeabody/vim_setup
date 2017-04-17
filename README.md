@@ -136,7 +136,7 @@ therefore it has some advanced features:
 
 **JavaScript**:
 
-- fully format the whole file: `F9`
+- fully format the whole file: `F8`
 - format selection: `Ctrl-F`
 - create a function's JSDoc: `<,> then L` in the function body or on its signature
 
