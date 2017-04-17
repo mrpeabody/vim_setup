@@ -820,7 +820,7 @@ function! LightLineFileformat()
 endfunction
 
 function! LightLineFiletype()
-  return winwidth(0) > 70 ? (&filetype !=# '' ? (g:font_patched ? WebDevIconsGetFileTypeSymbol().' '.&filetype : &filetype) : 'no ft') : ''
+  return winwidth(0) > 70 ? (&filetype !=# '' ? (g:font_patched ? WebDevIconsGetFileTypeSymbol() : &filetype) : 'no ft') : ''
 endfunction
 
 function! LightLineFileencoding()
