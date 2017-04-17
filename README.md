@@ -172,7 +172,7 @@ In order for **ALT** key to work on Mac, do the following:
 This setup should work for Neovim as well. The easiest way to use the same settings for both apps is to make 
 symlinks for Neovim:
 
-```
+```bash
 ln -s ~/.vim ~/.config/nvim
 ln -s ~/.vimrc ~/.config/nvim/init.vim
 ```
@@ -184,7 +184,7 @@ Neovim requires python package from PIP in order to function with this setup:
 #### vim as a git diff/merge tool ####
 The following commands will make git use vim as a diff/merge tool:
 
-```
+```bash
 git config --global diff.tool vimdiff
 git config --global merge.tool vimdiff
 git config --global difftool.prompt false

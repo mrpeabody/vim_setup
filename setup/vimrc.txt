@@ -33,6 +33,7 @@ Plugin 'lepture/vim-jinja'
 Plugin 'SirVer/ultisnips'
 Plugin 'lfilho/cosco.vim'
 Plugin 'tmhedberg/SimpylFold'
+Plugin 'tpope/vim-markdown'
 Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'Yggdroot/indentLine'
 Plugin 'terryma/vim-multiple-cursors'
@@ -169,7 +170,9 @@ let g:clever_f_fix_key_direction = 1
 " Polyglot plugin settings
 let g:polyglot_disabled = ['markdown', 'javascript']
 let g:vim_json_syntax_conceal = 0
+let g:markdown_syntax_conceal = 0
 let g:javascript_plugin_flow = 0
+let g:markdown_fenced_languages = ['html', 'python', 'javascript', 'typescript', 'cpp', 'java', 'bash=sh']
 
 
 " Syntastic settings
@@ -558,10 +561,6 @@ nnoremap tt  :tabedit<Space>
 nnoremap tn  :tabnext<Space>
 nnoremap tm  :tabm<Space>
 nnoremap td  :tabclose<CR>
-
-
-" Set up the best markdown flavor as the default one
-autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
 
 
 " fix for very large screens (can't see the cursor)
