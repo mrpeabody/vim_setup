@@ -12,6 +12,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     sudo pip install flake8
     sudo ln -s `which nodejs` /usr/bin/node
     sudo npm install -g typescript
+    sudo npm install -g git+https://github.com/Perlence/tstags.git
     sudo npm install -g jshint
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # Mac OSX
@@ -26,6 +27,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     pip install jsbeautifier
     pip install flake8
     npm install -g typescript
+    npm install -g git+https://github.com/Perlence/tstags.git
     npm install -g jshint
 fi
 

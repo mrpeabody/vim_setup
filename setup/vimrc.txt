@@ -1,20 +1,19 @@
 " Make Vim more useful
 set nocompatible
 
-filetype off                  " required
 
 call plug#begin('~/.vim/plugged')
 
 " let Vundle manage Vundle, required
 Plug 'gmarik/Vundle.vim'
 Plug 'Valloric/YouCompleteMe'
-Plug 'davidhalter/jedi-vim'
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-fugitive'
 Plug 'marijnh/tern_for_vim'
-Plug 'hynek/vim-python-pep8-indent'
-Plug 'tell-k/vim-autopep8'
+Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
+Plug 'tell-k/vim-autopep8', { 'for': 'python' }
 Plug 'jiangmiao/auto-pairs'
 Plug 'sheerun/vim-polyglot'
 Plug 'othree/javascript-libraries-syntax.vim'
@@ -67,8 +66,6 @@ Plug 'djoshea/vim-autoread'
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
-
-filetype plugin indent on    " required
 
 
 " Multiple cursors setup
@@ -175,7 +172,7 @@ let g:markdown_fenced_languages = ['html', 'python', 'javascript', 'typescript',
 
 " Syntastic settings
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%{exists('g:loaded_syntastic_plugin')?SyntasticStatuslineFlag():''}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
@@ -582,6 +579,24 @@ nmap <silent> <leader>l ?function<cr>:noh<cr><Plug>(jsdoc)
 
 " Tagbar (Code structure hotkey)
 map <silent> <Leader>b  :TagbarToggle<CR>
+let g:tagbar_type_typescript = {
+  \ 'ctagsbin' : 'tstags',
+  \ 'ctagsargs' : '-f-',
+  \ 'kinds': [
+    \ 'e:enums:0:1',
+    \ 'f:function:0:1',
+    \ 't:typealias:0:1',
+    \ 'M:Module:0:1',
+    \ 'I:import:0:1',
+    \ 'i:interface:0:1',
+    \ 'C:class:0:1',
+    \ 'm:method:0:1',
+    \ 'p:property:0:1',
+    \ 'v:variable:0:1',
+    \ 'c:const:0:1',
+  \ ],
+  \ 'sort' : 0
+\ }
 
 
 " Map uppercase commands as well as lowercase
