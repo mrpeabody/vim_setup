@@ -3,72 +3,70 @@ set nocompatible
 
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'tpope/vim-fugitive'
-Plugin 'marijnh/tern_for_vim'
-Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'tell-k/vim-autopep8'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'sheerun/vim-polyglot'
-Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'gavocanov/vim-js-indent'
-Plugin 'othree/jsdoc-syntax.vim'
-Plugin 'othree/csscomplete.vim'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'chrisbra/colorizer'
-Plugin 'maksimr/vim-jsbeautify'
-Plugin 'alvan/vim-closetag'
-Plugin 'Valloric/MatchTagAlways'
-Plugin 'heavenshell/vim-jsdoc'
-Plugin 'lepture/vim-jinja'
-Plugin 'SirVer/ultisnips'
-Plugin 'lfilho/cosco.vim'
-Plugin 'tmhedberg/SimpylFold'
-Plugin 'tpope/vim-markdown'
-Plugin 'nelstrom/vim-markdown-folding'
-Plugin 'Yggdroot/indentLine'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'nacitar/a.vim'
-Plugin 'rdolgushin/gitignore.vim'
-Plugin 'matze/vim-move'
-Plugin 'rhysd/clever-f.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'Quramy/tsuquyomi'
-Plugin 'Quramy/vim-js-pretty-template'
-Plugin 'Quramy/ng-tsserver'
+Plug 'gmarik/Vundle.vim'
+Plug 'Valloric/YouCompleteMe'
+Plug 'davidhalter/jedi-vim'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tpope/vim-fugitive'
+Plug 'marijnh/tern_for_vim'
+Plug 'hynek/vim-python-pep8-indent'
+Plug 'tell-k/vim-autopep8'
+Plug 'jiangmiao/auto-pairs'
+Plug 'sheerun/vim-polyglot'
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'gavocanov/vim-js-indent'
+Plug 'othree/jsdoc-syntax.vim'
+Plug 'othree/csscomplete.vim'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'chrisbra/colorizer'
+Plug 'maksimr/vim-jsbeautify'
+Plug 'alvan/vim-closetag'
+Plug 'Valloric/MatchTagAlways'
+Plug 'heavenshell/vim-jsdoc'
+Plug 'lepture/vim-jinja'
+Plug 'SirVer/ultisnips'
+Plug 'lfilho/cosco.vim'
+Plug 'tmhedberg/SimpylFold'
+Plug 'tpope/vim-markdown'
+Plug 'nelstrom/vim-markdown-folding'
+Plug 'Yggdroot/indentLine'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'nacitar/a.vim'
+Plug 'rdolgushin/gitignore.vim'
+Plug 'matze/vim-move'
+Plug 'rhysd/clever-f.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'vim-syntastic/syntastic'
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+Plug 'Quramy/tsuquyomi'
+Plug 'Quramy/vim-js-pretty-template'
+Plug 'Quramy/ng-tsserver'
 
 " state autosave (uncomment to use IDE-like saved state for files - folds/cursor position, etc)
 " Plugin 'restore_view.vim'
 " Plugin 'vim-scripts/vim-auto-save'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-repeat'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
 
 " Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'severin-lemaignan/vim-minimap'
-Plugin 'tpope/vim-surround'
-Plugin 'foosoft/vim-argwrap'
-Plugin 'itchyny/lightline.vim'
-Plugin 'majutsushi/tagbar'
+Plug 'honza/vim-snippets'
+Plug 'airblade/vim-gitgutter'
+Plug 'severin-lemaignan/vim-minimap'
+Plug 'tpope/vim-surround'
+Plug 'foosoft/vim-argwrap'
+Plug 'itchyny/lightline.vim'
+Plug 'majutsushi/tagbar'
 
 " Uncomment the below plugin in no patched font is available
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'djoshea/vim-autoread'
+Plug 'ryanoasis/vim-devicons'
+Plug 'djoshea/vim-autoread'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+call plug#end()            " required
 
 filetype plugin indent on    " required
 

@@ -39,26 +39,21 @@ cp setup/ycm_extra_conf.py ~/.ycm_extra_conf.py
 cp setup/jshintrc.txt ~/.jshintrc
 
 # setup vim plugin manager
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-vim +PluginInstall +qall
+vim +PlugInstall +qall
 
 # setup jsBeautify Plugin
-cd ~/.vim/bundle/vim-jsbeautify && git submodule update --init --recursive
+cd ~/.vim/plugged/vim-jsbeautify && git submodule update --init --recursive
 
 # setup autocomplete plugin
-cd ~/.vim/bundle/YouCompleteMe
+cd ~/.vim/plugged/YouCompleteMe
 if [[ $1 ]]; then
     ./install.py --tern-completer $1
 else
     ./install.py --tern-completer
 fi
 
-cd ~/.vim/bundle/tern_for_vim
+cd ~/.vim/plugged/tern_for_vim
 npm install
-
-# setup the vimproc plugin (for typescript plugin)
-cd ~/.vim/bundle/vimproc.vim
-make
 
 # everything is done
 echo 'Your vim setup is finished. Happy hacking!'
