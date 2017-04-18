@@ -182,9 +182,7 @@ augroup OnStopLintingGroup
     autocmd User ALELint call lightline#update()
 augroup END
 
-let g:ale_linters = {
-\   'jinja': ['htmlhint'],
-\}
+let g:ale_python_flake8_options = '--ignore=W391'
 
 nmap <silent>[e <Plug>(ale_previous_wrap)
 nmap <silent>]e <Plug>(ale_next_wrap)
