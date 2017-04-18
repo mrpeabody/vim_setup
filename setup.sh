@@ -15,6 +15,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     sudo npm install -g git+https://github.com/Perlence/tstags.git
     sudo npm install -g jshint
     sudo npm install -g csslint
+    sudo npm install -g htmlhint
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # Mac OSX
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -31,6 +32,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     npm install -g git+https://github.com/Perlence/tstags.git
     npm install -g jshint
     npm install -g csslint
+    npm install -g htmlhint
 fi
 
 # copy required files

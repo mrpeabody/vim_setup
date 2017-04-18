@@ -182,6 +182,10 @@ augroup OnStopLintingGroup
     autocmd User ALELint call lightline#update()
 augroup END
 
+let g:ale_linters = {
+\   'jinja': ['htmlhint'],
+\}
+
 nmap <silent>[e <Plug>(ale_previous_wrap)
 nmap <silent>]e <Plug>(ale_next_wrap)
 
@@ -226,7 +230,7 @@ inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
 inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
             \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
-au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
+au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja.html
 autocmd FileType css,less setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown,jinja setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
