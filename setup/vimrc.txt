@@ -89,7 +89,7 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_confirm_extra_conf = 0
 let g:used_javascript_libs = 'jquery,react,d3'
 let g:AutoPairsUseInsertedCount = 1
-let g:tern_show_argument_hints='on_move'
+let g:tern_show_argument_hints='on_hold'
 let g:ycm_filetype_specific_completion_to_disable = { 'python': 1 }
 
 let g:ycm_show_diagnostics_ui = 0
