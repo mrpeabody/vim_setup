@@ -171,7 +171,7 @@ let g:markdown_fenced_languages = ['html', 'python', 'javascript', 'typescript',
 
 " " Ale (autolinting) settings
 set statusline+=%#warningmsg#
-set statusline+=%{ALEGetStatusLine()}
+set statusline+=%{exists('g:ale_enabled')?ALEGetStatusLine():''}
 set statusline+=%*
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '>>'
