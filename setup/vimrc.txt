@@ -386,15 +386,15 @@ colorscheme OceanicNext2
 "
 " enable italics, disabled by default
 let g:oceanic_next_terminal_italic = 1
+let g:onedark_termcolors=256
+let g:one_allow_italics = 1
 
 " enable bold, disabled by default
 let g:oceanic_next_terminal_bold = 1
 
-" Other options already installed:
-" wombat256mod, hybrid, predawn, zenburn, happy_hacking, monokai, amcolors, lucario, stereokai, tender, py-darcula,
-" xcode-default, railscasts, tender, vimbrains, codeschool
-" in case of onedark, uncomment the following line
-" let g:onedark_termcolors=256
+" colorschemes already installed:
+" OceanicNext, OceanicNext2, one (atom-like) wombat256mod, hybrid, predawn, zenburn, happy_hacking, monokai, amcolors, 
+" lucario, stereokai, tender, py-darcula, xcode-default, railscasts, vimbrains, codeschool, onedark
 
 
 " Highlight current line
