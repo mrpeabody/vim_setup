@@ -25,8 +25,14 @@ interface ${1:InterfaceName}${2: extends ${3:Parent}} {
 }
 endsnippet
 
-snippet import "imports a module" b
-import $1 = require('$2')
+snippet imm "imports a module" b
+import $1 = require('$2');
+$0
+endsnippet
+
+snippet imp "imports a module using `from` syntax" b
+import { $2 } from '$1';
+$0
 endsnippet
 
 snippet for "for (...) {...} (counting up)" b
