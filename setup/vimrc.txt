@@ -181,14 +181,18 @@ set statusline+=%*
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '>>'
-
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '']
+
 augroup OnStopLintingGroup
     autocmd!
     autocmd User ALELint call lightline#update()
 augroup END
 
-let g:ale_python_flake8_options = '--ignore=W391'
+let g:ale_python_flake8_options = '--ignore=W391 --max-line-length=120'
+
+hi link ALEErrorSign DiffDelete
+hi link ALEError Error
+hi link ALEWarning Search
 
 nmap <silent>[e <Plug>(ale_previous_wrap)
 nmap <silent>]e <Plug>(ale_next_wrap)
@@ -430,8 +434,8 @@ set incsearch
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+set wildignore+=*/node_modules/*,*/tmp/*,*.so,*.swp,*.zip       " MacOSX/Linux
+set wildignore+=*\\node_modules\\*,*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
@@ -445,10 +449,10 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 
 
 " When highlighting search terms, make sure text is contrasting color
-highlight Search ctermbg=yellow ctermfg=black
+highlight Search ctermbg=221 ctermfg=black
 
 " Do the same for gvim
-highlight Search guibg=yellow guifg=black"
+highlight Search guibg=#fac863 guifg=black
 nnoremap <CR> :nohlsearch<CR>/<BS>
 
 
