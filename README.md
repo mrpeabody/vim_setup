@@ -28,8 +28,8 @@ Otherwise, in `~/.vimrc`, change the **g:font_patched** variable to **0** and co
 ##### Scrolling through the code:
 - Moves screen up one line: `Ctrl + y` 
 - Moves screen down one line: `Ctrl + e`
-- Moves screen up ½ page: `Ctrl + u`
-- Moves screen down ½ page: `Ctrl + d`
+- Moves screen up Â½ page: `Ctrl + u`
+- Moves screen down Â½ page: `Ctrl + d`
 - Moves screen up one page: `Ctrl + b`
 - Moves screen down one page: `Ctrl + f`
 
@@ -160,7 +160,7 @@ therefore it has some advanced features:
 
 
 ### Miscellaneous
-- Autocomplete (use `Ctrl + N` or `Ctrl + R` to navigate through the list of suggestions)
+- Autocomplete (use `Ctrl + N` or `Ctrl + P` to navigate through the list of suggestions)
 - Snippets: type a keyword (or select from the list of suggestions), then hit Tab to insert the snippet
 and then go through its placeholders
 - other very neat plugins like parentheses and quotes handling, etc.
