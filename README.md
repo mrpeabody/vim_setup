@@ -28,8 +28,8 @@ Otherwise, in `~/.vimrc`, change the **g:font_patched** variable to **0** and co
 ##### Scrolling through the code:
 - Moves screen up one line: `Ctrl + y` 
 - Moves screen down one line: `Ctrl + e`
-- Moves screen up Â½ page: `Ctrl + u`
-- Moves screen down Â½ page: `Ctrl + d`
+- Moves screen up ½ page: `Ctrl + u`
+- Moves screen down ½ page: `Ctrl + d`
 - Moves screen up one page: `Ctrl + b`
 - Moves screen down one page: `Ctrl + f`
 
@@ -68,6 +68,7 @@ In order to select multiple occurrences of the same word, press:
 - `Ctrl + P` to select a previous word/unselect current word
 
 After multiple occurrences are selected, any action over the selection is appropriate: `c/d/i/a` etc.
+
 ![Demo](https://github.com/terryma/vim-multiple-cursors/blob/master/assets/example1.gif?raw=true "Multiple Selections")
 
 
@@ -85,6 +86,7 @@ After multiple occurrences are selected, any action over the selection is approp
 
 
 ##### Open File(s) Quickly  #####
+
 ![File search demo](https://camo.githubusercontent.com/e15ac916ab9a14dd07135cb2d985cc7333200a38/687474703a2f2f692e696d6775722e636f6d2f614f63774877742e706e67 "File search Demo")
 
 - Hit `Ctrl + p` to open file search menu, then start typing to get search results
@@ -95,8 +97,11 @@ After multiple occurrences are selected, any action over the selection is approp
 
 
 ##### Other small features:
+
 - flip function arguments/list elements/dictionary key-value pairs inline or stacked vertically: `<,> then a`
+
 ![Wrap/Unwrap arguments](https://camo.githubusercontent.com/9a8e220911e514ce29198d9b7827c05085fb3e35/68747470733a2f2f666f6f736f66742e6e65742f70726f6a656374732f76696d2d617267777261702f696d672f64656d6f2e676966 "Wrap/Unwrap arguments")
+
 - remove trailing whitespace: `<,> then ss`
 - add a comma/semicolon at the end of the line (detects automatically, works in both NORMAL and INSERT modes): `<,> then ;`
 - Show/Hide minimap of the code: `<,> then M`
