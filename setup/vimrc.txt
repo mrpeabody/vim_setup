@@ -90,7 +90,8 @@ let g:ycm_confirm_extra_conf = 0
 let g:used_javascript_libs = 'jquery,react,d3'
 let g:AutoPairsUseInsertedCount = 1
 let g:tern_show_argument_hints='on_hold'
-let g:ycm_filetype_specific_completion_to_disable = { 'python': 1 }
+let g:ycm_filetype_specific_completion_to_disable = { 'python': 1, 'cpp': 1 }
+let g:ycm_filetype_blacklist = { 'cpp': 1 }
 
 let g:ycm_show_diagnostics_ui = 0
 
@@ -101,7 +102,7 @@ let g:ycm_semantic_triggers =  {
             \   'c' : ['->', '.'],
             \   'objc' : ['->', '.'],
             \   'ocaml' : ['.', '#'],
-            \   'cpp,objcpp' : ['->', '.', '::'],
+            \   'objcpp' : ['->', '.', '::'],
             \   'perl' : ['->'],
             \   'php' : ['->', '::', '"', "'", 'use ', 'namespace ', '\'],
             \   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir,go' : ['.'],
@@ -166,7 +167,7 @@ let g:clever_f_fix_key_direction = 1
 
 
 " Polyglot plugin settings
-let g:polyglot_disabled = ['markdown', 'javascript']
+let g:polyglot_disabled = ['markdown', 'javascript', 'c', 'cpp']
 let g:vim_json_syntax_conceal = 0
 let g:markdown_syntax_conceal = 0
 let g:javascript_plugin_flow = 0
