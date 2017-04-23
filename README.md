@@ -90,8 +90,10 @@ After multiple occurrences are selected, any action over the selection is approp
 ![File search demo](https://camo.githubusercontent.com/e15ac916ab9a14dd07135cb2d985cc7333200a38/687474703a2f2f692e696d6775722e636f6d2f614f63774877742e706e67 "File search Demo")
 
 - Hit `Ctrl + p` to open file search menu, then start typing to get search results
-- Use `Ctrl + j/k` to navigate trhough search results
+- Use `Ctrl + j/k` to navigate through search results
 - Use `Ctrl + z` to select/deselect multiple files
+- Create a file and directories in the path, type the path/filename then: `Ctrl + y` 
+- Switch search mode (files only, buffers only, most recent files, all together): `Ctrl + f / b`
 - Open the file(s) in a split/vertical split/tab: `Ctrl + x / v / t`
 - Close search menu: `Esc`
 
