@@ -103,14 +103,14 @@ After multiple occurrences are selected, any action over the selection is approp
 ![Wrap/Unwrap arguments](https://camo.githubusercontent.com/9a8e220911e514ce29198d9b7827c05085fb3e35/68747470733a2f2f666f6f736f66742e6e65742f70726f6a656374732f76696d2d617267777261702f696d672f64656d6f2e676966 "Wrap/Unwrap arguments")
 
 - remove trailing whitespace: `<,> then ss`
-- add a comma/semicolon at the end of the line (detects automatically, works in both NORMAL and INSERT modes): `<,> then ;`
+- add a comma/semicolon at the end of the line (detects automatically, works in NORMAL/INSERT modes): `<,> then ;`
 - Show/Hide minimap of the code: `<,> then M`
 - Show/Hide the file tree (NERD Tree): `<,> then N`
 - Go to next/previous git change in code: `]c` / `[c`
 - Undo a git change (if the cursor on the changed line/area): `<,> then hu`
 - Toggle Relative/Absolute line numbers: `Alt + L`
 - Going through syntax errors/warnings: `]e` / `[e`
-- Open a list of syntax errors (if any): `:lopen`
+- Open a list of errors/warnings (if any): `<,> then L`
 
 
 ### Python/JavaScript/TypeScript specific Features
@@ -143,7 +143,7 @@ therefore it has some advanced features:
 
 - fully format the whole file: `F8`
 - format selection: `Ctrl-F`
-- create a function's JSDoc: `<,> then L` in the function body or on its signature
+- create a function's JSDoc: `<,> then J` in the function body or on its signature
 - navigate to the location where a symbol is defined: `Ctrl + ]`
 - show location(s) where a symbol is referenced: `Ctrl + ^`
 - show the type of a symbol under cursor: `<,> then t`
@@ -151,7 +151,7 @@ therefore it has some advanced features:
 
 **TypeScript**:
 
-- create a function's JSDoc: `<,> then L` in the function body or on its signature
+- create a function's JSDoc: `<,> then J` in the function body or on its signature (for js-style functions only)
 - navigate to the location where a symbol is defined: `Ctrl + ]`
 - show location(s) where a symbol is referenced: `Ctrl + ^`
 - show the type of a symbol under cursor: `<,> then t`

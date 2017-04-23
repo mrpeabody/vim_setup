@@ -4,23 +4,21 @@ set nocompatible
 
 call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
-Plug 'gmarik/Vundle.vim'
 Plug 'Valloric/YouCompleteMe'
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-fugitive'
-Plug 'marijnh/tern_for_vim'
+Plug 'marijnh/tern_for_vim', { 'for': 'javascript.jsx' }
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'tell-k/vim-autopep8', { 'for': 'python' }
 Plug 'jiangmiao/auto-pairs'
 Plug 'sheerun/vim-polyglot'
 Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'gavocanov/vim-js-indent'
-Plug 'othree/jsdoc-syntax.vim'
+Plug 'gavocanov/vim-js-indent', { 'for': 'javascript.jsx' }
+Plug 'othree/jsdoc-syntax.vim', { 'for': 'javascript.jsx' }
 Plug 'othree/csscomplete.vim'
-Plug 'jelera/vim-javascript-syntax'
+Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript.jsx' }
 Plug 'chrisbra/colorizer'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'alvan/vim-closetag'
@@ -30,8 +28,8 @@ Plug 'lepture/vim-jinja'
 Plug 'SirVer/ultisnips'
 Plug 'lfilho/cosco.vim'
 Plug 'tmhedberg/SimpylFold'
-Plug 'tpope/vim-markdown'
-Plug 'nelstrom/vim-markdown-folding'
+Plug 'tpope/vim-markdown', { 'for': 'markdown' }
+Plug 'nelstrom/vim-markdown-folding', { 'for': 'markdown' }
 Plug 'Yggdroot/indentLine'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'nacitar/a.vim'
@@ -40,9 +38,9 @@ Plug 'matze/vim-move'
 Plug 'rhysd/clever-f.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'w0rp/ale'
-Plug 'Quramy/tsuquyomi'
-Plug 'Quramy/vim-js-pretty-template'
-Plug 'Quramy/ng-tsserver'
+Plug 'Quramy/tsuquyomi', { 'for': 'typescript' }
+Plug 'Quramy/vim-js-pretty-template', { 'for': 'typescript' }
+Plug 'Quramy/ng-tsserver', { 'for': 'typescript' }
 
 " state autosave (uncomment to use IDE-like saved state for files - folds/cursor position, etc)
 " Plugin 'restore_view.vim'
@@ -53,22 +51,22 @@ Plug 'tpope/vim-repeat'
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
 Plug 'airblade/vim-gitgutter'
-Plug 'severin-lemaignan/vim-minimap'
+Plug 'severin-lemaignan/vim-minimap', { 'on':  'MinimapToggle' }
 Plug 'tpope/vim-surround'
-Plug 'foosoft/vim-argwrap'
+Plug 'foosoft/vim-argwrap', { 'on': 'ArgWrap' }
 Plug 'itchyny/lightline.vim'
-Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+Plug 'djoshea/vim-autoread'
+Plug 'milkypostman/vim-togglelist'
 
 " Uncomment the below plugin in no patched font is available
 Plug 'ryanoasis/vim-devicons'
-Plug 'djoshea/vim-autoread'
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
 
 
 " Multiple cursors setup
-set lazyredraw
 nnoremap <silent> <C-g> :MultipleCursorsFind <C-R>/<CR>
 vnoremap <silent> <C-g> :MultipleCursorsFind <C-R>/<CR>
 
@@ -92,6 +90,9 @@ let g:AutoPairsUseInsertedCount = 1
 let g:tern_show_argument_hints='on_hold'
 let g:ycm_filetype_specific_completion_to_disable = { 'python': 1, 'cpp': 1 }
 let g:ycm_filetype_blacklist = { 'cpp': 1 }
+let g:ycm_complete_in_comments = 1
+let g:ycm_min_num_of_chars_for_completion = 2
+let g:ycm_seed_identifiers_with_syntax = 1
 
 let g:ycm_show_diagnostics_ui = 0
 
@@ -145,7 +146,7 @@ let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
 
 
-" better key bindings for UltiSnipsExpandTrigger
+" Ultisnips settings
 let g:UltiSnipsExpandTrigger='<tab>'
 let g:UltiSnipsJumpForwardTrigger='<tab>'
 let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
@@ -198,6 +199,10 @@ hi link ALEWarning Search
 nmap <silent>[e <Plug>(ale_previous_wrap)
 nmap <silent>]e <Plug>(ale_next_wrap)
 
+
+" QuickFix / Location list settings
+nmap <script> <silent> <leader>l :call ToggleLocationList()<CR>
+nmap <script> <silent> <leader>q :call ToggleQuickfixList()<CR>
 
 " go through location lists in general
 nmap <silent>]l :lnext<CR>
@@ -530,8 +535,7 @@ nnoremap <silent> <F5> :!clear;python %<CR>
 
 " Minimap settings
 let g:minimap_highlight='Visual'
-" autocmd! VimEnter * Minimap
-map <silent> <Leader>m  :MinimapToggle<CR>
+nnoremap <silent> <Leader>m :MinimapToggle<CR>
 
 
 " Filesystem Tree
@@ -580,7 +584,7 @@ au FileType json setl ts=2 sts=2 et shiftwidth=2
 
 
 " JSDoc Generation hotkey (should be used on the function signature)
-nmap <silent> <leader>l ?function<cr>:noh<cr><Plug>(jsdoc)
+nmap <silent> <leader>j ?function<cr>:noh<cr><Plug>(jsdoc)
 " nmap <silent> <C-l> <Plug>(jsdoc)
 
 
