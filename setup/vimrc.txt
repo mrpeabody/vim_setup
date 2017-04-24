@@ -2,6 +2,10 @@
 set nocompatible
 
 
+" TODO: remove when ALE is working with Typescript
+let g:ale_emit_conflict_warnings = 0
+
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'Valloric/YouCompleteMe'
@@ -38,9 +42,9 @@ Plug 'matze/vim-move'
 Plug 'rhysd/clever-f.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'w0rp/ale'
-Plug 'Quramy/tsuquyomi', { 'for': 'typescript' }
-Plug 'Quramy/vim-js-pretty-template', { 'for': 'typescript' }
-Plug 'Quramy/ng-tsserver', { 'for': 'typescript' }
+Plug 'vim-syntastic/syntastic'
+Plug 'Quramy/tsuquyomi'
+Plug 'Quramy/vim-js-pretty-template'
 
 " state autosave (uncomment to use IDE-like saved state for files - folds/cursor position, etc)
 " Plugin 'restore_view.vim'
@@ -100,13 +104,14 @@ if !exists("g:ycm_semantic_triggers")
     let g:ycm_semantic_triggers = {}
 endif
 let g:ycm_semantic_triggers =  {
+            \   'javascript,typescript' : ['re!(?=[a-zA-Z_]{3})', '.'],
             \   'c' : ['->', '.'],
             \   'objc' : ['->', '.'],
             \   'ocaml' : ['.', '#'],
             \   'objcpp' : ['->', '.', '::'],
             \   'perl' : ['->'],
             \   'php' : ['->', '::', '"', "'", 'use ', 'namespace ', '\'],
-            \   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir,go' : ['.'],
+            \   'cs,java,d,python,perl6,scala,vb,elixir,go' : ['.'],
             \   'html': ['<', '"', '</', ' '],
             \   'vim' : ['re![_a-za-z]+[_\w]*\.'],
             \   'ruby' : ['.', '::'],
@@ -178,6 +183,7 @@ let g:markdown_fenced_languages = ['html', 'python', 'javascript', 'typescript',
 " " Ale (autolinting) settings
 set statusline+=%#warningmsg#
 set statusline+=%{exists('g:ale_enabled')?ALEGetStatusLine():''}
+set statusline+=%{exists('g:loaded_syntastic_plugin')?SyntasticStatuslineFlag():''} " TODO: remove
 set statusline+=%*
 
 let g:ale_sign_column_always = 1
@@ -199,6 +205,11 @@ hi link ALEWarning Search
 nmap <silent>[e <Plug>(ale_previous_wrap)
 nmap <silent>]e <Plug>(ale_next_wrap)
 
+" TODO remove when ALE has better typescript support
+let g:ale_linters = {
+\   'typescript': [''],
+\}
+
 
 " QuickFix / Location list settings
 nmap <script> <silent> <leader>l :call ToggleLocationList()<CR>
@@ -207,6 +218,29 @@ nmap <script> <silent> <leader>q :call ToggleQuickfixList()<CR>
 " go through location lists in general
 nmap <silent>]l :lnext<CR>
 nmap <silent>[l :lprevious<CR>
+
+
+" Syntastic plugin for TypeScript (until ALE starts supporting Tsuquyomi checker)
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_loc_list_height = 10
+let g:syntastic_error_symbol = '>>'
+let g:syntastic_style_error_symbol = '>>'
+let g:syntastic_warning_symbol = '>>'
+let g:syntastic_style_warning_symbol = '>>'
+let g:syntastic_enable_highlighting = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+let g:syntastic_typescript_checkers = ['tsuquyomi'] " TypeScript checker
+
+let g:syntastic_mode_map = {
+    \ "mode": "passive",
+    \ "active_filetypes": ["typescript"],
+    \ "passive_filetypes": [] }
+
+hi link SyntasticErrorSign DiffDelete
+hi link SyntasticError Error
+hi link SyntasticWarning Search
 
 
 " Toggle vim line numbers
@@ -227,7 +261,7 @@ let g:tsuquyomi_completion_detail = 1
 autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
 autocmd FileType typescript nmap <buffer> <Leader>e <Plug>(TsuquyomiRenameSymbol)
 autocmd FileType typescript nmap <buffer> <Leader>E <Plug>(TsuquyomiRenameSymbolC)
-let g:tsuquyomi_disable_quickfix = 0
+let g:tsuquyomi_disable_quickfix = 1
 
 
 " Semicolon/Comma automatization
