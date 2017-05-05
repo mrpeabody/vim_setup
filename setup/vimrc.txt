@@ -44,6 +44,7 @@ Plug 'rhysd/clever-f.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'w0rp/ale'
 Plug 'vim-syntastic/syntastic'
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Quramy/tsuquyomi'
 Plug 'Quramy/vim-js-pretty-template'
 " Plug 'vim-scripts/vim-auto-save', { 'for': 'typescript' }
