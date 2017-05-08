@@ -919,3 +919,7 @@ endfunction
 " autocmd FileType typescript JsPreTmpl jinja
 " autocmd FileType typescript syn clear foldBraces
 
+
+" Treat .test files as python files by default
+au BufNewFile,BufRead *.test set ft=python
+
