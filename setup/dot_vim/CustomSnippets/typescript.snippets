@@ -1,75 +1,95 @@
-priority -50
+priority 1000
 
 snippet /// "import reference" b
-/// <reference path='${1: file}' />
+/// <reference ${2:path}='${1: file}' />
 $0
 endsnippet
 
-snippet ctor "constructor" b
+snippet "ct(or)?" "constructor" br
 constructor(${0}) {
-	${1:// code}
+	${1:// ...}
 }
 endsnippet
 
-snippet cls "class .." b
+snippet t "this." b
+this${VISUAL}$0
+endsnippet
+
+snippet "cls|cla(s)?(s)?" "class .." br
 class ${1:ClassName}${2: extends ${3:ParentClass}} {
-	${4: constructor(${5:args}) {
-    ${6://code...}
+	${4: constructor(${5}) {
+    ${6:// ...}
   }}
 }
 endsnippet
 
 snippet itf "interface .." b
 interface ${1:InterfaceName}${2: extends ${3:Parent}} {
-	${4://code...}
+	${4:// ...}
 }
 endsnippet
 
 snippet imm "imports a module" b
-import $1 = require('$2');
-$0
+import $1 = require('$2');$0
+endsnippet
+
+snippet ima "imports * as `from`" b
+import * as $2 from '$1';$0
 endsnippet
 
 snippet imp "imports a module using `from` syntax" b
-import { $2 } from '$1';
-$0
+import { $2 } from '$1';$0
 endsnippet
 
 snippet for "for (...) {...} (counting up)" b
-for (var ${1:i} = 0, ${2:len} = ${3:Things.length}; $1 < $2; $1++) {
+for (let ${1:i} = 0; $1 < ${2:${3:things}.length}; ++$1) {
 	${VISUAL}$0
 }
 endsnippet
 
-
-snippet fn "function literal (fn)"
-function (${1:argument}) {
+snippet forr "for (...) {...} (reversed)" b
+for (let ${1:i} = ${2:${3:things}.length - 1}; $1 >= 0; --$1) {
 	${VISUAL}$0
 }
 endsnippet
 
-snippet af "arrow function (af)"
-(${1:argument}) => {
+snippet fori "for (... in ...) {...} For each Key / List Index" b
+for (let ${1:key} in ${2:someObjectOrList}) {
+   ${VISUAL}$0
+}
+endsnippet
+
+snippet foro "for (... of ...) {...} - For each list item" b
+for (let ${1:value} of ${2:values}) {
+   ${VISUAL}$0
+}
+endsnippet
+
+snippet "c(a)?f" "const arrow function literal (cf)" br
+const ${1:functionName} = (${2}): ${3:void} => {
+	${VISUAL}$0
+};
+endsnippet
+
+snippet "=>|af" "arrow function (af)" r
+(${1}) => {
 	${VISUAL}$0
 }
 endsnippet
 
-snippet ife "if ___ else"
-if (${1:condition}) {
-	${2://code}
-}
-else {
-	${3://code}
+snippet "s(=)?>|s(a)?f" "arrow function with single expression (x => y)" r
+${1:(${2})} => ${VISUAL}$0
+endsnippet
+
+snippet me "class/object method" b
+${2:methodName}(${3}): ${4:void} {
+	${0:// ...}
 }
 endsnippet
 
-snippet cl "console.log" b
-console.log(${1:"${2:value}"});
-endsnippet
-
-snippet meth "class/object method" b
-${2:methodName}(${3:args}): ${4:void} {
-		${0://code}
+snippet "pm(e)?" "private instance method" br
+private ${2:methodName} = (${3}): ${4:void} => {
+	${0:// ...}
 }
 endsnippet
 
