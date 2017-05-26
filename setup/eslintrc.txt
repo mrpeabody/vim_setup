@@ -42,7 +42,7 @@
     "linebreak-style": 0,
     "comma-style": [
       2,
-      "first"
+      "last"
     ],
     "no-loop-func": 0,
     "indent": [

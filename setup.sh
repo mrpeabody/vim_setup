@@ -44,7 +44,7 @@ rm -rf ~/.vim
 cp -r setup/dot_vim ~/.vim
 cp setup/dot_tern_config ~/.tern-config
 cp setup/ycm_extra_conf.py ~/.ycm_extra_conf.py
-cp setup/jshintrc.txt ~/.jshintrc
+cp setup/eslintrc.txt ~/.eslintrc
 
 # setup vim plugin manager
 vim +PlugInstall +qall
