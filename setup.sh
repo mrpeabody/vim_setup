@@ -13,7 +13,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     sudo ln -s `which nodejs` /usr/bin/node
     sudo npm install -g typescript
     sudo npm install -g git+https://github.com/Perlence/tstags.git
-    sudo npm install -g jshint
+    sudo npm install -g eslint babel-eslint eslint-plugin-react
     sudo npm install -g csslint
     sudo npm install -g htmlhint
     sudo npm install -g tslint
@@ -31,7 +31,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     pip install flake8
     npm install -g typescript
     npm install -g git+https://github.com/Perlence/tstags.git
-    npm install -g jshint
+    npm install -g eslint babel-eslint eslint-plugin-react
     npm install -g csslint
     npm install -g htmlhint
     npm install -g tslint

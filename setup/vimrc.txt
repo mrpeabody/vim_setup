@@ -48,6 +48,7 @@ Plug 'vim-syntastic/syntastic'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Quramy/tsuquyomi'
 Plug 'Quramy/vim-js-pretty-template'
+Plug 'peitalin/vim-jsx-typescript'
 " Plug 'vim-scripts/vim-auto-save', { 'for': 'typescript' }
 
 " state autosave (uncomment to use IDE-like saved state for files - folds/cursor position, etc)
@@ -208,9 +209,10 @@ hi link ALEWarning Search
 nmap <silent>[e <Plug>(ale_previous_wrap)
 nmap <silent>]e <Plug>(ale_next_wrap)
 
-" TODO remove when ALE has better typescript support
+" TODO remove typescript linter string when ALE has better typescript support
 let g:ale_linters = {
-\   'typescript': [''],
+\   'typescript': [''],  
+\   'javascript': ['eslint']
 \}
 
 
@@ -267,6 +269,10 @@ autocmd FileType typescript nmap <buffer> <Leader>E <Plug>(TsuquyomiRenameSymbol
 let g:tsuquyomi_disable_quickfix = 1
 let g:tsuquyomi_single_quote_import = 1
 let g:tsuquyomi_use_vimproc = 1
+
+
+" Typescript / React settings
+autocmd BufNewFile,BufRead *.tsx set filetype=typescript.jsx
 
 
 " Semicolon/Comma automatization
@@ -442,7 +448,7 @@ let g:one_allow_italics = 1
 let g:oceanic_next_terminal_bold = 1
 
 " colorschemes already installed:
-" OceanicNext, OceanicNext2, one (atom-like) wombat256mod, hybrid, predawn, zenburn, happy_hacking, monokai, amcolors, 
+" OceanicNext, OceanicNext2, one (atom-like) wombat256mod, hybrid, predawn, zenburn, happy_hacking, monokai, amcolors,
 " lucario, stereokai, tender, py-darcula, xcode-default, railscasts, vimbrains, codeschool, onedark
 
 
@@ -618,8 +624,11 @@ endif
 map q <Nop>
 
 
-" Special filetype settings for JSON
+" Special filetype settings
 au FileType json setl ts=2 sts=2 et shiftwidth=2
+au FileType python setl colorcolumn=80
+au FileType rst setl colorcolumn=70
+
 
 
 " JSDoc Generation hotkey (should be used on the function signature)

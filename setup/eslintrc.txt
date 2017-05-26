@@ -1,0 +1,89 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "jquery": true,
+    "node": true
+  },
+  "globals": {
+    "define": false,
+    "d3": false,
+    "md5": false,
+    "$$": false,
+    "webix": false,
+    "Promise": true,
+    "Highcharts": true
+  },
+  "settings": {
+    "ecmascript": 6,
+    "jsx": true
+  },
+  "plugins": [
+    "react"
+  ],
+  "rules": {
+    "no-bitwise": 0,
+    "no-cond-assign": 0,
+    "camelcase": 0,
+    "curly": 2,
+    "no-debugger": 0,
+    "no-sparse-arrays": 0,
+    "eqeqeq": 2,
+    "no-eq-null": 0,
+    "no-eval": 0,
+    "no-unused-expressions": 0,
+    "guard-for-in": 2,
+    "no-extend-native": 0,
+    "block-scoped-var": 0,
+    "strict": 0,
+    "wrap-iife": 0,
+    "no-iterator": 0,
+    "no-use-before-define": 0,
+    "linebreak-style": 0,
+    "comma-style": [
+      2,
+      "first"
+    ],
+    "no-loop-func": 0,
+    "indent": [
+      2,
+      4,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "max-len": [
+      2,
+      {
+        "code": 120,
+        "ignoreComments": true
+      }
+    ],
+    "no-multi-str": 0,
+    "new-cap": 0,
+    "no-caller": 2,
+    "no-sequences": 0,
+    "no-empty": 2,
+    "no-irregular-whitespace": 0,
+    "no-new": 2,
+    "valid-typeof": 0,
+    "require-yield": 0,
+    "no-plusplus": 0,
+    "no-proto": 0,
+    "quotes": [
+      2,
+      "single"
+    ],
+    "no-script-url": 0,
+    "no-shadow": 2,
+    "no-extra-parens": 2,
+    "dot-notation": 2,
+    "no-new-func": 0,
+    "no-new-wrappers": 0,
+    "no-undef": 2,
+    "no-unused-vars": 0,
+    "no-invalid-this": 0,
+    "no-var": 0,
+    "no-with": 0
+  }
+}
