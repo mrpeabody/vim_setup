@@ -8,9 +8,6 @@
     "commonjs" : {},
     "node": {},
     "node_resolve" : {},
-    "requirejs": {
-      "baseURL": "./",
-      "paths": {}
-    }
+    "requirejs": {}
   }
 }
