@@ -49,6 +49,9 @@ cp setup/eslintrc.txt ~/.eslintrc
 # setup vim plugin manager
 vim +PlugInstall +qall
 
+# copy the default lightline (bottom panel) theme 
+cp setup/powerline_peabody.vim ~/.vim/plugged/lightline.vim/autoload/lightline/colorscheme/.
+
 # setup jsBeautify Plugin
 cd ~/.vim/plugged/vim-jsbeautify && git submodule update --init --recursive
 

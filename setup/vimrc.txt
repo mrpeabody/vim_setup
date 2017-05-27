@@ -70,6 +70,10 @@ Plug 'milkypostman/vim-togglelist'
 " Uncomment the below plugin in no patched font is available
 Plug 'ryanoasis/vim-devicons'
 
+" Lightline (bottom panel) colorschemes
+Plug 'cocopon/lightline-hybrid.vim'
+
+
 " All of your Plugins must be added before the following line
 call plug#end()            " required
 
@@ -431,14 +435,15 @@ highlight ColorColumn ctermbg=236
 
 
 " Color scheme
-set background=dark
 set t_Co=256
+set background=dark
 if (has("termguicolors"))
     set termguicolors
 endif
 
 colorscheme OceanicNext2
-"
+set background=dark
+
 " enable italics, disabled by default
 let g:oceanic_next_terminal_italic = 1
 let g:onedark_termcolors=256
@@ -829,16 +834,14 @@ let g:read_only_symbol = g:font_patched?"\ue0a2":"RO"
 let g:git_symbol = g:font_patched?"\ue0a0":""
 
 let g:lightline = {
-      \ 'colorscheme': 'default',
+      \ 'colorscheme': 'powerline_peabody',
       \ 'mode_map': { 'c': 'NORMAL' },
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
-      \ 'right': [ ['ale', 'lineinfo'], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+      \ 'right': [['ale_error', 'ale_warning', 'lineinfo'], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ]]
       \ },
-      \   'component': {
-      \     'lineinfo': g:line_number_symbol.' %3l:%-2v', 'line': '%l', 'column': '%c', 'close': '%999X X '
-      \   },
       \ 'component_function': {
+      \   'lineinfo': 'LightLineLineinfo',
       \   'modified': 'LightLineModified',
       \   'readonly': 'LightLineReadonly',
       \   'fugitive': 'LightLineFugitive',
@@ -849,14 +852,33 @@ let g:lightline = {
       \   'mode': 'LightLineMode'
       \ },
       \ 'component_expand': {
-      \   'ale': 'ALEGetStatusLine'
+      \   'ale_warning': 'ALEGetWarningStatusLine',
+      \   'ale_error': 'ALEGetErrorStatusLine'
       \ },
       \ 'component_type': {
-      \   'ale': 'warning'
+      \   'ale_warning': 'warning',
+      \   'ale_error': 'error'
       \ },
       \ 'separator': { 'left': g:separator_left_symbol, 'right': g:separator_right_symbol},
       \ 'subseparator': { 'left':g:subseparator_left_symbol, 'right': g:subseparator_right_symbol}
       \ }
+
+function! ALEGetWarningStatusLine() 
+    let l:counts = ale#statusline#Count(bufnr(''))
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+    return l:all_non_errors == 0 ? '' : printf('⚠ %d', l:all_non_errors)
+endfunction
+
+function! ALEGetErrorStatusLine() 
+    let l:counts = ale#statusline#Count(bufnr(''))
+    let l:all_errors = l:counts.error + l:counts.style_error
+    return l:all_errors == 0 ? '' : printf('✗ %d', l:all_errors)
+endfunction
+
+function! LightLineLineinfo() 
+    return winwidth(0) > 50 ? g:line_number_symbol.' '.line('.').':'.virtcol('.') : ''
+endfunction
 
 function! LightLineModified()
   return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
@@ -867,7 +889,7 @@ function! LightLineReadonly()
 endfunction
 
 function! LightLineFilename()
-  let fname = expand('%:f')
+  let fname = winwidth(0) > 120 ? expand('%:f') : expand('%:t')
   return fname == 'ControlP' && has_key(g:lightline, 'ctrlp_item') ? g:lightline.ctrlp_item :
         \ fname =~ '__Tagbar__' ? '' :
         \ fname =~ 'NERD_tree' ? '' :
@@ -884,23 +906,25 @@ function! LightLineFugitive()
     if expand('%:t') !~? 'Tagbar\|Gundo\|NERD' && &ft !~? 'vimfiler' && exists('*fugitive#head')
       let branch = fugitive#head()
       let gitStats = GitGutterGetHunkSummary()
-      return winwidth(0) > 70? (branch !=# '' ? '+'.gitStats[0].' ~'.gitStats[1].' -'.gitStats[2].' '.g:git_symbol.' '.branch : '') : (branch !=# '' ? g:git_symbol.' '.branch : '')
+      return winwidth(0) > 100 ? 
+          \ (branch !=# '' ? '+'.gitStats[0].' ~'.gitStats[1].' -'.gitStats[2].' '.g:git_symbol.' '.branch : '') : 
+          \ (winwidth(0) > 80 ? (branch !=# '' ? g:git_symbol.' '.branch : ''): '')
     endif
   catch
   endtry
   return ''
 endfunction
 
-function! LightLineFileformat()
-  return winwidth(0) > 70 ? (g:font_patched ? WebDevIconsGetFileFormatSymbol() : &fileformat) : ''
+function! LightLineFiletype()
+    return winwidth(0) > 50 ? (g:font_patched ? WebDevIconsGetFileTypeSymbol() : winwidth(0) > 100 ? &filetype : '') : ''
 endfunction
 
-function! LightLineFiletype()
-  return winwidth(0) > 70 ? (&filetype !=# '' ? (g:font_patched ? WebDevIconsGetFileTypeSymbol() : &filetype) : '') : ''
+function! LightLineFileformat()
+  return winwidth(0) > 100 ? (&fileformat !=# '' ? (g:font_patched ? WebDevIconsGetFileFormatSymbol() : &fileformat) : '') : ''
 endfunction
 
 function! LightLineFileencoding()
-  return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
+  return winwidth(0) > 100 ? (&fenc !=# '' ? &fenc : &enc) : ''
 endfunction
 
 function! LightLineMode()

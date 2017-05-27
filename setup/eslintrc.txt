@@ -25,14 +25,14 @@
     "no-bitwise": 0,
     "no-cond-assign": 0,
     "camelcase": 0,
-    "curly": 2,
+    "curly": 1,
     "no-debugger": 0,
     "no-sparse-arrays": 0,
     "eqeqeq": 2,
     "no-eq-null": 0,
     "no-eval": 0,
     "no-unused-expressions": 0,
-    "guard-for-in": 2,
+    "guard-for-in": 1,
     "no-extend-native": 0,
     "block-scoped-var": 0,
     "strict": 0,
@@ -41,17 +41,17 @@
     "no-use-before-define": 0,
     "linebreak-style": 0,
     "comma-style": [
-      2,
+      1,
       "last"
     ],
     "no-loop-func": 0,
     "indent": [
-      2,
+      1,
       4,
       { "SwitchCase": 1, "ObjectExpression": 1 }
     ],
     "max-len": [
-      2,
+      1,
       {
         "code": 120,
         "ignoreComments": true
@@ -62,23 +62,23 @@
     "no-caller": 2,
     "no-sequences": 0,
     "no-empty": 2,
-    "no-irregular-whitespace": 0,
+    "no-irregular-whitespace": 1,
     "no-new": 2,
     "valid-typeof": 0,
     "require-yield": 0,
     "no-plusplus": 0,
     "no-proto": 0,
     "quotes": [
-      2,
+      1,
       "single"
     ],
     "no-script-url": 0,
     "no-shadow": 2,
-    "dot-notation": 2,
+    "dot-notation": 1,
     "no-new-func": 0,
     "no-new-wrappers": 0,
     "no-undef": 2,
-    "no-unused-vars": 0,
+    "no-unused-vars": 1,
     "no-invalid-this": 0,
     "no-var": 0,
     "no-with": 0
