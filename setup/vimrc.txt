@@ -21,11 +21,8 @@ Plug 'tell-k/vim-autopep8', { 'for': 'python' }
 Plug 'jiangmiao/auto-pairs'
 Plug 'sheerun/vim-polyglot'
 Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'gavocanov/vim-js-indent', { 'for': 'javascript.jsx' }
 Plug 'othree/jsdoc-syntax.vim', { 'for': 'javascript.jsx' }
-Plug 'mxw/vim-jsx'
 Plug 'othree/csscomplete.vim'
-Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript.jsx' }
 Plug 'chrisbra/colorizer'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'alvan/vim-closetag'
@@ -49,7 +46,7 @@ Plug 'vim-syntastic/syntastic'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Quramy/tsuquyomi'
 Plug 'Quramy/vim-js-pretty-template'
-Plug 'peitalin/vim-jsx-typescript'
+Plug 'peitalin/vim-jsx-typescript', { 'for': 'typescript.jsx' }
 " Plug 'vim-scripts/vim-auto-save', { 'for': 'typescript' }
 
 " state autosave (uncomment to use IDE-like saved state for files - folds/cursor position, etc)
@@ -188,6 +185,7 @@ let g:markdown_syntax_conceal = 0
 let g:javascript_plugin_flow = 0
 let g:markdown_fenced_languages = ['html', 'python', 'javascript', 'typescript', 'cpp', 'java', 'bash=sh']
 let g:jsx_ext_required = 0
+
 
 " " Ale (autolinting) settings
 set statusline+=%#warningmsg#
