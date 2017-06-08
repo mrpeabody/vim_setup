@@ -185,6 +185,7 @@ let g:markdown_syntax_conceal = 0
 let g:javascript_plugin_flow = 0
 let g:markdown_fenced_languages = ['html', 'python', 'javascript', 'typescript', 'cpp', 'java', 'bash=sh']
 let g:jsx_ext_required = 0
+let g:javascript_plugin_jsdoc = 1
 
 
 " " Ale (autolinting) settings
