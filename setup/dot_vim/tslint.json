@@ -1,4 +1,5 @@
 {
+  "defaultSeverity": "warning",
   "rules": {
     "arrow-return-shorthand": false,
     "await-promise": false,
@@ -145,7 +146,8 @@
     "restrict-plus-operands": false,
     "semicolon": [
       true,
-      "ignore-bound-class-methods"
+      "ignore-bound-class-methods",
+      "ignore-intefaces"
     ],
     "space-before-function-paren": false,
     "strict-boolean-expressions": false,
