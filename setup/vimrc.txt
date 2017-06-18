@@ -37,7 +37,7 @@ Plug 'rdolgushin/gitignore.vim'
 Plug 'matze/vim-move'
 Plug 'rhysd/clever-f.vim'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'mrpeabody/ale'
+Plug 'w0rp/ale'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Quramy/tsuquyomi'
 Plug 'Quramy/vim-js-pretty-template'
