@@ -37,7 +37,7 @@ Plug 'rdolgushin/gitignore.vim'
 Plug 'matze/vim-move'
 Plug 'rhysd/clever-f.vim'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'w0rp/ale'
+Plug 'mrpeabody/ale'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Quramy/tsuquyomi'
 Plug 'Quramy/vim-js-pretty-template'
@@ -212,6 +212,8 @@ let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'typescript': ['tslint', 'tsserver']
 \}
+let g:ale_lint_on_text_changed = 'normal'
+let g:ale_lint_on_insert_leave = 1
 
 
 " QuickFix / Location list settings
