@@ -11,6 +11,7 @@ Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
 Plug 'marijnh/tern_for_vim', { 'for': 'javascript.jsx' }
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'tell-k/vim-autopep8', { 'for': 'python' }
