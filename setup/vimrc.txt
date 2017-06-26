@@ -6,7 +6,6 @@ set lazyredraw
 call plug#begin('~/.vim/plugged')
 
 Plug 'Valloric/YouCompleteMe'
-Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
@@ -94,7 +93,7 @@ let g:ycm_confirm_extra_conf = 0
 let g:used_javascript_libs = 'jquery,react,d3'
 let g:AutoPairsUseInsertedCount = 1
 let g:tern_show_argument_hints='on_hold'
-let g:ycm_filetype_specific_completion_to_disable = { 'python': 1, 'cpp': 1 }
+let g:ycm_filetype_specific_completion_to_disable = { 'cpp': 1 }
 let g:ycm_filetype_blacklist = { 'cpp': 1 }
 let g:ycm_complete_in_comments = 1
 let g:ycm_min_num_of_chars_for_completion = 2
