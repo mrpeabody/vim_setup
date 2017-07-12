@@ -198,7 +198,7 @@ augroup OnStopLintingGroup
     autocmd User ALELint call lightline#update()
 augroup END
 
-let g:ale_python_flake8_options = '--ignore=W391 --max-line-length=120'
+let g:ale_python_flake8_options = '--ignore=W391,F821 --max-line-length=120'
 
 hi link ALEErrorSign DiffDelete
 hi link ALEError Error
