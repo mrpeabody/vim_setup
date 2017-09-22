@@ -3,7 +3,7 @@
 # Install dependencies first
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     # Linux x86-64 (Ubuntu)
-    sudo apt-get install -y nodejs npm git python-pip vim vim-nox-py2 python-wheel python-setuptools build-essential python-dev
+    sudo apt-get install -y nodejs git python-pip vim vim-nox2 python-wheel python-setuptools build-essential python-dev
     sudo apt-get install -y cmake
     sudo apt-get install -y exuberant-ctags
     sudo pip install autopep8
