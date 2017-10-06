@@ -429,7 +429,7 @@ let g:oceanic_next_terminal_bold = 1
 
 " colorschemes already installed:
 " OceanicNext, OceanicNext2, one (atom-like) wombat256mod, hybrid, predawn, zenburn, happy_hacking, monokai, amcolors,
-" lucario, stereokai, tender, py-darcula, xcode-default, railscasts, vimbrains, codeschool, onedark
+" lucario, stereokai, tender, py-darcula, xcode-default, railscasts, vimbrains, codeschool, onedark, smyck
 
 
 " Highlight current line
