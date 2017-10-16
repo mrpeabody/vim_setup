@@ -255,8 +255,8 @@ autocmd BufNewFile,BufRead *.tsx set filetype=typescript.jsx
 
 
 " Semicolon/Comma automatization
-autocmd FileType javascript,jsx,,tsx,typescript,css,c,cpp,java,cs nmap <silent> <Leader>; <Plug>(cosco-commaOrSemiColon);
-autocmd FileType javascript,jsx,tsx,typescript,css,c,cpp,java,cs imap <silent> <Leader>; <c-o><Plug>(cosco-commaOrSemiColon);
+autocmd FileType javascript.jsx,javascript,jsx,tsx,typescript,css,c,cpp,java,cs nmap <silent> <Leader>; <Plug>(cosco-commaOrSemiColon);
+autocmd FileType javascript.jsx,javascript,jsx,tsx,typescript,css,c,cpp,java,cs imap <silent> <Leader>; <c-o><Plug>(cosco-commaOrSemiColon);
 let g:auto_comma_or_semicolon = 0
 
 
@@ -930,5 +930,5 @@ endfunction
 
 
 " Treat .test files as python files by default
-au BufNewFile,BufRead *.test set ft=python
+au BufNewFile,BufRead *.test,*.stage set ft=python
 
