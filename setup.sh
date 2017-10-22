@@ -6,7 +6,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     if [[ `lsb_release -r -s` == "16.04"* ]]; then
         sudo apt-get install vim vim-nox-py2
     else
-        sudo apt-get install vim vim-nox
+        sudo apt-get install vim vim-nox npm
     fi
 
     sudo apt-get install -y nodejs git python-pip python-wheel python-setuptools build-essential python-dev
