@@ -28,13 +28,13 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew install vim --with-override-system-vi
     brew install cmake
-    brew install python
+    brew install python2
     brew install node
     brew install ctags
-    pip install autopep8
-    pip install jedi
-    pip install jsbeautifier
-    pip install flake8
+    pip2 install autopep8
+    pip2 install jedi
+    pip2 install jsbeautifier
+    pip2 install flake8
     npm install -g typescript
     npm install -g git+https://github.com/Perlence/tstags.git
     npm install -g eslint babel-eslint eslint-plugin-react
