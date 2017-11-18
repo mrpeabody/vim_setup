@@ -809,6 +809,11 @@ let g:line_number_symbol = g:font_patched?"\ue0a1":"L/N"
 let g:read_only_symbol = g:font_patched?"\ue0a2":"RO"
 let g:git_symbol = g:font_patched?"\ue0a0":""
 
+" Default status panel color theme: powerline_peabody. 
+" Other options: wombat, solarized, powerline, jellybeans, Tomorrow, 
+" Tomorrow_Night, Tomorrow_Night_Blue, Tomorrow_Night_Eighties, PaperColor, seoul256, landscape, one, Dracula, darcula, 
+" molokai, materia, material, OldHope, nord and 16color
+
 let g:lightline = {
       \ 'colorscheme': 'powerline_peabody',
       \ 'mode_map': { 'c': 'NORMAL' },
