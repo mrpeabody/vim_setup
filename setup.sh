@@ -3,13 +3,9 @@
 # Install dependencies first
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     # Linux x86-64 (Ubuntu)
-    if [[ `lsb_release -r -s` == "16.04"* ]]; then
-        sudo apt-get install vim vim-nox-py2
-    else
-        sudo apt-get install vim vim-nox
-    fi
-
-    sudo apt-get install -y npm nodejs git python-pip python-wheel python-setuptools build-essential python-dev
+    sudo apt-get install -y vim vim-nox
+    sudo apt-get install -y nodejs npm git python-pip python-wheel python-setuptools build-essential python-dev
+    sudo apt-get install -y git python3-pip python3-wheel python3-setuptools python3-dev
     sudo apt-get install -y cmake
     sudo apt-get install -y exuberant-ctags
     sudo pip install autopep8
@@ -63,10 +59,19 @@ cd ~/.vim/plugged/vim-jsbeautify && git submodule update --init --recursive
 
 # setup autocomplete plugin
 cd ~/.vim/plugged/YouCompleteMe
-if [[ $1 ]]; then
-    ./install.py --tern-completer $1
-else
-    ./install.py --tern-completer
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    if [[ $1 ]]; then
+        ./install.py --tern-completer $1
+    else
+        ./install.py --tern-completer
+    fi
+else 
+    if [[ $1 ]]; then
+        python3 ./install.py --tern-completer $1
+    else
+        python3 ./install.py --tern-completer
+    fi
 fi
 
 cd ~/.vim/plugged/tern_for_vim
