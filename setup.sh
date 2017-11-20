@@ -3,22 +3,22 @@
 # Install dependencies first
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     # Linux x86-64 (Ubuntu)
-    sudo apt-get install -y vim vim-nox
+    if [[ `lsb_release -r -s` == "16.04"* ]]; then
+        sudo apt-get -y install vim-nox-py2
+    else
+        sudo apt-get -y install vim-nox
+    fi
     sudo apt-get install -y nodejs npm git python-pip python-wheel python-setuptools build-essential python-dev
-    sudo apt-get install -y git python3-pip python3-wheel python3-setuptools python3-dev
+    sudo ln -s `which nodejs` /usr/bin/node
     sudo apt-get install -y cmake
     sudo apt-get install -y exuberant-ctags
     sudo pip install autopep8
     sudo pip install jedi
     sudo pip install jsbeautifier
     sudo pip install flake8
-    sudo ln -s `which nodejs` /usr/bin/node
     sudo npm install -g typescript
     sudo npm install -g git+https://github.com/Perlence/tstags.git
-    sudo npm install -g eslint babel-eslint eslint-plugin-react
-    sudo npm install -g csslint
-    sudo npm install -g htmlhint
-    sudo npm install -g tslint
+    sudo npm install -g eslint babel-eslint eslint-plugin-react csslint htmlhint tslint
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # Mac OSX
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -60,18 +60,10 @@ cd ~/.vim/plugged/vim-jsbeautify && git submodule update --init --recursive
 # setup autocomplete plugin
 cd ~/.vim/plugged/YouCompleteMe
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    if [[ $1 ]]; then
-        ./install.py --tern-completer $1
-    else
-        ./install.py --tern-completer
-    fi
-else 
-    if [[ $1 ]]; then
-        python3 ./install.py --tern-completer $1
-    else
-        python3 ./install.py --tern-completer
-    fi
+if [[ $1 ]]; then
+    ./install.py --tern-completer $1
+else
+    ./install.py --tern-completer
 fi
 
 cd ~/.vim/plugged/tern_for_vim
