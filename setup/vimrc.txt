@@ -43,6 +43,7 @@ Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Quramy/tsuquyomi'
 Plug 'Quramy/vim-js-pretty-template'
 Plug 'peitalin/vim-jsx-typescript', { 'for': 'typescript.jsx' }
+Plug 'fatih/vim-go'
 " Plug 'vim-scripts/vim-auto-save', { 'for': 'typescript' }
 
 " state autosave (uncomment to use IDE-like saved state for files - folds/cursor position, etc)
@@ -213,6 +214,7 @@ nmap <silent>]e <Plug>(ale_next_wrap)
 let g:ale_typescript_tslint_config_path = $HOME . '/.vim/tslint.json'
 let g:ale_linters = {
 \   'javascript': ['eslint'],
+\   'go': ['gofmt'],
 \   'typescript': ['tslint', 'tsserver']
 \}
 let g:ale_lint_on_text_changed = 'normal'
