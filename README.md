@@ -115,18 +115,18 @@ After multiple occurrences are selected, any action over the selection is approp
 - Open a list of errors/warnings (if any): `<,> then L`
 
 
-### Python/JavaScript/TypeScript specific Features
+### Python/JavaScript/TypeScript/Go specific Features
 
-This setup is been created having **Python** and **JavaScript/TypeScript** in mind, 
+This setup is been created having **Python** and **JavaScript/TypeScript/Go** in mind, 
 therefore it has some advanced features:
 
 - Full Support of **PEP8** (auto indentation, beautify)
 - Syntax validation, including formatting recommendations
 - Autocomplete using **Python** Jedi (IDE), including function signatures and argument hints
-- IDE-level support of **TypeScript**, including function signatures and type-awareness
+- IDE-level support of **TypeScript** **Go**, including function signatures and type-awareness
 - JavaScript/JSON/JSX/HTML/CSS Indentation and Beautify
 - Out-of-the-Box support of main **JavaScript** libraries (autocomplete, syntax, etc)
-- Large collection of **Python** and **JavaScript/TypeScript** snippets
+- Large collection of **Python** and **JavaScript/TypeScript/Go** snippets
 
 
 ##### Special hotkeys #####
@@ -159,6 +159,14 @@ therefore it has some advanced features:
 - show the type of a symbol under cursor: `<,> then t`
 - refactor (change name of) a symbol under cursor: `<,> then e`
 
+
+**Go**:
+
+- show method/class documentation: `<,> then d`
+- navigate to the location where a symbol is defined: `Ctrl + ]`
+- show location(s) where a symbol is referenced: `Ctrl + ^`
+- show the type of a symbol under cursor: `<,> then t`
+- refactor (change name of) a symbol under cursor: `<,> then e`
 
 
 ### Miscellaneous

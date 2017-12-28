@@ -214,11 +214,38 @@ nmap <silent>]e <Plug>(ale_next_wrap)
 let g:ale_typescript_tslint_config_path = $HOME . '/.vim/tslint.json'
 let g:ale_linters = {
 \   'javascript': ['eslint'],
-\   'go': ['gofmt'],
+\   'go': ['golint', 'goimports', 'go vet', 'gometalinter'],
 \   'typescript': ['tslint', 'tsserver']
 \}
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
+let g:ale_go_gometalinter_options = '--disable-all --enable=errcheck'
+
+
+" GO plugin settings
+let g:go_fmt_autosave = 0
+let g:go_fmt_command = 'goimports'
+let g:go_template_autocreate = 0
+let g:go_fmt_fail_silently = 1
+let g:go_highlight_array_whitespace_error = 1
+let g:go_highlight_chan_whitespace_error = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_space_tab_error = 1
+let g:go_highlight_trailing_whitespace_error = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_arguments = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_generate_tags = 1
+let g:go_highlight_variable_declarations = 1
+let g:go_highlight_variable_assignments = 1
+autocmd FileType go nmap <buffer> <silent> <Leader>t : GoInfo<CR>
+autocmd FileType go nmap <buffer> <silent> <Leader>e : GoRename<CR>
+autocmd FileType go nmap <buffer> <silent> <Leader>d : GoDoc<CR>
+autocmd FileType go nmap <buffer> <C-^> : GoReferrers<CR>
 
 
 " QuickFix / Location list settings

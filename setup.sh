@@ -12,6 +12,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     sudo ln -s `which nodejs` /usr/bin/node
     sudo apt-get install -y cmake
     sudo apt-get install -y exuberant-ctags
+    sudo apt-get install -y golang
     sudo pip install autopep8
     sudo pip install jedi
     sudo pip install jsbeautifier
