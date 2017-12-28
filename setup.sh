@@ -27,6 +27,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     brew install python2
     brew install node
     brew install ctags
+    brew install go
     pip2 install autopep8
     pip2 install jedi
     pip2 install jsbeautifier
@@ -68,6 +69,9 @@ fi
 
 cd ~/.vim/plugged/tern_for_vim
 npm install
+
+# install Go Binaries (if not yet)
+vim +GoInstallBinaries +qall
 
 # everything is done
 echo 'Your vim setup is finished. Happy hacking!'
