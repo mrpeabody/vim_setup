@@ -3,7 +3,7 @@
 # Install dependencies first
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     # Linux x86-64 (Ubuntu)
-    if [[ `lsb_release -r -s` == "16.04"* ]]; then
+    if [[ `lsb_release -r -s` == "16.04"* ]] || [[ `lsb_release -r -s` =~ [18.*] ]]; then
         sudo apt-get -y install vim-nox-py2
     else
         sudo apt-get -y install vim-nox
