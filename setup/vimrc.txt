@@ -214,12 +214,12 @@ nmap <silent>]e <Plug>(ale_next_wrap)
 let g:ale_typescript_tslint_config_path = $HOME . '/.vim/tslint.json'
 let g:ale_linters = {
 \   'javascript': ['eslint'],
-\   'go': ['golint', 'goimports', 'go vet', 'gometalinter'],
+\   'go': ['goimports', 'go vet', 'gometalinter'],
 \   'typescript': ['tslint', 'tsserver']
 \}
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
-let g:ale_go_gometalinter_options = '--disable-all --enable=errcheck'
+let g:ale_go_gometalinter_options = '--disable-all --enable=errcheck --enable=golint --exclude="which can be annoying to use"'
 
 
 " GO plugin settings
