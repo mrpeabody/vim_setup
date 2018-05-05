@@ -3,12 +3,14 @@
 # Install dependencies first
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     # Linux x86-64 (Ubuntu)
-    if [[ `lsb_release -r -s` == "16.04"* ]] || [[ `lsb_release -r -s` =~ [18.*] ]]; then
+    if [[ `lsb_release -r -s` == "18.04"* ]]; then
+        sudo apt-get -y install vim-nox
+    elif [[ `lsb_release -r -s` == "16.04"* ]] || [[ `lsb_release -r -s` =~ [18.*] ]]; then
         sudo apt-get -y install vim-nox-py2
     else
         sudo apt-get -y install vim-nox
     fi
-    sudo apt-get install -y nodejs npm git python-pip python-wheel python-setuptools build-essential python-dev
+    sudo apt-get install -y nodejs npm git python-pip python-wheel python-setuptools build-essential python-dev python3-pip python3-wheel python3-setuptools python3-dev
     sudo ln -s `which nodejs` /usr/bin/node
     sudo apt-get install -y cmake
     sudo apt-get install -y exuberant-ctags
