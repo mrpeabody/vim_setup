@@ -126,6 +126,7 @@ let g:ycm_semantic_triggers =  {
 
 " jedi-vim settings
 let g:jedi#show_call_signatures_delay = 0
+let g:jedi#popup_select_first = 0
 let g:jedi#show_call_signatures = 1
 let g:jedi#goto_command = "<leader>g"
 let g:jedi#goto_assignments_command = ""
@@ -312,12 +313,12 @@ inoremap <C-@> <C-Space>
 
 
 " JsBeautify bindings
-autocmd FileType javascript noremap <buffer> <F8> :call JsBeautify()<cr>
+autocmd FileType javascript.jsx noremap <buffer> <F8> :call JsBeautify()<cr>
 autocmd FileType json noremap <buffer> <F8> :call JsonBeautify()<cr>
 autocmd FileType jsx noremap <buffer> <F8> :call JsxBeautify()<cr>
 autocmd FileType html noremap <buffer> <F8> :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <F8> :call CSSBeautify()<cr>
-autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
+autocmd FileType javascript.jsx vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
 autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
 autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
 autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
@@ -585,6 +586,7 @@ noremap <leader>W :w !sudo tee % > /dev/null<CR>
 
 " Automatic commands
 set timeoutlen=1000 ttimeoutlen=0
+noremap % v%
 nnoremap <silent> <F6> :!clear;python3 %<CR>
 nnoremap <silent> <F5> :!clear;python %<CR>
 
