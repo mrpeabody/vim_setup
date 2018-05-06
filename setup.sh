@@ -15,10 +15,10 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     sudo apt-get install -y cmake
     sudo apt-get install -y exuberant-ctags
     sudo apt-get install -y golang
-    sudo pip install autopep8
-    sudo pip install jedi
-    sudo pip install jsbeautifier
-    sudo pip install flake8
+    sudo pip3 install autopep8
+    sudo pip3 install jedi
+    sudo pip3 install jsbeautifier
+    sudo pip3 install flake8
     sudo npm install -g typescript
     sudo npm install -g git+https://github.com/Perlence/tstags.git
     sudo npm install -g eslint babel-eslint eslint-plugin-react csslint htmlhint tslint
@@ -27,14 +27,14 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew install vim --with-override-system-vi
     brew install cmake
-    brew install python2
+    brew install python
     brew install node
     brew install ctags
     brew install go
-    pip2 install autopep8
-    pip2 install jedi
-    pip2 install jsbeautifier
-    pip2 install flake8
+    pip3 install autopep8
+    pip3 install jedi
+    pip3 install jsbeautifier
+    pip3 install flake8
     npm install -g typescript
     npm install -g git+https://github.com/Perlence/tstags.git
     npm install -g eslint babel-eslint eslint-plugin-react
