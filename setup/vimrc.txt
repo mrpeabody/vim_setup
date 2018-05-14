@@ -68,6 +68,12 @@ Plug 'ryanoasis/vim-devicons'
 " Lightline (bottom panel) colorschemes
 Plug 'cocopon/lightline-hybrid.vim'
 
+" Use VIM as a MAN page viewer -- don't forget to do: git config --global core.pager 'vim -c PAGER -'
+Plug 'lambdalisue/vim-pager'
+
+" Conceal and enable ANSI escape symbols
+Plug 'powerman/vim-plugin-AnsiEsc', { 'on': 'AnsiEsc' }
+
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
@@ -712,10 +718,6 @@ let g:auto_save_no_updatetime = 1
 let g:auto_save_silent = 1
 
 
-" Use VIM as a MAN page viewer
-let $PAGER=''
-
-
 " indentation guide character
 let g:indentLine_char = '┆'
 
@@ -967,4 +969,5 @@ endfunction
 
 " Treat .test files as python files by default
 au BufNewFile,BufRead *.test,*.stage set ft=python
+au BufNewFile,BufRead *.log AnsiEsc
 
