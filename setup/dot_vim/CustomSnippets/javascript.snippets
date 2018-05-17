@@ -38,23 +38,17 @@ snippet : "Object key key: 'value'"
 ${1:key}: ${2:"${3:value}"}${4:, }
 endsnippet
 
-snippet af
-function(${1:args}) {
+snippet vf
+${1:const} ${2:function_name} = (${3:args}) => {
     $4
 }
-endsnippet
-
-snippet vf
-${1:var} ${2:function_name} = function(${3:args}) {
-    $4
-};
 $0
 endsnippet
 
 snippet tf
-this.${1:function_name} = function(${2:args}) {
+this.${1:function_name} = (${2:args}) => {
     $3
-};
+}
 $0
 endsnippet
 
