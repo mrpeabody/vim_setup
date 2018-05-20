@@ -66,6 +66,7 @@ Plug 'ryanoasis/vim-devicons'
 
 " Extra colorschemes (optional -- comment if not needed)
 Plug 'cocopon/lightline-hybrid.vim'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'jacoborus/tender.vim'
 
 " Conceal and enable ANSI escape symbols
@@ -471,8 +472,9 @@ let g:one_allow_italics = 1
 let g:oceanic_next_terminal_bold = 1
 
 " colorschemes already installed:
-" OceanicNext, OceanicNext2, one (atom-like) wombat256mod, hybrid, predawn, zenburn, happy_hacking, monokai, amcolors,
-" lucario, stereokai, tender, py-darcula, xcode-default, railscasts, vimbrains, codeschool, onedark, smyck
+" onehalfdark, onehalflight, OceanicNext, OceanicNext2, one (atom-like) wombat256mod, hybrid, predawn, zenburn, 
+" happy_hacking, monokai, amcolors,lucario, stereokai, tender, py-darcula, xcode-default, railscasts, vimbrains, 
+" codeschool, onedark, smyck
 
 
 " Highlight current line
@@ -851,7 +853,7 @@ let g:read_only_symbol = g:font_patched?"\ue0a2":"RO"
 let g:git_symbol = g:font_patched?"\ue0a0":""
 
 " Default status panel color theme: powerline_peabody. 
-" Other options: wombat, solarized, powerline, jellybeans, Tomorrow, 
+" Other options: tender, onehalfdark, onehalflight, wombat, solarized, powerline, jellybeans, Tomorrow, 
 " Tomorrow_Night, Tomorrow_Night_Blue, Tomorrow_Night_Eighties, PaperColor, seoul256, landscape, one, Dracula, darcula, 
 " molokai, materia, material, OldHope, nord and 16color
 
