@@ -65,8 +65,9 @@ Plug 'milkypostman/vim-togglelist'
 " Uncomment the below plugin in no patched font is available
 Plug 'ryanoasis/vim-devicons'
 
-" Lightline (bottom panel) colorschemes
+" Extra colorschemes (optional -- comment if not needed)
 Plug 'cocopon/lightline-hybrid.vim'
+Plug 'jacoborus/tender.vim'
 
 " Conceal and enable ANSI escape symbols
 Plug 'lambdalisue/vim-pager'

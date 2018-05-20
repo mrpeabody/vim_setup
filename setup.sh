@@ -28,6 +28,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     brew install vim --with-override-system-vi
     brew install cmake
     brew install python
+    brew install python3
     brew install node
     brew install ctags
     brew install go
@@ -65,9 +66,9 @@ cd ~/.vim/plugged/vim-jsbeautify && git submodule update --init --recursive
 cd ~/.vim/plugged/YouCompleteMe
 
 if [[ $1 ]]; then
-    ./install.py --tern-completer $1
+    ./install.py --tern-completer --java-completer $1
 else
-    ./install.py --tern-completer
+    ./install.py --tern-completer --java-completer
 fi
 
 cd ~/.vim/plugged/tern_for_vim

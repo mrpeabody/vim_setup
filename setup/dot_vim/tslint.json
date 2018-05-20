@@ -2,7 +2,7 @@
   "defaultSeverity": "warning",
   "rules": {
     "arrow-return-shorthand": false,
-    "await-promise": false,
+    "await-promise": true,
     "no-boolean-literal-compare": false,
     "no-floating-promises": false,
     "no-misused-new": true,
@@ -11,6 +11,7 @@
     "no-unnecessary-qualifier": false,
     "no-unsafe-any": false,
     "prefer-function-over-method": false,
+    "space-before-function-paren": [true, "never"],
     "prefer-method-signature": true,
     "strict-type-predicates": false,
     "adjacent-overload-signatures": false,
@@ -105,14 +106,15 @@
     "no-parameter-properties": false,
     "no-reference": true,
     "no-require-imports": true,
-    "no-shadowed-variable": false,
+    "no-shadowed-variable": true,
     "no-sparse-arrays": true,
     "no-string-literal": true,
-    "no-string-throw": false,
+    "no-string-throw": true,
     "no-switch-case-fall-through": true,
-    "no-trailing-whitespace": false,
+    "no-trailing-whitespace": true,
     "no-unsafe-finally": true,
     "no-unused-expression": true,
+    "no-unused-variable": true,
     "no-var-keyword": false,
     "no-var-requires": true,
     "no-void-expression": false,
@@ -137,7 +139,7 @@
     ],
     "prefer-const": true,
     "prefer-for-of": false,
-    "promise-function-async": false,
+    "promise-function-async": true,
     "quotemark": [
       true,
       "single"
@@ -149,7 +151,6 @@
       "ignore-bound-class-methods",
       "ignore-intefaces"
     ],
-    "space-before-function-paren": false,
     "strict-boolean-expressions": false,
     "switch-default": false,
     "trailing-comma": [
@@ -170,7 +171,14 @@
       "member-variable-declaration"
     ],
     "typedef-whitespace": [
-      false
+      true,
+      {
+        "call-signature": "nospace",
+        "index-signature": "nospace",
+        "parameter": "nospace",
+        "property-declaration": "nospace",
+        "variable-declaration": "nospace"
+      }
     ],
     "typeof-compare": true,
     "unified-signatures": true,
@@ -180,7 +188,11 @@
       true,
       "check-decl",
       "check-operator",
+      "check-preblock",
+      "check-branch",
+      "check-module",
       "check-separator",
+      "check-type-operator",
       "check-type"
     ]
   }
