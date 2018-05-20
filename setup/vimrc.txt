@@ -27,7 +27,6 @@ Plug 'Valloric/MatchTagAlways'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'lepture/vim-jinja'
 Plug 'SirVer/ultisnips'
-Plug 'lfilho/cosco.vim'
 Plug 'tmhedberg/SimpylFold'
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'nelstrom/vim-markdown-folding', { 'for': 'markdown' }
@@ -225,6 +224,11 @@ let g:ale_linters = {
 \   'go': ['goimports', 'go vet', 'gometalinter'],
 \   'typescript': ['tslint', 'tsserver']
 \}
+
+let g:ale_fixers = {
+\   'typescript': ['tslint'],
+\}
+
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
 let g:ale_go_gometalinter_options = '--disable-all --enable=errcheck --enable=golint --exclude="which can be annoying to use"'
@@ -319,6 +323,7 @@ inoremap <C-@> <C-Space>
 
 " JsBeautify bindings
 autocmd FileType javascript.jsx noremap <buffer> <F8> :call JsBeautify()<cr>
+autocmd FileType typescript noremap <buffer> <F8> :ALEFix<cr>
 autocmd FileType json noremap <buffer> <F8> :call JsonBeautify()<cr>
 autocmd FileType jsx noremap <buffer> <F8> :call JsxBeautify()<cr>
 autocmd FileType html noremap <buffer> <F8> :call HtmlBeautify()<cr>
