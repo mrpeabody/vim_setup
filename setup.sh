@@ -3,7 +3,10 @@
 # Install dependencies first
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     sudo apt-get -y install vim-nox
-    sudo apt-get install -y nodejs npm git python-pip python-wheel python-setuptools build-essential python-dev python3-pip python3-wheel python3-setuptools python3-dev
+    sudo apt-get install - y git build-essential
+    sudo apt-get install -y python-dev python-setuptools python-pip python-wheel 
+    sudo apt-get install -y python3-dev python3-setuptools python3-pip python3-wheel 
+    sudo apt-get install -y nodejs npm 
     sudo ln -s `which nodejs` /usr/bin/node
     sudo apt-get install -y cmake
     sudo apt-get install -y exuberant-ctags
