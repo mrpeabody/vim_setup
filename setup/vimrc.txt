@@ -213,7 +213,7 @@ augroup OnStopLintingGroup
     autocmd User ALELint call lightline#update()
 augroup END
 
-let g:ale_python_flake8_options = '--ignore=W391,F821 --max-line-length=120'
+let g:ale_python_flake8_options = '--ignore=W391,F821,F403 --max-line-length=120'
 let g:ale_completion_enabled = 0
 
 hi link ALEErrorSign DiffDelete
@@ -653,7 +653,7 @@ map q <Nop>
 
 
 " Special filetype settings
-au FileType json setl ts=2 sts=2 et shiftwidth=2
+au FileType json,cpp,c setl ts=2 sts=2 et shiftwidth=2
 au FileType python setl colorcolumn=80
 au FileType rst setl colorcolumn=70
 
