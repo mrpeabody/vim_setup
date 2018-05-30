@@ -3,7 +3,7 @@
 # Install dependencies first
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     sudo apt-get -y install vim-nox
-    sudo apt-get install - y git build-essential
+    sudo apt-get install -y git build-essential
     sudo apt-get install -y python-dev python-setuptools python-pip python-wheel 
     sudo apt-get install -y python3-dev python3-setuptools python3-pip python3-wheel 
     sudo apt-get install -y nodejs npm 
