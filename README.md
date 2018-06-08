@@ -2,7 +2,6 @@
 
 1. Clone this repo anywhere on your machine
 2. Run **setup.sh**: `./setup.sh`
-    - Optionally, if you need the advanced support for C-languages (Java, C++, etc): `./setup.sh --clang-completer`
 3. Install and use one of the included patched fonts for Mac/Ubuntu/Mint. The most popular dev fonts are included in the
 `fonts` directory, more can be found [here](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts). 
 Otherwise, in `~/.vimrc`, change the **g:font_patched** variable to **0** and comment out the `Plugin 'ryanoasis/vim-devicons'` line.

@@ -46,7 +46,6 @@ cp setup/gvimrc.txt ~/.gvimrc
 rm -rf ~/.vim
 cp -r setup/dot_vim ~/.vim
 cp setup/dot_tern_config ~/.tern-config
-cp setup/ycm_extra_conf.py ~/.ycm_extra_conf.py
 cp setup/eslintrc.txt ~/.eslintrc
 
 # setup vim plugin manager
@@ -58,20 +57,16 @@ cp setup/powerline_peabody.vim ~/.vim/plugged/lightline.vim/autoload/lightline/c
 # setup jsBeautify Plugin
 cd ~/.vim/plugged/vim-jsbeautify && git submodule update --init --recursive
 
+# install Go Binaries (if not yet)
+vim +GoInstallBinaries +qall
+
 # setup autocomplete plugin
 cd ~/.vim/plugged/YouCompleteMe
 
-if [[ $1 ]]; then
-    ./install.py --tern-completer --java-completer $1
-else
-    ./install.py --tern-completer --java-completer
-fi
+./install.py --js-completer --java-completer --clang-completer --go-completer
 
-cd ~/.vim/plugged/tern_for_vim
-npm install
-
-# install Go Binaries (if not yet)
-vim +GoInstallBinaries +qall
+# cd ~/.vim/plugged/tern_for_vim
+# npm install
 
 # everything is done
 echo 'Your vim setup is finished. Happy hacking!'
