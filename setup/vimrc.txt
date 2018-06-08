@@ -27,9 +27,9 @@ Plug 'Valloric/MatchTagAlways'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'lepture/vim-jinja'
 Plug 'SirVer/ultisnips'
-Plug 'tmhedberg/SimpylFold'
+" Plug 'tmhedberg/SimpylFold'
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
-Plug 'nelstrom/vim-markdown-folding', { 'for': 'markdown' }
+" Plug 'nelstrom/vim-markdown-folding', { 'for': 'markdown' }
 Plug 'Yggdroot/indentLine'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'nacitar/a.vim'
@@ -100,8 +100,8 @@ let g:ycm_confirm_extra_conf = 0
 let g:used_javascript_libs = 'jquery,react,d3'
 let g:AutoPairsUseInsertedCount = 1
 let g:tern_show_argument_hints='on_hold'
-let g:ycm_filetype_specific_completion_to_disable = { 'cpp': 1 }
-let g:ycm_filetype_blacklist = { 'cpp': 1 }
+" let g:ycm_filetype_specific_completion_to_disable = { 'cpp': 1 }
+" let g:ycm_filetype_blacklist = { 'cpp': 1 }
 let g:ycm_complete_in_comments = 1
 let g:ycm_min_num_of_chars_for_completion = 2
 let g:ycm_seed_identifiers_with_syntax = 1
@@ -237,6 +237,17 @@ let g:ale_fixers = {
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
 let g:ale_go_gometalinter_options = '--disable-all --enable=errcheck --enable=golint --exclude="which can be annoying to use"'
+
+let g:ale_pattern_options = {
+\   '.*\.cpp$': {'ale_enabled': 0},
+\   '.*\.c$': {'ale_enabled': 0},
+\   '.*\.hpp$': {'ale_enabled': 0},
+\   '.*\.h$': {'ale_enabled': 0},
+\   '.*\.C$': {'ale_enabled': 0},
+\   '.*\.CPP$': {'ale_enabled': 0},
+\   '.*\.H$': {'ale_enabled': 0},
+\   '.*\.HPP$': {'ale_enabled': 0}
+\}
 
 
 " GO plugin settings
@@ -694,17 +705,18 @@ command Q q
 
 
 " Folding settings
-if &diff
-    set foldmethod=diff
-    highlight! link DiffText MatchParen
-else
-    set foldmethod=syntax
-    set foldlevel=99
-endif
+set nofoldenable
+" if &diff
+"     set foldmethod=diff
+"     highlight! link DiffText MatchParen
+" else
+"     set foldmethod=syntax
+"     set foldlevel=99
+" endif
+" nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+" vnoremap <Space> zf
+" let g:SimpylFold_docstring_preview = 1
 
-nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
-vnoremap <Space> zf
-let g:SimpylFold_docstring_preview = 1
 
 " .swp files location
 set directory=$HOME/.vim/swapfiles//
@@ -734,6 +746,8 @@ let g:auto_save_silent = 1
 
 " indentation guide character
 let g:indentLine_char = '┆'
+let g:indentLine_fileTypeExclude = ['cpp', 'c', 'text']
+
 
 " Vim
 " guide color
