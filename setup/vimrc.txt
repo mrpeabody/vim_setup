@@ -17,8 +17,6 @@ Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'tell-k/vim-autopep8', { 'for': 'python' }
 Plug 'jiangmiao/auto-pairs'
 Plug 'sheerun/vim-polyglot'
-" Plug 'othree/javascript-libraries-syntax.vim'
-" Plug 'othree/jsdoc-syntax.vim', { 'for': 'javascript.jsx' }
 Plug 'othree/csscomplete.vim'
 Plug 'chrisbra/colorizer'
 Plug 'maksimr/vim-jsbeautify'
@@ -27,9 +25,7 @@ Plug 'Valloric/MatchTagAlways'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'lepture/vim-jinja'
 Plug 'SirVer/ultisnips'
-" Plug 'tmhedberg/SimpylFold'
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
-" Plug 'nelstrom/vim-markdown-folding', { 'for': 'markdown' }
 Plug 'Yggdroot/indentLine'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'nacitar/a.vim'
@@ -43,10 +39,6 @@ Plug 'Quramy/tsuquyomi'
 Plug 'Quramy/vim-js-pretty-template'
 Plug 'peitalin/vim-jsx-typescript', { 'for': 'typescript.jsx' }
 Plug 'fatih/vim-go'
-" Plug 'vim-scripts/vim-auto-save', { 'for': 'typescript' }
-
-" state autosave (uncomment to use IDE-like saved state for files - folds/cursor position, etc)
-" Plugin 'restore_view.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 
@@ -307,12 +299,6 @@ let g:tsuquyomi_use_vimproc = 1
 
 " Typescript / React settings
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript.jsx
-
-
-" Semicolon/Comma automatization
-autocmd FileType javascript.jsx,typescript,css,c,cpp,java,cs nmap <silent> <Leader>; <Plug>(cosco-commaOrSemiColon);
-autocmd FileType javascript.jsx,tsx,typescript,css,c,cpp,java,cs imap <silent> <Leader>; <c-o><Plug>(cosco-commaOrSemiColon);
-let g:auto_comma_or_semicolon = 0
 
 
 " Autocomplete
@@ -620,7 +606,7 @@ nnoremap <silent> <Leader>m :MinimapToggle<CR>
 
 
 " Filesystem Tree
-map <silent> <Leader>n  :NERDTreeToggle<CR>
+nmap <silent> <Leader>n  :NERDTreeToggle<CR>
 let g:NERDTreeIndicatorMapCustom = {
             \ "Modified"  : "✹",
             \ "Staged"    : "✚",
@@ -673,7 +659,7 @@ nmap <silent> <leader>j ?function<cr>:noh<cr><Plug>(jsdoc)
 
 
 " Tagbar (Code structure hotkey)
-map <silent> <Leader>b  :TagbarToggle<CR>
+nmap <silent> <Leader>b  :TagbarToggle<CR>
 let g:tagbar_type_typescript = {
   \ 'ctagsbin' : 'tstags',
   \ 'ctagsargs' : '-f-',
