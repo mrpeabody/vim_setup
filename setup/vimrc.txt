@@ -301,14 +301,6 @@ let g:tsuquyomi_use_vimproc = 1
 autocmd BufNewFile,BufRead *.tsx set filetype=typescript.jsx
 
 
-" Autocomplete
-set completeopt=longest,menuone
-inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
-            \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-
-inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
-            \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-
 au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja.html
 autocmd FileType css,less setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown,jinja setlocal omnifunc=htmlcomplete#CompleteTags
@@ -316,8 +308,6 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=jedi#completions
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-inoremap <C-Space> <C-x><C-o>
-inoremap <C-@> <C-Space>
 
 
 " JsBeautify bindings
@@ -332,7 +322,7 @@ autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
 autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
 autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
 
-"
+
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 if (executable('pbcopy') || executable('xclip') || executable('xsel')) && has('clipboard')
   set clipboard=unnamed
