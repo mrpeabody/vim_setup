@@ -971,4 +971,5 @@ endfunction
 " Treat .test files as python files by default
 au BufNewFile,BufRead *.test,*.stage set ft=python
 au BufNewFile,BufRead *.log AnsiEsc
+au BufNewFile,BufRead *.log set wrap
 
