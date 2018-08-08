@@ -176,19 +176,16 @@ let g:jsx_ext_required = 0
 let g:javascript_plugin_jsdoc = 1
 
 
-" " Ale (autolinting) settings
-set statusline+=%#warningmsg#
-set statusline+=%{exists('g:ale_enabled')?ALEGetStatusLine():''}
-set statusline+=%*
-
+" Ale (autolinting) settings
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '>>'
-let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '']
 
 augroup OnStopLintingGroup
     autocmd!
-    autocmd User ALELint call lightline#update()
+    autocmd User ALEJobStarted call lightline#update()
+    autocmd User ALELintPost call lightline#update()
+    autocmd User ALEFixPost call lightline#update()
 augroup END
 
 let g:ale_python_flake8_options = '--ignore=W391,F821,F403 --max-line-length=120'
