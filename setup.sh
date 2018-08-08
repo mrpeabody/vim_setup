@@ -45,7 +45,6 @@ cp setup/vimrc.txt ~/.vimrc
 cp setup/gvimrc.txt ~/.gvimrc
 rm -rf ~/.vim
 cp -r setup/dot_vim ~/.vim
-cp setup/dot_tern_config ~/.tern-config
 cp setup/eslintrc.txt ~/.eslintrc
 
 # setup vim plugin manager
@@ -63,10 +62,7 @@ vim +GoInstallBinaries +qall
 # setup autocomplete plugin
 cd ~/.vim/plugged/YouCompleteMe
 
-./install.py --js-completer --java-completer --clang-completer --go-completer
-
-# cd ~/.vim/plugged/tern_for_vim
-# npm install
+./install.py --java-completer --clang-completer --go-completer
 
 # everything is done
 echo 'Your vim setup is finished. Happy hacking!'

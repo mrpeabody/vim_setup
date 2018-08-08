@@ -11,7 +11,6 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
-Plug 'marijnh/tern_for_vim', { 'for': 'javascript.jsx' }
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'tell-k/vim-autopep8', { 'for': 'python' }
@@ -34,9 +33,6 @@ Plug 'matze/vim-move'
 Plug 'rhysd/clever-f.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'w0rp/ale'
-Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-Plug 'Quramy/tsuquyomi'
-Plug 'Quramy/vim-js-pretty-template'
 Plug 'peitalin/vim-jsx-typescript', { 'for': 'typescript.jsx' }
 Plug 'fatih/vim-go'
 Plug 'tpope/vim-commentary'
@@ -94,7 +90,6 @@ let g:ycm_confirm_extra_conf = 0
 let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:used_javascript_libs = 'jquery,react,d3'
 let g:AutoPairsUseInsertedCount = 1
-let g:tern_show_argument_hints='on_hold'
 let g:ycm_complete_in_comments = 1
 let g:ycm_min_num_of_chars_for_completion = 2
 let g:ycm_seed_identifiers_with_syntax = 1
@@ -134,14 +129,6 @@ let g:jedi#rename_command = "<leader>e"
 let g:jedi#use_tabs_not_buffers = 1
 let g:jedi#force_py_version = 3
 let g:jedi#completions_enabled = 0
-
-
-" Tern (JavaScript) settings
-autocmd FileType javascript,jsx nmap <silent> <C-]> :TernDef<CR>
-autocmd FileType javascript,jsx nmap <silent> <Leader>d :TernDoc<CR>
-autocmd FileType javascript,jsx nmap <silent> <Leader>t :TernType<CR>
-autocmd FileType javascript,jsx nmap <silent> <C-^> :TernRefs<CR>
-autocmd FileType javascript,jsx nmap <silent> <Leader>e :TernRename<CR>
 
 
 " Git Gutter settings
@@ -216,7 +203,7 @@ nmap <silent>]e <Plug>(ale_next_wrap)
 
 let g:ale_typescript_tslint_config_path = $HOME . '/.vim/tslint.json'
 let g:ale_linters = {
-\   'javascript': ['eslint'],
+\   'javascript': ['eslint', 'tsserver'],
 \   'go': ['goimports', 'go vet', 'gometalinter'],
 \   'typescript': ['tslint', 'tsserver']
 \}
@@ -287,16 +274,6 @@ function! NumberToggle()
 endfunc
 
 nmap <silent> <A-l> :call NumberToggle()<CR>
-
-
-" Typescript completion plugin
-let g:tsuquyomi_completion_detail = 1
-autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
-autocmd FileType typescript nmap <buffer> <Leader>e <Plug>(TsuquyomiRenameSymbol)
-autocmd FileType typescript nmap <buffer> <Leader>E <Plug>(TsuquyomiRenameSymbolC)
-let g:tsuquyomi_disable_quickfix = 1
-let g:tsuquyomi_single_quote_import = 1
-let g:tsuquyomi_use_vimproc = 1
 
 
 " Typescript / React settings
@@ -963,11 +940,6 @@ function! TagbarStatusFunc(current, sort, fname, ...) abort
     let g:lightline.fname = a:fname
   return lightline#statusline(0)
 endfunction
-
-
-" TypeScript template strings support (uncomment for colored template strings)
-" autocmd FileType typescript JsPreTmpl jinja
-" autocmd FileType typescript syn clear foldBraces
 
 
 " Treat .test files as python files by default
