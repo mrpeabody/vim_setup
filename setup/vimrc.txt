@@ -88,7 +88,7 @@ set completeopt-=preview
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-let g:used_javascript_libs = 'jquery,react,d3'
+let g:used_javascript_libs = 'jquery,react,d3,requirejs,underscore,jasmine'
 let g:AutoPairsUseInsertedCount = 1
 let g:ycm_complete_in_comments = 1
 let g:ycm_min_num_of_chars_for_completion = 2
@@ -129,6 +129,14 @@ let g:jedi#rename_command = "<leader>e"
 let g:jedi#use_tabs_not_buffers = 1
 let g:jedi#force_py_version = 3
 let g:jedi#completions_enabled = 0
+
+
+" Enable some IDE-like features for JS / TS and Java
+autocmd FileType java,javascript,jsx,typescript,tsx nmap <silent> <C-]> :YcmCompleter GoToDefinition<CR>
+autocmd FileType java,javascript,jsx,typescript,tsx nmap <silent> <Leader>d :YcmCompleter GetDoc<CR>
+autocmd FileType java,javascript,jsx,typescript,tsx nmap <silent> <Leader>t :YcmCompleter GetType<CR>
+autocmd FileType java,javascript,jsx,typescript,tsx nmap <silent> <C-^> :YcmCompleter GoToReferences<CR>
+autocmd FileType java,javascript,jsx,typescript,tsx nmap <silent> <Leader>e :execute ':YcmCompleter RefactorRename ' . input('New Name: ')<CR>
 
 
 " Git Gutter settings
