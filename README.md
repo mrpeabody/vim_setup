@@ -168,19 +168,6 @@ In order for **ALT** key to work on Mac, do the following:
 - Terminal: `Preferences -> Profiles -> Use Option as Meta key` check
 
 
-#### Neovim support ####
-This setup should work for Neovim as well. The easiest way to use the same settings for both apps is to make 
-symlinks for Neovim:
-
-```bash
-ln -s ~/.vim ~/.config/nvim
-ln -s ~/.vimrc ~/.config/nvim/init.vim
-```
-
-Neovim requires python package from PIP in order to function with this setup:
-`pip install neovim`
-
-
 #### vim as a git diff/merge tool ####
 The following commands will make git use vim as a diff/merge tool:
 
@@ -203,3 +190,28 @@ version as the merged one.
 
 - in both modes, navigate through changes by using `[c` for jump to next change and `]c` to jump to 
 previous change.
+
+
+#### Neovim support ####
+This setup works great for Neovim as well. The easiest way to use the same settings for both apps is to make 
+symlinks for Neovim:
+
+```bash
+ln -s ~/.vim ~/.config/nvim
+ln -s ~/.vimrc ~/.config/nvim/init.vim
+```
+
+Neovim requires python package from PIP/PIP3 in order to function with this setup:
+
+```bash
+pip install neovim
+```
+
+To make Neovim work well with git (log pager, commit message editor, difftool, etc):
+
+```bash
+git config --global merge.tool vimdiff
+git config --global mergetool.path nvim
+git config --global core.page "nvim -R"
+git config --global color.pager no
+```
