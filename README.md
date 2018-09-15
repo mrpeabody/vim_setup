@@ -207,11 +207,10 @@ Neovim requires python package from PIP/PIP3 in order to function with this setu
 pip install neovim
 ```
 
-To make Neovim work well with git (log pager, commit message editor, difftool, etc):
+To make Neovim work well with git (log pager, commit message editor, difftool, etc) -- in addition to the other git settings from above:
 
 ```bash
-git config --global merge.tool vimdiff
-git config --global mergetool.path nvim
+git config --global mergetool.vimdiff.cmd 'nvim -dR $LOCAL $REMOTE'
 git config --global core.pager "nvim -R"
 git config --global color.pager no
 ```
