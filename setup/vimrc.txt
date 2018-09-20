@@ -6,6 +6,7 @@ set lazyredraw
 call plug#begin('~/.vim/plugged')
 
 Plug 'Valloric/YouCompleteMe'
+Plug 'Shougo/echodoc.vim'
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
@@ -161,6 +162,9 @@ let g:UltiSnipsListSnippets = '<c-b>'
 let g:UltiSnipsSnippetsDir=expand("~/.vim/CustomSnippets")
 let g:UltiSnipsSnippetDirectories=["CustomSnippets", "UltiSnips"]
 
+
+" Echodoc enabled
+let g:echodoc#enable_at_startup = 1
 
 " Auto-PEP8 settings
 let g:autopep8_max_line_length=120
@@ -681,7 +685,6 @@ set directory=$HOME/.vim/swapfiles//
 
 " Neovim Ctrl+H fix
 if has('nvim')
-    set guicursor=
      nmap <BS> <C-W>h
  endif
 
