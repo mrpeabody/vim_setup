@@ -1,4 +1,4 @@
-## Vim/Neovim automatic installation for MacOS X/Ubuntu/Debian/Mint
+## Vim/Neovim automatic installation for MacOS X/Ubuntu/Debian/Mint/Arch/Manjaro
 
 1. Clone this repo anywhere on your machine
 2. Run **setup.sh**: `./setup.sh`

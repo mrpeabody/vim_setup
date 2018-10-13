@@ -2,15 +2,22 @@
 
 # Install dependencies first
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    sudo apt-get -y install vim-nox
-    sudo apt-get install -y git build-essential
-    sudo apt-get install -y python-dev python-setuptools python-pip python-wheel 
-    sudo apt-get install -y python3-dev python3-setuptools python3-pip python3-wheel 
-    sudo apt-get install -y nodejs npm 
-    sudo ln -s `which nodejs` /usr/bin/node
-    sudo apt-get install -y cmake
-    sudo apt-get install -y exuberant-ctags
-    sudo apt-get install -y golang
+    if [ -f "/etc/arch-release" ]; then
+        sudo pacman --noconfirm -S git cmake gcc ctags
+        sudo pacman --noconfirm -S go npm nodejs 
+        sudo pacman --noconfirm -S python-pip python-wheel python2-setuptools python2-pip python2-wheel python2-setuptools
+    else
+        sudo apt-get -y install vim-nox
+        sudo apt-get install -y git build-essential
+        sudo apt-get install -y python-dev python-setuptools python-pip python-wheel 
+        sudo apt-get install -y python3-dev python3-setuptools python3-pip python3-wheel 
+        sudo apt-get install -y nodejs npm 
+        sudo ln -s `which nodejs` /usr/bin/node
+        sudo apt-get install -y cmake
+        sudo apt-get install -y exuberant-ctags
+        sudo apt-get install -y golang
+    fi
+
     sudo pip3 install autopep8
     sudo pip3 install jedi
     sudo pip3 install jsbeautifier
