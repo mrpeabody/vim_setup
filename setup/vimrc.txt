@@ -685,7 +685,8 @@ set directory=$HOME/.vim/swapfiles//
 
 " Neovim Ctrl+H fix
 if has('nvim')
-     nmap <BS> <C-W>h
+    set guicursor=
+    nmap <BS> <C-W>h
  endif
 
 

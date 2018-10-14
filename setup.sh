@@ -3,7 +3,7 @@
 # Install dependencies first
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     if [ -f "/etc/arch-release" ]; then
-        sudo pacman --noconfirm -S git cmake gcc ctags
+        sudo pacman --noconfirm -S vim git cmake gcc ctags
         sudo pacman --noconfirm -S go npm nodejs 
         sudo pacman --noconfirm -S python-pip python-wheel python2-setuptools python2-pip python2-wheel python2-setuptools
     else
