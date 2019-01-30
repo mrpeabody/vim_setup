@@ -54,6 +54,7 @@ Plug 'milkypostman/vim-togglelist'
 Plug 'ryanoasis/vim-devicons'
 
 " Extra colorschemes (optional -- comment if not needed)
+Plug 'mhartington/oceanic-next'
 Plug 'cocopon/lightline-hybrid.vim'
 Plug 'patstockwell/vim-monokai-tasty'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
@@ -437,7 +438,7 @@ if (has("termguicolors"))
     set termguicolors
 endif
 
-colorscheme OceanicNext2
+colorscheme OceanicNext
 set background=dark
 
 " enable italics, disabled by default
@@ -835,10 +836,10 @@ let g:git_symbol = g:font_patched?"\ue0a0":""
 " Default status panel color theme: powerline_peabody. 
 " Other options: monokai_tasty, tender, onehalfdark, onehalflight, wombat, solarized, powerline, jellybeans, Tomorrow, 
 " Tomorrow_Night, Tomorrow_Night_Blue, Tomorrow_Night_Eighties, PaperColor, seoul256, landscape, one, Dracula, darcula, 
-" molokai, materia, material, OldHope, nord and 16color
+" molokai, materia, material, OldHope, nord, 16color, oceanicnext, oceanicnextlight
 
 let g:lightline = {
-      \ 'colorscheme': 'powerline_peabody',
+      \ 'colorscheme': 'oceanicnext',
       \ 'mode_map': { 'c': 'NORMAL' },
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
