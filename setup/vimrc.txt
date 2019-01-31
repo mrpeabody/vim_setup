@@ -432,27 +432,22 @@ highlight ColorColumn ctermbg=236
 
 
 " Color scheme
-set t_Co=256
+try | set t_Co=256
 set background=dark
 if (has("termguicolors"))
     set termguicolors
 endif
 
-colorscheme OceanicNext
-set background=dark
-
-" enable italics, disabled by default
-let g:oceanic_next_terminal_italic = 1
-let g:onedark_termcolors=256
-let g:one_allow_italics = 1
-
-" enable bold, disabled by default
-let g:oceanic_next_terminal_bold = 1
-
 " colorschemes already installed:
 " vim-monokai-tasty, onehalfdark, onehalflight, OceanicNext, OceanicNext2, one (atom-like) wombat256mod, hybrid, predawn, zenburn, 
 " happy_hacking, amcolors, lucario, tender, py-darcula, xcode-default, railscasts, vimbrains, codeschool, onedark, smyck
+colorscheme OceanicNext
 
+let g:oceanic_next_terminal_italic = 1
+let g:oceanic_next_terminal_bold = 1
+let g:onedark_termcolors=256
+let g:one_allow_italics = 1
+catch  | endtry
 
 " Highlight current line
 set cursorline

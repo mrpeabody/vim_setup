@@ -55,7 +55,7 @@ cp -r setup/dot_vim ~/.vim
 cp setup/eslintrc.txt ~/.eslintrc
 
 # setup vim plugin manager
-vim +PlugInstall +qall
+vim +"colorscheme OceanicNext2" +PlugInstall +qall
 
 # copy the default lightline (bottom panel) theme 
 cp setup/powerline_peabody.vim ~/.vim/plugged/lightline.vim/autoload/lightline/colorscheme/.
@@ -64,7 +64,7 @@ cp setup/powerline_peabody.vim ~/.vim/plugged/lightline.vim/autoload/lightline/c
 cd ~/.vim/plugged/vim-jsbeautify && git submodule update --init --recursive
 
 # install Go Binaries (if not yet)
-vim +GoInstallBinaries +qall
+vim +"colorscheme OceanicNext2" +GoInstallBinaries +qall
 
 # setup autocomplete plugin
 cd ~/.vim/plugged/YouCompleteMe
