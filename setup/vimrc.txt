@@ -33,7 +33,7 @@ Plug 'rdolgushin/gitignore.vim'
 Plug 'matze/vim-move'
 Plug 'rhysd/clever-f.vim'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'peitalin/vim-jsx-typescript', { 'for': 'typescript.jsx' }
 Plug 'fatih/vim-go'
 Plug 'tpope/vim-commentary'
