@@ -77,7 +77,30 @@
       1,
       "single"
     ],
-    "no-script-url": 0,
+    "space-infix-ops": [1, {"int32Hint": true}],
+    "key-spacing": [1, {
+        "singleLine": {
+            "beforeColon": false,
+            "afterColon": true,
+            "mode": "strict"
+        },
+        "multiLine": {
+            "beforeColon": false,
+            "afterColon": true,
+            "mode": "strict"
+        }
+    }],
+    "keyword-spacing": [1, {
+        "before": true,
+        "after": true
+    }],
+    "space-before-function-paren": [1, {
+        "anonymous": "never",
+        "named": "never",
+        "asyncArrow": "always"
+    }],
+    "space-before-blocks": [1, "always"],
+    no-script-url": 0,
     "no-shadow": 2,
     "dot-notation": 1,
     "no-new-func": 0,
