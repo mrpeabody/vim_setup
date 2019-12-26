@@ -167,6 +167,7 @@ let g:UltiSnipsSnippetDirectories=["CustomSnippets", "UltiSnips"]
 
 " Echodoc enabled
 let g:echodoc#enable_at_startup = 1
+let g:echodoc#type = 'popup'
 
 " Auto-PEP8 settings
 let g:autopep8_max_line_length=120
