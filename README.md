@@ -93,6 +93,14 @@ After multiple occurrences are selected, any action over the selection is approp
 - Close search menu: `Esc`
 
 
+##### Markdown Live Preview #####
+
+- Start Live preview (it also autoscrolls as you work on the file): `:InstantMarkdownPreview`
+- Stop Live preview: `:InstantMarkdownStop`
+
+![Markdown Live Preview Demo](https://camo.githubusercontent.com/cacda2285542c691dcbeb892e608c2a884fcd340/68747470733a2f2f692e696d6775722e636f6d2f72374736464e412e676966)
+
+
 ##### Other small features:
 
 - flip function arguments/list elements/dictionary key-value pairs inline or stacked vertically: `<,> then a`

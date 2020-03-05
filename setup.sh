@@ -3,7 +3,7 @@
 # Install dependencies first
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     if [ -f "/etc/arch-release" ]; then
-        sudo pacman --noconfirm -S vim git cmake gcc ctags
+        sudo pacman --noconfirm -S vim git cmake gcc ctags curl
         sudo pacman --noconfirm -S go npm nodejs 
         sudo pacman --noconfirm -S python-pip python-wheel python2-setuptools python2-pip python2-wheel python2-setuptools
     else
@@ -16,6 +16,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
         sudo apt-get install -y cmake
         sudo apt-get install -y exuberant-ctags
         sudo apt-get install -y golang
+        sudo apt-get install -y curl
     fi
 
     sudo pip3 install autopep8
@@ -23,6 +24,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     sudo pip3 install jsbeautifier
     sudo pip3 install flake8
     sudo npm install -g typescript
+    sudo npm install -g instant-markdown-d
     sudo npm install -g git+https://github.com/Perlence/tstags.git
     sudo npm install -g eslint babel-eslint eslint-plugin-react csslint htmlhint tslint
 elif [[ "$OSTYPE" == "darwin"* ]]; then
@@ -40,6 +42,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     pip3 install jsbeautifier
     pip3 install flake8
     npm install -g typescript
+    npm install -g instant-markdown-d
     npm install -g git+https://github.com/Perlence/tstags.git
     npm install -g eslint babel-eslint eslint-plugin-react
     npm install -g csslint
