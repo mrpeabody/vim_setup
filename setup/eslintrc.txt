@@ -28,7 +28,6 @@
     "react"
   ],
   "rules": {
-    "react/jsx-filename-extension": [0] }],
     "no-bitwise": 0,
     "no-cond-assign": 0,
     "camelcase": 0,
@@ -146,6 +145,7 @@
     "react/prop-types": 0,
     "react/react-in-jsx-scope": 1,
     "react/self-closing-comp": 1,
-    "react/sort-comp": 0
+    "react/sort-comp": 0,
+    "react/jsx-equals-spacing": [1, "never"]
   }
 }
