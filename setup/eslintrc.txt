@@ -1,12 +1,13 @@
 {
-  "parser": "babel-eslint",
-      parserOptions: {
-        ecmaFeatures: {
-          jsx: true
-        }
-      },
-      "env": {
-          "browser": true,
+  "parserOptions": {
+  "ecmaVersion": 7,
+  "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "browser": true,
     "jquery": true,
     "node": true
   },
@@ -27,6 +28,7 @@
     "react"
   ],
   "rules": {
+    "react/jsx-filename-extension": [0] }],
     "no-bitwise": 0,
     "no-cond-assign": 0,
     "camelcase": 0,
@@ -100,7 +102,7 @@
         "asyncArrow": "always"
     }],
     "space-before-blocks": [1, "always"],
-    no-script-url": 0,
+    "no-script-url": 0,
     "no-shadow": 2,
     "dot-notation": 1,
     "no-new-func": 0,
@@ -110,7 +112,7 @@
     "no-invalid-this": 0,
     "no-var": 0,
     "no-with": 0,
-    "jsx-quotes"       : 1,
+    "jsx-quotes": [1, "prefer-double"],
     "react/display-name": 0,
     "react/forbid-prop-types": 0,
     "react/jsx-boolean-value": 0,
@@ -132,7 +134,7 @@
     "react/jsx-uses-vars": 1,
     "react/no-danger": 1,
     "react/no-deprecated": 1,
-    "react/no-did-mount-set-state": 1,
+    "react/no-did-mount-set-state": 0,
     "react/no-did-update-set-state": 1,
     "react/no-direct-mutation-state": 1,
     "react/no-is-mounted": 1,

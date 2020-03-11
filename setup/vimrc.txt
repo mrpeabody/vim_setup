@@ -17,6 +17,9 @@ Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'tell-k/vim-autopep8', { 'for': 'python' }
 Plug 'jiangmiao/auto-pairs'
 Plug 'fatih/vim-go'
+Plug 'yuezk/vim-js'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'sheerun/vim-polyglot'
 Plug 'othree/csscomplete.vim'
 Plug 'chrisbra/colorizer'
@@ -36,7 +39,6 @@ Plug 'matze/vim-move'
 Plug 'rhysd/clever-f.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dense-analysis/ale'
-Plug 'peitalin/vim-jsx-typescript', { 'for': 'typescript.jsx' }
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 
@@ -182,7 +184,7 @@ let g:clever_f_fix_key_direction = 1
 
 
 " Polyglot plugin settings
-let g:polyglot_disabled = ['markdown', 'c', 'cpp']
+let g:polyglot_disabled = ['markdown', 'c', 'cpp', 'jsx']
 let g:vim_json_syntax_conceal = 0
 let g:markdown_syntax_conceal = 0
 let g:javascript_plugin_flow = 0
@@ -192,10 +194,14 @@ let g:javascript_plugin_jsdoc = 1
 
 
 " Markdown preview plugin
-let g:instant_markdown_slow = 1
+let g:instant_markdown_slow = 0
 let g:instant_markdown_autostart = 0
 let g:instant_markdown_port = 3456
-let g:instant_markdown_autoscroll = 1
+let g:instant_markdown_autoscroll = 0
+
+
+" JSX / TSX plugin settings
+let g:vim_jsx_pretty_colorful_config = 1
 
 
 " Ale (autolinting) settings
@@ -221,10 +227,11 @@ nmap <silent>[e <Plug>(ale_previous_wrap)
 nmap <silent>]e <Plug>(ale_next_wrap)
 
 let g:ale_typescript_tslint_config_path = $HOME . '/.vim/tslint.json'
+let g:ale_javascript_eslint_options = '--config ' . $HOME . '/.eslintrc'
 let g:ale_linters = {
 \   'javascript': ['eslint', 'tsserver'],
 \   'go': ['goimports', 'go vet', 'gometalinter'],
-\   'typescript': ['tslint', 'tsserver']
+\   'typescript': ['tslint', 'tsserver'],
 \}
 
 let g:ale_fixers = {
@@ -292,10 +299,6 @@ function! NumberToggle()
 endfunc
 
 nmap <silent> <A-l> :call NumberToggle()<CR>
-
-
-" Typescript / React settings
-autocmd BufNewFile,BufRead *.tsx set filetype=typescript.jsx
 
 
 au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja.html

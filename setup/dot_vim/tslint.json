@@ -143,7 +143,8 @@
     "promise-function-async": true,
     "quotemark": [
       true,
-      "single"
+      "single",
+      "jsx-double"
     ],
     "radix": false,
     "restrict-plus-operands": false,
