@@ -41,6 +41,7 @@ Plug 'dense-analysis/ale'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'tommcdo/vim-lion'
 
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
@@ -169,8 +170,13 @@ let g:UltiSnipsSnippetsDir=expand("~/.vim/CustomSnippets")
 let g:UltiSnipsSnippetDirectories=["CustomSnippets", "UltiSnips"]
 
 
+" text alignment settings
+let g:lion_squeeze_spaces = 1
+
+
 " Echodoc enabled
 let g:echodoc#enable_at_startup = 1
+
 
 " Auto-PEP8 settings
 let g:autopep8_max_line_length=120

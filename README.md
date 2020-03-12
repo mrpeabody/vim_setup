@@ -116,6 +116,7 @@ After multiple occurrences are selected, any action over the selection is approp
 - Toggle Relative/Absolute line numbers: `Alt + L`
 - Going through syntax errors/warnings: `]e` / `[e`
 - Open a list of errors/warnings (if any): `<,> then L`
+- Align text by a character: use `gl` and `gL` hotkey (spaces to the left or right):  `gl<where><character>`
 
 
 ### Python/JavaScript/TypeScript/Go specific Features
