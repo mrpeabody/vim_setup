@@ -56,6 +56,7 @@ cp setup/gvimrc.txt ~/.gvimrc
 rm -rf ~/.vim
 cp -r setup/dot_vim ~/.vim
 cp setup/eslintrc.txt ~/.eslintrc
+cp setup/csslintrc.txt ~/.csslintrc
 
 # setup vim plugin manager
 vim +"colorscheme OceanicNext2" +PlugInstall +qall
