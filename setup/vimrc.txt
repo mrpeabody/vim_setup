@@ -18,7 +18,6 @@ Plug 'tell-k/vim-autopep8', { 'for': 'python' }
 Plug 'raimondi/delimitmate'
 Plug 'fatih/vim-go'
 Plug 'yuezk/vim-js'
-Plug 'HerringtonDarkholme/yats.vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'sheerun/vim-polyglot'
 Plug 'othree/csscomplete.vim'
