@@ -2,6 +2,7 @@
 set nocompatible
 set lazyredraw
 
+let g:polyglot_disabled = ['markdown', 'c', 'cpp']
 
 call plug#begin('~/.vim/plugged')
 
@@ -17,7 +18,7 @@ Plug 'tell-k/vim-autopep8', { 'for': 'python' }
 Plug 'raimondi/delimitmate'
 Plug 'fatih/vim-go'
 Plug 'yuezk/vim-js'
-Plug 'maxmellon/vim-jsx-pretty'
+" Plug 'maxmellon/vim-jsx-pretty'
 Plug 'sheerun/vim-polyglot'
 Plug 'othree/csscomplete.vim'
 Plug 'chrisbra/colorizer'
@@ -187,7 +188,6 @@ let g:clever_f_fix_key_direction = 1
 
 
 " Polyglot plugin settings
-let g:polyglot_disabled = ['markdown', 'c', 'cpp', 'jsx']
 let g:vim_json_syntax_conceal = 0
 let g:markdown_syntax_conceal = 0
 let g:javascript_plugin_flow = 0
@@ -230,12 +230,14 @@ nmap <silent>[e <Plug>(ale_previous_wrap)
 nmap <silent>]e <Plug>(ale_next_wrap)
 
 let g:ale_typescript_tslint_config_path = $HOME . '/.vim/tslint.json'
-let g:ale_javascript_eslint_options = '--config ' . $HOME . '/.eslintrc'
 let g:ale_linters = {
 \   'javascript': ['eslint', 'tsserver'],
+\   'typescript': ['eslint', 'tsserver'],
+\   'typescriptreact': ['eslint', 'tsserver'],
+\   'javascriptreact': ['eslint', 'tsserver'],
 \   'go': ['goimports', 'go vet', 'gometalinter'],
-\   'typescript': ['tslint', 'tsserver'],
 \}
+
 
 let g:ale_fixers = {
 \   'typescript': ['tslint'],
