@@ -171,6 +171,10 @@ let g:UltiSnipsSnippetsDir=expand("~/.vim/CustomSnippets")
 let g:UltiSnipsSnippetDirectories=["CustomSnippets", "UltiSnips"]
 
 
+" clear search on enter
+nnoremap <CR> :nohlsearch<CR>/<BS>
+
+
 " text alignment settings
 let g:lion_squeeze_spaces = 1
 
@@ -222,9 +226,8 @@ augroup END
 let g:ale_python_flake8_options = '--ignore=W391,F821,F403 --max-line-length=120'
 let g:ale_completion_enabled = 0
 
-hi link ALEErrorSign DiffDelete
-hi link ALEError Error
-hi link ALEWarning Search
+" highlight link ALEWarning Search
+" hi link ALEErrorSign DiffDelete
 
 nmap <silent>[e <Plug>(ale_previous_wrap)
 nmap <silent>]e <Plug>(ale_next_wrap)
@@ -482,6 +485,17 @@ catch  | endtry
 set cursorline
 
 
+" Modify some highlighting
+let &t_Cs = "\e[4:3m"
+let &t_Ce = "\e[4:0m"
+hi Search ctermfg=221 ctermbg=yellow cterm=none gui=none guifg=#222222
+hi IncSearch ctermfg=221 ctermbg=yellow cterm=none gui=none
+hi SpellBad cterm=undercurl ctermul=red ctermfg=none ctermbg=none gui=undercurl
+hi SpellCap cterm=undercurl ctermul=yellow ctermfg=none ctermbg=none gui=undercurl guisp=#fac863
+hi SpellLocal cterm=undercurl ctermul=cyan ctermfg=none ctermbg=none gui=undercurl guisp=cyan
+hi SpellRare cterm=undercurl ctermul=darkmagenta ctermfg=none ctermbg=none gui=undercurl guisp=darkmagenta
+
+
 " Make tabs as wide as four spaces
 set expandtab
 set tabstop=4
@@ -523,14 +537,6 @@ let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
 let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'  " Windows
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
-
-
-" When highlighting search terms, make sure text is contrasting color
-highlight Search ctermbg=221 ctermfg=black
-
-" Do the same for gvim
-highlight Search guibg=#fac863 guifg=black
-nnoremap <CR> :nohlsearch<CR>/<BS>
 
 
 " Auto pairs setup
@@ -745,8 +751,8 @@ let g:indentLine_color_gui = '#4e4e4e'
 
 
 " colorize CSS
-"let g:colorizer_auto_color = 1  " doesn't work for some reason
-let g:colorizer_auto_filetype='css,html,jinja,javascript,typescript'
+" let g:colorizer_auto_color = 1  " doesn't work for some reason
+let g:colorizer_auto_filetype='css,html,jinja,javascript,typescript,scss'
 
 
 " Arguments/lists/dicts inline/per line
@@ -861,6 +867,11 @@ let g:git_symbol = g:font_patched?"\ue0a0":""
 " Other options: monokai_tasty, tender, onehalfdark, onehalflight, wombat, solarized, powerline, jellybeans, Tomorrow, 
 " Tomorrow_Night, Tomorrow_Night_Blue, Tomorrow_Night_Eighties, PaperColor, seoul256, landscape, one, Dracula, darcula, 
 " molokai, materia, material, OldHope, nord, 16color, oceanicnext, oceanicnextlight
+
+" wombat, solarized, powerline, powerlineish, jellybeans, molokai, seoul256, darcula,
+" 		selenized_dark, selenized_black, selenized_light, selenized_white, Tomorrow, Tomorrow_Night, Tomorrow_Night_Blue,
+" 		Tomorrow_Night_Bright, Tomorrow_Night_Eighties, PaperColor, landscape, one, materia, material, OldHope, nord, deus,
+" 		simpleblack, srcery_drk, ayu_mirage, ayu_light, ayu_dark, apprentice and 16color
 
 let g:lightline = {
       \ 'colorscheme': 'oceanicnext',
