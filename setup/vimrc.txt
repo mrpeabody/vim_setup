@@ -16,9 +16,7 @@ Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'tell-k/vim-autopep8', { 'for': 'python' }
 Plug 'raimondi/delimitmate'
-Plug 'fatih/vim-go'
 Plug 'yuezk/vim-js'
-" Plug 'maxmellon/vim-jsx-pretty'
 Plug 'sheerun/vim-polyglot'
 Plug 'othree/csscomplete.vim'
 Plug 'chrisbra/colorizer'
@@ -39,6 +37,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dense-analysis/ale'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sleuth'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tommcdo/vim-lion'
 
@@ -94,8 +93,6 @@ let g:ycm_add_preview_to_completeopt = 0
 set completeopt-=preview
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_confirm_extra_conf = 0
-let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-let g:used_javascript_libs = 'jquery,react,d3,requirejs,underscore,jasmine'
 let g:AutoPairsUseInsertedCount = 1
 let g:ycm_complete_in_comments = 1
 let g:ycm_min_num_of_chars_for_completion = 2
@@ -114,7 +111,7 @@ let g:ycm_semantic_triggers =  {
             \   'objcpp' : ['->', '.', '::'],
             \   'perl' : ['->'],
             \   'php' : ['->', '::', '"', "'", 'use ', 'namespace ', '\'],
-            \   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir,go' : ['.'],
+            \   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir' : ['.'],
             \   'html,xml': ['<', '"', '</', ' '],
             \   'vim' : ['re![_a-za-z]+[_\w]*\.'],
             \   'ruby' : ['.', '::'],
@@ -226,30 +223,31 @@ augroup END
 let g:ale_python_flake8_options = '--ignore=W391,F821,F403 --max-line-length=120'
 let g:ale_completion_enabled = 0
 
-" highlight link ALEWarning Search
-" hi link ALEErrorSign DiffDelete
 
 nmap <silent>[e <Plug>(ale_previous_wrap)
 nmap <silent>]e <Plug>(ale_next_wrap)
 
-let g:ale_typescript_tslint_config_path = $HOME . '/.vim/tslint.json'
+
+let g:ale_typescript_standard_use_global = 1
+let g:ale_typescript_standard_executable = 'ts-standard'
+let g:ale_typescript_standard_options = '--stdin-filename %s' 
+
+
 let g:ale_linters = {
-\   'javascript': ['eslint', 'tsserver'],
-\   'typescript': ['eslint', 'tsserver'],
-\   'typescriptreact': ['eslint', 'tsserver'],
-\   'javascriptreact': ['eslint', 'tsserver'],
-\   'go': ['goimports', 'go vet', 'gometalinter'],
+\   'javascript': ['standard', 'tsserver'],
+\   'typescript': ['standard', 'tsserver'],
+\   'typescriptreact': ['standard', 'tsserver'],
+\   'javascriptreact': ['standard', 'tsserver'],
 \}
 
 
 let g:ale_fixers = {
-\   'typescript': ['tslint'],
-\   'javascript': ['eslint'],
+\   'typescript': ['standard'],
+\   'javascript': ['standard'],
 \}
 
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
-let g:ale_go_gometalinter_options = '--disable-all --enable=errcheck --enable=golint --exclude="which can be annoying to use"'
 
 let g:ale_pattern_options = {
 \   '.*\.cpp$': {'ale_enabled': 0},
@@ -261,31 +259,6 @@ let g:ale_pattern_options = {
 \   '.*\.H$': {'ale_enabled': 0},
 \   '.*\.HPP$': {'ale_enabled': 0}
 \}
-
-" GO plugin settings
-let g:go_fmt_autosave = 0
-let g:go_fmt_command = 'goimports'
-let g:go_template_autocreate = 0
-let g:go_fmt_fail_silently = 1
-let g:go_highlight_array_whitespace_error = 1
-let g:go_highlight_chan_whitespace_error = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_space_tab_error = 1
-let g:go_highlight_trailing_whitespace_error = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_function_arguments = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_generate_tags = 1
-let g:go_highlight_variable_declarations = 1
-let g:go_highlight_variable_assignments = 1
-autocmd FileType go nmap <buffer> <silent> <Leader>t : GoInfo<CR>
-autocmd FileType go nmap <buffer> <silent> <Leader>e : GoRename<CR>
-autocmd FileType go nmap <buffer> <silent> <Leader>d : GoDoc<CR>
-autocmd FileType go nmap <buffer> <C-^> : GoReferrers<CR>
 
 
 " QuickFix / Location list settings
@@ -496,14 +469,6 @@ hi SpellLocal cterm=undercurl ctermul=cyan ctermfg=none ctermbg=none gui=undercu
 hi SpellRare cterm=undercurl ctermul=darkmagenta ctermfg=none ctermbg=none gui=undercurl guisp=darkmagenta
 
 
-" Make tabs as wide as four spaces
-set expandtab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set bs=2
-
-
 " Enable line numbers
 set number
 
@@ -656,7 +621,6 @@ map q <Nop>
 
 
 " Special filetype settings
-au FileType json,cpp,c setl ts=2 sts=2 et shiftwidth=2
 au FileType python setl colorcolumn=80
 au FileType rst setl colorcolumn=70
 
