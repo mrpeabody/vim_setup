@@ -2,6 +2,10 @@
 set nocompatible
 set lazyredraw
 
+" allow custom local vim configs with limited options
+set exrc
+set secure
+
 let g:polyglot_disabled = ['markdown', 'c', 'cpp']
 
 call plug#begin('~/.vim/plugged')
