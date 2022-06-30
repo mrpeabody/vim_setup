@@ -248,6 +248,8 @@ let g:ale_linters = {
 let g:ale_fixers = {
 \   'typescript': ['standard'],
 \   'javascript': ['standard'],
+\   'typescriptreact': ['standard'],
+\   'javascriptreact': ['standard'],
 \}
 
 let g:ale_lint_on_text_changed = 'normal'
