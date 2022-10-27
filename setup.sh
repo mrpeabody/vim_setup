@@ -8,7 +8,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
         sudo pacman --noconfirm -S python-pip python-wheel python2-setuptools python2-pip python2-wheel python2-setuptools
     else
         sudo apt -y install vim-nox git build-essential build-essential cmake default-jdk
-        sudo apt install -y python-dev python-setuptools python3-pip python3-wheel
+        sudo apt install -y python-is-python3 python-dev-is-python3 python-setuptools python3-pip python3-wheel
         sudo apt install -y curl
     fi
 
