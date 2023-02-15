@@ -1,3 +1,4 @@
+#!/usr/bin/env zsh
 #!/usr/bin/env bash
 
 # Install dependencies first
@@ -23,25 +24,25 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     npm install -g csslint htmlhint standard ts-standard
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # Mac OSX
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    brew install vim --with-override-system-vi
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    brew install git
+    brew install vim
     brew install cmake
-    brew install python
     brew install python3
-    brew install node
     brew install ctags
-    brew install go
     pip3 install autopep8
     pip3 install jedi
     pip3 install jsbeautifier
     pip3 install flake8
+
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | zsh
+    export NVM_DIR=$HOME/.nvm
+    source $NVM_DIR/nvm.sh
+    nvm install --lts
+
     npm install -g typescript
     npm install -g instant-markdown-d
-    npm install -g git+https://github.com/Perlence/tstags.git
-    npm install -g eslint babel-eslint eslint-plugin-react
-    npm install -g csslint
-    npm install -g htmlhint
-    npm install -g tslint
+    npm install -g csslint htmlhint standard ts-standard
 fi
 
 # copy required files
