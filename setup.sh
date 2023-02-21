@@ -3,9 +3,9 @@
 # Install dependencies first
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     if [ -f "/etc/arch-release" ]; then
-        sudo pacman --noconfirm -S vim git cmake gcc ctags curl
-        sudo pacman --noconfirm -S go npm nodejs 
-        sudo pacman --noconfirm -S python-pip python-wheel python2-setuptools python2-pip python2-wheel python2-setuptools
+        sudo pacman --noconfirm -S vim git cmake gcc ctags curl base-devel
+        sudo pacman --noconfirm -S python-pip python-wheel python-setuptools
+        sudo pacman --noconfirm -S jre-openjdk-headless jre-openjdk jdk-openjdk openjdk-doc openjdk-src
     elif [ -f "/etc/fedora-release" ]; then
 	sudo dnf -y group install "C Development Tools and Libraries" "Development Tools"
 	sudo dnf -y install g++ curl vim-enhanced git cmake java-latest-openjdk java-latest-openjdk-devel
