@@ -1,4 +1,3 @@
-#!/usr/bin/env zsh
 #!/usr/bin/env bash
 
 # Install dependencies first
@@ -7,6 +6,10 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
         sudo pacman --noconfirm -S vim git cmake gcc ctags curl
         sudo pacman --noconfirm -S go npm nodejs 
         sudo pacman --noconfirm -S python-pip python-wheel python2-setuptools python2-pip python2-wheel python2-setuptools
+    elif [ -f "/etc/fedora-release" ]; then
+	sudo dnf -y group install "C Development Tools and Libraries" "Development Tools"
+	sudo dnf -y install g++ curl vim-enhanced git cmake java-latest-openjdk java-latest-openjdk-devel
+	sudo dnf -y install python3-pip python3-devel python3-setuptools python3-wheel
     else
         sudo apt -y install vim-nox git build-essential build-essential cmake default-jdk
         sudo apt install -y python-is-python3 python-dev-is-python3 python-setuptools python3-pip python3-wheel
@@ -19,6 +22,9 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     pip install flake8 --user
 
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+    export NVM_DIR=$HOME/.nvm
+    source $NVM_DIR/nvm.sh
+    nvm install --lts
     npm install -g typescript
     npm install -g instant-markdown-d
     npm install -g csslint htmlhint standard ts-standard
