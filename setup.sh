@@ -7,8 +7,8 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
         sudo pacman --noconfirm -S python-pip python-wheel python-setuptools
         sudo pacman --noconfirm -S jre-openjdk-headless jre-openjdk jdk-openjdk openjdk-doc openjdk-src
     elif [ -f "/etc/redhat-release" ]; then
-	sudo dnf -y group install "C Development Tools and Libraries" "Development Tools"
-	sudo dnf -y install g++ curl vim-enhanced git cmake java-latest-openjdk java-latest-openjdk-devel
+	sudo dnf -y group install "Development Tools"
+	sudo dnf -y install g++ curl vim-enhanced git cmake
 	sudo dnf -y install python3-pip python3-devel python3-setuptools python3-wheel
     else
         sudo apt -y install vim-nox git build-essential build-essential cmake default-jdk
