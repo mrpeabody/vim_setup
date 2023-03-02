@@ -1,4 +1,18 @@
-## Vim/Neovim automatic installation for MacOS/Ubuntu/Debian/Mint/Arch/Manjaro/Fedora
+## Vim/Neovim automatic installation for most distros
+
+Supported:
+
+- MacOS
+- Ubuntu and flavors
+- Debian
+- Mint
+- Arch
+- Manjaro
+- Fedora
+- RedHat
+- CentOS
+- AlmaLinux
+- Rocky Linux
 
 1. Clone this repo anywhere on your machine
 2. Run **setup.sh**: `./setup.sh`
