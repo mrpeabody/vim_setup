@@ -298,16 +298,14 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 
 
+" Automatically fix according to (ts-)standard
+autocmd FileType javascriptreact,javascript,typescript,typescriptreact,tsx,jsx noremap <buffer> <F8> :ALEFix<cr>
+
 " JsBeautify bindings
-autocmd FileType javascript.jsx noremap <buffer> <F8> :call JsBeautify()<cr>
-autocmd FileType typescript noremap <buffer> <F8> :ALEFix<cr>
 autocmd FileType json noremap <buffer> <F8> :call JsonBeautify()<cr>
-autocmd FileType jsx noremap <buffer> <F8> :call JsxBeautify()<cr>
 autocmd FileType html noremap <buffer> <F8> :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <F8> :call CSSBeautify()<cr>
-autocmd FileType javascript.jsx vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
 autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
-autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
 autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
 
 
