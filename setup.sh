@@ -27,7 +27,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     nvm install --lts
     npm install -g typescript
     npm install -g instant-markdown-d
-    npm install -g csslint htmlhint standard ts-standard
+    npm install -g csslint htmlhint standard ts-standard@10.0.0
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # Mac OSX
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -48,7 +48,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 
     npm install -g typescript
     npm install -g instant-markdown-d
-    npm install -g csslint htmlhint standard ts-standard
+    npm install -g csslint htmlhint standard ts-standard@10.0.0
 fi
 
 # copy required files
