@@ -70,6 +70,7 @@ Plug 'marcopaganini/termschool-vim-theme'
 Plug 'lambdalisue/vim-pager'
 Plug 'powerman/vim-plugin-AnsiEsc', { 'on': 'AnsiEsc' }
 Plug 'tomasiser/vim-code-dark'
+Plug 'ayu-theme/ayu-vim'
 
 
 " All of your Plugins must be added before the following line
@@ -234,7 +235,7 @@ nmap <silent>]e <Plug>(ale_next_wrap)
 
 let g:ale_typescript_standard_use_global = 1
 let g:ale_typescript_standard_executable = 'ts-standard'
-let g:ale_typescript_standard_options = '--stdin-filename %s' 
+let g:ale_typescript_standard_options = '--stdin-filename %s'
 
 
 let g:ale_linters = {
@@ -448,10 +449,12 @@ if (has("termguicolors"))
 endif
 
 let g:codedark_italics=1
-"
+let ayucolor="dark"
+
 " colorschemes already installed:
-" codedark, vim-monokai-tasty, onehalfdark, onehalflight, OceanicNext, OceanicNext2, one (atom-like) wombat256mod, hybrid, predawn, zenburn, 
-" happy_hacking, amcolors, lucario, tender, py-darcula, xcode-default, railscasts, vimbrains, codeschool, onedark, smyck, termschool
+" toast, ayu, codedark, vim-monokai-tasty, onehalfdark, onehalflight, OceanicNext, OceanicNext2, one (atom-like) wombat256mod,
+" hybrid, predawn, zenburn, happy_hacking, amcolors, lucario, tender, py-darcula, xcode-default, railscasts, vimbrains,
+" codeschool, onedark, smyck, termschool
 colorscheme OceanicNext
 
 let g:oceanic_next_terminal_italic = 1
@@ -838,15 +841,13 @@ let g:line_number_symbol = g:font_patched?"\ue0a1":"L/N"
 let g:read_only_symbol = g:font_patched?"\ue0a2":"RO"
 let g:git_symbol = g:font_patched?"\ue0a0":""
 
-" Default status panel color theme: oceanicnext. 
-" Other options: codedark, monokai_tasty, tender, onehalfdark, onehalflight, wombat, solarized, powerline, jellybeans, Tomorrow, 
-" Tomorrow_Night, Tomorrow_Night_Blue, Tomorrow_Night_Eighties, PaperColor, seoul256, landscape, one, Dracula, darcula, 
-" molokai, materia, material, OldHope, nord, 16color, oceanicnext, oceanicnextlight, powerline_peabody
-
-" wombat, solarized, powerline, powerlineish, jellybeans, molokai, seoul256, darcula,
-" 		selenized_dark, selenized_black, selenized_light, selenized_white, Tomorrow, Tomorrow_Night, Tomorrow_Night_Blue,
-" 		Tomorrow_Night_Bright, Tomorrow_Night_Eighties, PaperColor, landscape, one, materia, material, OldHope, nord, deus,
-" 		simpleblack, srcery_drk, ayu_mirage, ayu_light, ayu_dark, apprentice and 16color
+" Default status panel color theme: oceanicnext.
+" Other options: codedark, monokai_tasty, tender, onehalfdark, onehalflight, wombat, solarized, powerline, jellybeans, 
+" Tomorrow, Tomorrow_Night, Tomorrow_Night_Blue, Tomorrow_Night_Eighties, PaperColor, seoul256, landscape, one, Dracula, 
+" darcula, molokai, materia, material, OldHope, nord, 16color, oceanicnext, oceanicnextlight, powerline_peabody, wombat, 
+" solarized, powerline, powerlineish, jellybeans, molokai, seoul256, darcula, selenized_dark, selenized_black, selenized_light, 
+" selenized_white, Tomorrow, Tomorrow_Night, Tomorrow_Night_Blue, Tomorrow_Night_Bright, Tomorrow_Night_Eighties, PaperColor, 
+" landscape, one, materia, material, OldHope, nord, deus, simpleblack, srcery_drk, ayu_mirage, ayu_light, ayu_dark, apprentice and 16color
 
 let g:lightline = {
       \ 'colorscheme': 'oceanicnext',
@@ -878,20 +879,20 @@ let g:lightline = {
       \ 'subseparator': { 'left':g:subseparator_left_symbol, 'right': g:subseparator_right_symbol}
       \ }
 
-function! ALEGetWarningStatusLine() 
+function! ALEGetWarningStatusLine()
     let l:counts = ale#statusline#Count(bufnr(''))
     let l:all_errors = l:counts.error + l:counts.style_error
     let l:all_non_errors = l:counts.total - l:all_errors
     return l:all_non_errors == 0 ? '' : printf('⚠ %d', l:all_non_errors)
 endfunction
 
-function! ALEGetErrorStatusLine() 
+function! ALEGetErrorStatusLine()
     let l:counts = ale#statusline#Count(bufnr(''))
     let l:all_errors = l:counts.error + l:counts.style_error
     return l:all_errors == 0 ? '' : printf('✗ %d', l:all_errors)
 endfunction
 
-function! LightLineLineinfo() 
+function! LightLineLineinfo()
     return winwidth(0) > 50 ? g:line_number_symbol.' '.line('.').':'.virtcol('.') : ''
 endfunction
 
@@ -921,8 +922,8 @@ function! LightLineFugitive()
     if expand('%:t') !~? 'Tagbar\|Gundo\|NERD' && &ft !~? 'vimfiler' && exists('*fugitive#head')
       let branch = fugitive#head()
       let gitStats = GitGutterGetHunkSummary()
-      return winwidth(0) > 100 ? 
-          \ (branch !=# '' ? '+'.gitStats[0].' ~'.gitStats[1].' -'.gitStats[2].' '.g:git_symbol.' '.branch : '') : 
+      return winwidth(0) > 100 ?
+          \ (branch !=# '' ? '+'.gitStats[0].' ~'.gitStats[1].' -'.gitStats[2].' '.g:git_symbol.' '.branch : '') :
           \ (winwidth(0) > 80 ? (branch !=# '' ? g:git_symbol.' '.branch : ''): '')
     endif
   catch
