@@ -43,6 +43,7 @@ Plug 'tpope/vim-repeat'
 " Plug 'tpope/vim-sleuth'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tommcdo/vim-lion'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'  }
 
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
@@ -211,6 +212,14 @@ let g:instant_markdown_autoscroll = 0
 
 " JSX / TSX plugin settings
 let g:vim_jsx_pretty_colorful_config = 1
+
+
+" Go Settings
+let g:go_fmt_autosave = 0
+let g:go_mod_fmt_autosave = 0
+let g:go_asmfmt_autosave = 0
+let g:go_metalinter_autosave = 0
+let g:go_imports_autosave = 0
 
 
 " Ale (autolinting) settings
