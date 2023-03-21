@@ -43,7 +43,7 @@ Plug 'tpope/vim-repeat'
 " Plug 'tpope/vim-sleuth'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tommcdo/vim-lion'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'  }
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'  }
 
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'

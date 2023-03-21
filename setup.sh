@@ -70,7 +70,8 @@ cd ~/.vim/plugged/vim-jsbeautify && git submodule update --init --recursive
 # setup autocomplete plugin
 cd ~/.vim/plugged/YouCompleteMe
 
-./install.py --java-completer --clangd-completer --ts-completer --go-completer
+# ./install.py --java-completer --clangd-completer --ts-completer --go-completer
+./install.py --java-completer --clangd-completer --ts-completer
 
 # everything is done
 echo 'Your vim setup is finished. Happy hacking!'
