@@ -480,8 +480,6 @@ set cursorline
 " Modify some highlighting
 let &t_Cs = "\e[4:3m"
 let &t_Ce = "\e[4:0m"
-hi Search ctermfg=221 ctermbg=yellow cterm=none gui=none guifg=#222222
-hi IncSearch ctermfg=221 ctermbg=yellow cterm=none gui=none
 hi SpellBad cterm=undercurl ctermul=red ctermfg=none ctermbg=none gui=undercurl
 hi SpellCap cterm=undercurl ctermul=yellow ctermfg=none ctermbg=none gui=undercurl guisp=#fac863
 hi SpellLocal cterm=undercurl ctermul=cyan ctermfg=none ctermbg=none gui=undercurl guisp=cyan
