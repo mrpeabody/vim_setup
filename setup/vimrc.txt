@@ -23,7 +23,6 @@ Plug 'yuezk/vim-js'
 Plug 'sheerun/vim-polyglot'
 Plug 'othree/csscomplete.vim'
 Plug 'Valloric/MatchTagAlways'
-Plug 'heavenshell/vim-jsdoc'
 Plug 'lepture/vim-jinja'
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
@@ -325,7 +324,6 @@ set backspace=indent,eol,start
 
 
 " vim indentation settings
-set autoindent
 let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
 let delimitMate_nesting_quotes = ['"','`']
@@ -430,9 +428,11 @@ set secure
 syntax on
 
 
-" A vertical line that delimits 120 chars
+" A vertical line that delimits 120 chars (with a few exceptions)
 set colorcolumn=121
 highlight ColorColumn ctermbg=236
+au FileType python setl colorcolumn=80
+au FileType rst setl colorcolumn=70
 
 
 " Color scheme
@@ -612,16 +612,6 @@ endif
 
 " Disable Macro recorder
 map q <Nop>
-
-
-" Special filetype settings
-set tabstop     =4
-set softtabstop =4
-set shiftwidth  =4
-set expandtab
-au FileType json,cpp,c,js,jsx,javascript,typescript,tsx,ts,typescriptreact,javascriptreact setl ts=2 sts=2 et shiftwidth=2
-au FileType python setl colorcolumn=80
-au FileType rst setl colorcolumn=70
 
 
 " Tagbar (Code structure hotkey)
@@ -912,3 +902,12 @@ endfunction
 au BufNewFile,BufRead *.test,*.stage set ft=python
 au BufNewFile,BufRead *.log AnsiEsc
 au BufNewFile,BufRead *.log set wrap
+
+" Special filetype settings
+set shiftwidth  =4
+set softtabstop =4
+set tabstop     =4
+set expandtab
+set autoindent
+
+au FileType json,cpp,c,js,jsx,javascript,typescript,tsx,ts,typescriptreact,javascriptreact setl ts=2 sw=2 sts=2
