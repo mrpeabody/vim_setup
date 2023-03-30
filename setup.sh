@@ -23,7 +23,12 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # Mac OSX
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+    # only install brew if it's not installed already
+    if [[ $(command -v brew) == "" ]]; then
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    fi
+
     brew install git
     brew install vim
     brew install cmake
@@ -51,7 +56,12 @@ if [[ "$1" == "--with-go" ]]; then
 fi
 
 cp setup/gvimrc.txt ~/.gvimrc
-rm -rf ~/.vim
+
+if [ -d "$HOME/.vim" ]; then
+    echo 'Cleaning up the old .vim directory...'
+    chmod -R 0755 ~/.vim
+    rm -rf ~/.vim
+fi
 cp -r setup/dot_vim ~/.vim
 cp setup/csslintrc.txt ~/.csslintrc
 
