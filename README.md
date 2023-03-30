@@ -138,7 +138,7 @@ therefore it has some advanced features:
 - Syntax validation, including formatting recommendations
 - Autocomplete using **Python** Jedi (IDE), including function signatures and argument hints
 - IDE-level support of **TypeScript** **Go**, including function signatures and type-awareness
-- JavaScript/JSON/JSX/HTML/CSS Indentation and Beautify
+- Smart JavaScript/JSON/JSX/HTML/CSS Indentation
 - Out-of-the-Box support of main **JavaScript** libraries (autocomplete, syntax, etc)
 - Large collection of **Python** and **JavaScript/TypeScript/Go** snippets
 
@@ -151,7 +151,6 @@ therefore it has some advanced features:
 - show symbol documentation: `<,> then d`
 - navigate to the location where a symbol is defined: `Ctrl + ]`
 - show location(s) where a symbol is referenced: `Ctrl + ^`
-- show the type of a symbol under cursor: `<,> then t` (except **Python**)
 - refactor (change name of) a symbol under cursor: `<,> then e`
 
 **Python**:

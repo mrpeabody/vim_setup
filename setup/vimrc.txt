@@ -144,9 +144,14 @@ let g:jedi#completions_enabled = 0
 " Enable some IDE-like features for JS / TS and Java
 autocmd FileType java,javascript,jsx,typescript,tsx nmap <silent> <C-]> :YcmCompleter GoToDefinition<CR>
 autocmd FileType java,javascript,jsx,typescript,tsx nmap <silent> <Leader>d :YcmCompleter GetDoc<CR>
-autocmd FileType java,javascript,jsx,typescript,tsx nmap <silent> <Leader>t :YcmCompleter GetType<CR>
 autocmd FileType java,javascript,jsx,typescript,tsx nmap <silent> <C-^> :YcmCompleter GoToReferences<CR>
 autocmd FileType java,javascript,jsx,typescript,tsx nmap <silent> <Leader>e :execute ':YcmCompleter RefactorRename ' . input('New Name: ')<CR>
+
+" same for Go
+autocmd FileType go nmap <silent> <C-]> :GoDef<CR>
+autocmd FileType go nmap <silent> <Leader>d :GoDoc<CR>
+autocmd FileType go nmap <silent> <C-^> :GoReferrers<CR>
+autocmd FileType go nmap <silent> <Leader>e :GoRename<CR>
 
 
 " Git Gutter settings
