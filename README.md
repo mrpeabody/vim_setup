@@ -16,10 +16,12 @@ Supported:
 
 1. Clone this repo anywhere on your machine
 2. Run **setup.sh**: `./setup.sh`
-3. Install and use one of the included patched fonts. The most popular dev fonts are included in the
+3. If Golang support needed, run **setup.sh** with `--with-go`: `./setup.sh --with-go`
+   *Note: Golang must be installed prior*
+4. Install and use one of the included patched fonts. The most popular dev fonts are included in the
 `fonts` directory, more can be found [here](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts). 
 Otherwise, in `~/.vimrc`, change the **g:font_patched** variable to **0** and comment out the `Plugin 'ryanoasis/vim-devicons'` line.
-4. Enjoy your new fresh vim!
+5. Enjoy your new fresh vim!
 
 
 ### Some Features
@@ -28,11 +30,6 @@ Otherwise, in `~/.vimrc`, change the **g:font_patched** variable to **0** and co
 - Comment/Uncomment line: `gcc`
 - Comment/Uncomment selection: `gc`
 - Uncomment a block of commented lines: `gcgc`
-
-##### Folding:
-- toggle fold for a block/method/class: `<Space>`
-- fold everything: `zM`
-- unfold everything: `zR`
 
 ##### Scrolling through the code:
 - Moves screen up one line: `Ctrl + y` 
@@ -123,7 +120,6 @@ After multiple occurrences are selected, any action over the selection is approp
 
 - remove trailing whitespace: `<,> then ss`
 - add a comma/semicolon at the end of the line (detects automatically, works in NORMAL/INSERT modes): `<,> then ;`
-- Show/Hide minimap of the code: `<,> then M`
 - Show/Hide the file tree (NERD Tree): `<,> then N`
 - Go to next/previous git change in code: `]c` / `[c`
 - Undo a git change (if the cursor on the changed line/area): `<,> then hu`
@@ -151,7 +147,7 @@ therefore it has some advanced features:
 
 **JavaScript**, **TypeScript**, **Java**, **Go**, **Python**:
 
-- fully format the whole file: `F8` (except **Java** and **Go**)
+- fully format the whole file: `F8` (except **Java**)
 - show symbol documentation: `<,> then d`
 - navigate to the location where a symbol is defined: `Ctrl + ]`
 - show location(s) where a symbol is referenced: `Ctrl + ^`
@@ -162,15 +158,6 @@ therefore it has some advanced features:
 
 - run the file using **Python**: `F5`
 - run the file using **Python3**: `F6`
-
-**JavaScript**:
-
-- format selection: `Ctrl-F`
-- create a function's JSDoc: `<,> then J` in the function body or on its signature
-
-**TypeScript**:
-
-- create a function's JSDoc: `<,> then J` in the function body or on its signature (for js-style functions only)
 
 
 ### Miscellaneous

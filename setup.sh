@@ -18,16 +18,9 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 
     pip install autopep8 --user
     pip install jedi --user
-    pip install jsbeautifier --user
     pip install flake8 --user
 
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-    export NVM_DIR=$HOME/.nvm
-    source $NVM_DIR/nvm.sh
-    nvm install --lts
-    npm install -g typescript
-    npm install -g instant-markdown-d
-    npm install -g csslint htmlhint standard ts-standard@10.0.0
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # Mac OSX
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -38,21 +31,25 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     brew install ctags
     pip3 install autopep8
     pip3 install jedi
-    pip3 install jsbeautifier
     pip3 install flake8
 
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | zsh
-    export NVM_DIR=$HOME/.nvm
-    source $NVM_DIR/nvm.sh
-    nvm install --lts
-
-    npm install -g typescript
-    npm install -g instant-markdown-d
-    npm install -g csslint htmlhint standard ts-standard@10.0.0
 fi
+
+export NVM_DIR=$HOME/.nvm
+source $NVM_DIR/nvm.sh
+nvm install --lts
+
+npm install -g typescript
+npm install -g instant-markdown-d
+npm install -g csslint htmlhint standard ts-standard@10.0.0
 
 # copy required files
 cp setup/vimrc.txt ~/.vimrc
+if [[ "$1" == "--with-go" ]]; then
+    sed -i '' "s/\" Plug 'fatih\/vim-go'/Plug 'fatih\/vim-go'/g" ~/.vimrc
+fi
+
 cp setup/gvimrc.txt ~/.gvimrc
 rm -rf ~/.vim
 cp -r setup/dot_vim ~/.vim
@@ -61,20 +58,15 @@ cp setup/csslintrc.txt ~/.csslintrc
 # setup vim plugin manager
 vim +"colorscheme OceanicNext2" +PlugInstall +qall
 
-# copy the default lightline (bottom panel) theme 
-cp setup/powerline_peabody.vim ~/.vim/plugged/lightline.vim/autoload/lightline/colorscheme/.
-
-# setup jsBeautify Plugin
-cd ~/.vim/plugged/vim-jsbeautify && git submodule update --init --recursive
-
 # setup autocomplete plugin
 cd ~/.vim/plugged/YouCompleteMe
 
-# ./install.py --java-completer --clangd-completer --ts-completer --go-completer
-./install.py --java-completer --clangd-completer --ts-completer
+if [[ "$1" == "--with-go" ]]; then
+    ./install.py --java-completer --clangd-completer --ts-completer --go-completer
+else    
+    ./install.py --java-completer --clangd-completer --ts-completer
+fi
 
 # everything is done
 echo 'Your vim setup is finished. Happy hacking!'
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    echo 'Please restart your terminal'
-fi
+echo 'Please restart your terminal'
