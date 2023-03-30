@@ -251,6 +251,7 @@ let g:ale_typescript_standard_options = '--stdin-filename %s'
 
 
 let g:ale_linters = {
+\   'go': ['revive', 'gopls'],
 \   'javascript': ['standard', 'tsserver'],
 \   'typescript': ['standard', 'tsserver'],
 \   'typescriptreact': ['standard', 'tsserver'],
