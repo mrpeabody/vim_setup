@@ -52,7 +52,11 @@ npm install -g csslint htmlhint standard ts-standard@10.0.0
 # copy required files
 cp setup/vimrc.txt ~/.vimrc
 if [[ "$1" == "--with-go" ]]; then
-    sed -i '' "s/\" Plug 'fatih\/vim-go'/Plug 'fatih\/vim-go'/g" ~/.vimrc
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        sed -i '' "s/\" Plug 'fatih\/vim-go'/Plug 'fatih\/vim-go'/g" ~/.vimrc
+    else
+        sed -i "s/\" Plug 'fatih\/vim-go'/Plug 'fatih\/vim-go'/g" ~/.vimrc
+    fi
 fi
 
 cp setup/gvimrc.txt ~/.gvimrc
