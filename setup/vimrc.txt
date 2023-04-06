@@ -15,7 +15,6 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
-Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'tell-k/vim-autopep8', { 'for': 'python' }
 Plug 'raimondi/delimitmate'
@@ -124,27 +123,11 @@ let g:ycm_semantic_triggers =  {
             \ }
 
 
-" jedi-vim settings
-let g:jedi#show_call_signatures_delay = 0
-let g:jedi#popup_select_first = 0
-let g:jedi#show_call_signatures = 1
-let g:jedi#goto_command = "<leader>g"
-let g:jedi#goto_assignments_command = ""
-let g:jedi#goto_definitions_command = "<C-]>"
-let g:jedi#documentation_command = "<leader>d"
-let g:jedi#usages_command = "<C-^>"
-let g:jedi#completions_command = "<C-Space>"
-let g:jedi#rename_command = "<leader>e"
-let g:jedi#use_tabs_not_buffers = 1
-let g:jedi#force_py_version = 3
-let g:jedi#completions_enabled = 0
-
-
-" Enable some IDE-like features for JS / TS and Java
-autocmd FileType java,javascript,jsx,typescript,tsx nmap <silent> <C-]> :YcmCompleter GoToDefinition<CR>
-autocmd FileType java,javascript,jsx,typescript,tsx nmap <silent> <Leader>d :YcmCompleter GetDoc<CR>
-autocmd FileType java,javascript,jsx,typescript,tsx nmap <silent> <C-^> :YcmCompleter GoToReferences<CR>
-autocmd FileType java,javascript,jsx,typescript,tsx nmap <silent> <Leader>e :execute ':YcmCompleter RefactorRename ' . input('New Name: ')<CR>
+" Enable some IDE-like features for JS / TS, Python, and Java
+autocmd FileType java,javascript,jsx,typescript,tsx,python nmap <silent> <C-]> :YcmCompleter GoToDefinition<CR>
+autocmd FileType java,javascript,jsx,typescript,tsx,python nmap <silent> <Leader>d :YcmCompleter GetDoc<CR>
+autocmd FileType java,javascript,jsx,typescript,tsx,python nmap <silent> <C-^> :YcmCompleter GoToReferences<CR>
+autocmd FileType java,javascript,jsx,typescript,tsx,python nmap <silent> <Leader>e :execute ':YcmCompleter RefactorRename ' . input('New Name: ')<CR>
 
 " same for Go
 autocmd FileType go nmap <silent> <C-]> :GoDef<CR>
@@ -305,7 +288,6 @@ nmap <silent> <A-l> :call NumberToggle()<CR>
 
 
 au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja.html
-autocmd FileType python setlocal omnifunc=jedi#completions
 
 
 " Automatically fix according to (ts-)standard
