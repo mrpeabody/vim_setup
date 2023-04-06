@@ -226,6 +226,7 @@ autocmd FileType go noremap <buffer> <F8> :GoFmt<CR>
 
 
 " Ale (autolinting) settings
+let g:ale_virtualtext_cursor = 'disabled'
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '>>'
