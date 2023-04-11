@@ -160,8 +160,28 @@ let g:UltiSnipsSnippetDirectories=["CustomSnippets", "UltiSnips"]
 
 
 " clear search on enter
-nnoremap <CR> :nohlsearch<CR>/<BS>
+" nnoremap <CR> :nohlsearch<CR>/<BS>
+nnoremap <silent> <CR> :nohlsearch<CR><CR>
 
+" quickfix list improvements
+" Go to the previous location
+nnoremap [q :cprev<CR>
+
+" Go to the next location
+nnoremap ]q :cnext<CR>
+
+function! ToggleQuickFix()
+    if empty(filter(getwininfo(), 'v:val.quickfix'))
+        copen
+    else
+        cclose
+    endif
+endfunction
+
+nnoremap <silent> <leader>q :call ToggleQuickFix()<cr>
+
+" keep the window open on the YcmQuickFixOpened event
+autocmd User YcmQuickFixOpened autocmd! ycmquickfix WinLeave
 
 " text alignment settings
 let g:lion_squeeze_spaces = 1
