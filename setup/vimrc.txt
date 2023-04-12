@@ -453,7 +453,7 @@ let ayucolor="dark"
 " gruvbox, toast, ayu, codedark, brogrammer, vim-monokai-tasty, onehalfdark, onehalflight, OceanicNext, OceanicNext2, one,
 " hybrid, predawn, zenburn, happy_hacking, amcolors, lucario, tender, py-darcula, xcode-default, railscasts, vimbrains,
 " codeschool, onedark, smyck, termschool
-colorscheme OceanicNext
+colorscheme gruvbox
 
 let g:oceanic_next_terminal_italic = 1
 let g:oceanic_next_terminal_bold = 1
@@ -779,7 +779,7 @@ let g:line_number_symbol = g:font_patched?"\ue0a1":"L/N"
 let g:read_only_symbol = g:font_patched?"\ue0a2":"RO"
 let g:git_symbol = g:font_patched?"\ue0a0":""
 
-" Default status panel color theme: oceanicnext.
+" Default status panel color theme: gruvbox.
 " Other options: gruvbox, codedark, monokai_tasty, tender, onehalfdark, onehalflight, wombat, solarized, powerline, jellybeans, 
 " Tomorrow, Tomorrow_Night, Tomorrow_Night_Blue, Tomorrow_Night_Eighties, PaperColor, seoul256, landscape, one, Dracula, 
 " darcula, molokai, materia, material, OldHope, nord, 16color, oceanicnext, oceanicnextlight, wombat, solarized, powerline, 
@@ -788,7 +788,7 @@ let g:git_symbol = g:font_patched?"\ue0a0":""
 " materia, material, OldHope, nord, deus, simpleblack, srcery_drk, ayu_mirage, ayu_light, ayu_dark, apprentice and 16color
 
 let g:lightline = {
-      \ 'colorscheme': 'oceanicnext',
+      \ 'colorscheme': 'gruvbox',
       \ 'mode_map': { 'c': 'NORMAL' },
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
