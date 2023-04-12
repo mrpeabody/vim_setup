@@ -775,7 +775,6 @@ let g:separator_left_symbol = g:font_patched ? "\ue0b0":""
 let g:separator_right_symbol = g:font_patched?"\ue0b2":""
 let g:subseparator_left_symbol = g:font_patched?"\ue0b1":"|"
 let g:subseparator_right_symbol = g:font_patched?"\ue0b3":"|"
-let g:line_number_symbol = g:font_patched?"\ue0a1":"L/N"
 let g:read_only_symbol = g:font_patched?"\ue0a2":"RO"
 let g:git_symbol = g:font_patched?"\ue0a0":""
 
@@ -831,7 +830,7 @@ function! ALEGetErrorStatusLine()
 endfunction
 
 function! LightLineLineinfo()
-    return winwidth(0) > 50 ? g:line_number_symbol.' '.line('.').':'.virtcol('.') : ''
+    return winwidth(0) > 50 ? line('.').':'.virtcol('.') : ''
 endfunction
 
 function! LightLineModified()
@@ -874,7 +873,7 @@ function! LightLineFiletype()
 endfunction
 
 function! LightLineFileformat()
-  return winwidth(0) > 100 ? (&fileformat !=# '' ? (g:font_patched ? WebDevIconsGetFileFormatSymbol() : &fileformat) : '') : ''
+  return winwidth(0) > 100 ? (&fileformat !=# '' ? (g:font_patched ? WebDevIconsGetFileFormatSymbol().' ' : &fileformat) : '') : ''
 endfunction
 
 function! LightLineFileencoding()
