@@ -17,7 +17,6 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     fi
 
     pip install autopep8 --user
-    pip install jedi --user
     pip install flake8 --user
 
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
@@ -35,7 +34,6 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     brew install python3
     brew install ctags
     pip3 install autopep8
-    pip3 install jedi
     pip3 install flake8
 
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | zsh
