@@ -790,7 +790,7 @@ let g:lightline = {
       \ 'colorscheme': 'gruvbox',
       \ 'mode_map': { 'c': 'NORMAL' },
       \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
+      \   'left': [['mode', 'paste'], ['fugitive', 'filename']],
       \ 'right': [['ale_error', 'ale_warning', 'lineinfo'], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ]]
       \ },
       \ 'component_function': {
@@ -856,8 +856,8 @@ endfunction
 
 function! LightLineFugitive()
   try
-    if expand('%:t') !~? 'Tagbar\|Gundo\|NERD' && &ft !~? 'vimfiler' && exists('*fugitive#head')
-      let branch = fugitive#head()
+    if expand('%:t') !~? 'Tagbar\|Gundo\|NERD' && &ft !~? 'vimfiler' && exists('*FugitiveHead')
+      let branch = FugitiveHead()
       let gitStats = GitGutterGetHunkSummary()
       return winwidth(0) > 100 ?
           \ (branch !=# '' ? '+'.gitStats[0].' ~'.gitStats[1].' -'.gitStats[2].' '.g:git_symbol.' '.branch : '') :
