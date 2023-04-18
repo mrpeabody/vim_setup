@@ -779,19 +779,22 @@ let g:read_only_symbol = g:font_patched?"\ue0a2":"RO"
 let g:git_symbol = g:font_patched?"\ue0a0":""
 
 " Default status panel color theme: gruvbox.
-" Other options: gruvbox, codedark, monokai_tasty, tender, onehalfdark, onehalflight, wombat, solarized, powerline, jellybeans, 
-" Tomorrow, Tomorrow_Night, Tomorrow_Night_Blue, Tomorrow_Night_Eighties, PaperColor, seoul256, landscape, one, Dracula, 
-" darcula, molokai, materia, material, OldHope, nord, 16color, oceanicnext, oceanicnextlight, wombat, solarized, powerline, 
-" powerlineish, jellybeans, molokai, seoul256, darcula, selenized_dark, selenized_black, selenized_light, selenized_white, 
-" Tomorrow, Tomorrow_Night, Tomorrow_Night_Blue, Tomorrow_Night_Bright, Tomorrow_Night_Eighties, PaperColor, landscape, one, 
-" materia, material, OldHope, nord, deus, simpleblack, srcery_drk, ayu_mirage, ayu_light, ayu_dark, apprentice and 16color
+" Other options: 16color, Dracula, OldHope, PaperColor, Tomorrow, Tomorrow_Night, Tomorrow_Night_Blue, Tomorrow_Night_Bright,
+" Tomorrow_Night_Eighties, apprentice, ayu_dark, ayu_light, ayu_mirage, codedark, darcula, deus, gruvbox, jellybeans, landscape, 
+" materia, material, molokai, monokai_tasty, nord, oceanicnext2, oceanicnextlight, one, onehalfdark, onehalflight, powerline, 
+" powerlineish, selenized_black, selenized_dark, selenized_light, selenized_white, seoul256, simpleblack, solarized, 
+" srcery_drk, tender, wombat, hybrid
 
 let g:lightline = {
       \ 'colorscheme': 'gruvbox',
       \ 'mode_map': { 'c': 'NORMAL' },
       \ 'active': {
       \   'left': [['mode', 'paste'], ['fugitive', 'filename']],
-      \ 'right': [['ale_error', 'ale_warning', 'lineinfo', 'percent'], [ 'fileformat', 'fileencoding', 'filetype' ]]
+      \   'right': [['ale_error', 'ale_warning', 'lineinfo', 'percent'], [ 'fileformat', 'fileencoding', 'filetype' ]]
+      \ },
+      \ 'inactive': {
+      \   'left': [['filename']],
+      \   'right': [['lineinfo', 'percent']]
       \ },
       \ 'component_function': {
       \   'lineinfo': 'LightLineLineinfo',
