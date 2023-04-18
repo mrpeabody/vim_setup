@@ -791,7 +791,7 @@ let g:lightline = {
       \ 'mode_map': { 'c': 'NORMAL' },
       \ 'active': {
       \   'left': [['mode', 'paste'], ['fugitive', 'filename']],
-      \ 'right': [['ale_error', 'ale_warning', 'lineinfo'], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ]]
+      \ 'right': [['ale_error', 'ale_warning', 'lineinfo', 'percent'], [ 'fileformat', 'fileencoding', 'filetype' ]]
       \ },
       \ 'component_function': {
       \   'lineinfo': 'LightLineLineinfo',
@@ -869,7 +869,7 @@ function! LightLineFugitive()
 endfunction
 
 function! LightLineFiletype()
-    return winwidth(0) > 50 ? (g:font_patched ? WebDevIconsGetFileTypeSymbol() : winwidth(0) > 100 ? &filetype : '') : ''
+    return winwidth(0) > 50 ? (g:font_patched ? WebDevIconsGetFileTypeSymbol().' ' : winwidth(0) > 100 ? &filetype : '') : ''
 endfunction
 
 function! LightLineFileformat()
