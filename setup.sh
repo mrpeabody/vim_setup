@@ -74,9 +74,9 @@ vim +"colorscheme OceanicNext2" +PlugInstall +qall
 cd ~/.vim/plugged/YouCompleteMe
 
 if [[ "$1" == "--with-go" ]]; then
-    ./install.py --java-completer --clangd-completer --ts-completer --go-completer
+    ./install.py --java-completer --clang-completer --ts-completer --go-completer
 else    
-    ./install.py --java-completer --clangd-completer --ts-completer
+    ./install.py --java-completer --clang-completer --ts-completer
 fi
 
 # everything is done
