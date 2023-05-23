@@ -129,9 +129,9 @@ After multiple occurrences are selected, any action over the selection is approp
 - Align text by a character: use `gl` and `gL` hotkey (spaces to the left or right):  `gl<where><character>`
 
 
-### Python/JavaScript/TypeScript/Go specific Features
+### Python/JavaScript/TypeScript/Go/C/C++ specific Features
 
-This setup is been created having **Python** and **JavaScript/TypeScript/Go** in mind, 
+This setup is been created having **Python** and **JavaScript/TypeScript/Go/C/C++** in mind, 
 therefore it has some advanced features:
 
 - Full Support of **PEP8** (auto indentation, beautify)
@@ -145,9 +145,9 @@ therefore it has some advanced features:
 
 ##### Special hotkeys #####
 
-**JavaScript**, **TypeScript**, **Java**, **Go**, **Python**:
+**JavaScript**, **TypeScript**, **Java**, **Go**, **Python**, **C/C++**:
 
-- fully format the whole file: `F8` (except **Java**)
+- fully format the whole file: `F8` (except **Java** and **C/C++**)
 - show symbol documentation: `<,> then d`
 - navigate to the location where a symbol is defined: `Ctrl + ]`
 - show location(s) where a symbol is referenced: `Ctrl + ^`
