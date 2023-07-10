@@ -42,7 +42,7 @@ Plug 'tommcdo/vim-lion'
 
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
-Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter', { 'branch': 'main' }
 Plug 'tpope/vim-surround'
 Plug 'foosoft/vim-argwrap', { 'on': 'ArgWrap' }
 Plug 'itchyny/lightline.vim'
