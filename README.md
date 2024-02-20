@@ -15,15 +15,21 @@ Supported:
 - Rocky Linux
 
 1. Clone this repo anywhere on your machine
+
 2. Run **setup.sh**: `./setup.sh`
-3. a. If Java support needed, run **setup.sh** with `--with-java`: `./setup.sh --with-java`
-   b. If C# support needed, run **setup.sh** with `--with-csharp`: `./setup.sh --with-csharp`
-   c. If Golang support needed, run **setup.sh** with `--with-go`: `./setup.sh --with-go`
-   d. Flags can be combined, for example: `./setup.sh --with-java --with-go`
+
+3. Extra languages are supported:
+    - If Java support needed, run **setup.sh** with `--with-java`: `./setup.sh --with-java`
+    - If C# support needed, run **setup.sh** with `--with-csharp`: `./setup.sh --with-csharp`
+    - If Golang support needed, run **setup.sh** with `--with-go`: `./setup.sh --with-go`
+    - Flags can be combined, for example: `./setup.sh --with-java --with-go`
+
    *Note: Extra SDKs for these languages must be installed prior*
+
 4. Install and use one of the included patched fonts. The most popular dev fonts are included in the
 `fonts` directory, more can be found [here](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts). 
 Otherwise, in `~/.vimrc`, change the **g:font_patched** variable to **0** and comment out the `Plugin 'ryanoasis/vim-devicons'` line.
+
 5. Enjoy your new fresh vim!
 
 
@@ -87,7 +93,7 @@ After multiple occurrences are selected, any action over the selection is approp
 
 **Note**: if your ALT key is not working, look [below](#markdown-header-alt-key) for the solution.
 
-![Demo](https://camo.githubusercontent.com/c06acab07e6bf0bb27086c9694fe2f456101d21c/687474703a2f2f692e696d6775722e636f6d2f524d76384b734a2e676966 "Moving line[s]")
+![Demo](https://camo.githubusercontent.com/a00fcaf572f3043d793c43a8bdc459d682e4fb84e8af29161ce2278f802b8b44/687474703a2f2f692e696d6775722e636f6d2f524d76384b734a2e676966 "Moving line[s]")
 
 
 ##### Code structure view (just like in PyCharm) #####
@@ -96,7 +102,7 @@ After multiple occurrences are selected, any action over the selection is approp
 
 ##### Open File(s) Quickly  #####
 
-![File search demo](https://camo.githubusercontent.com/e15ac916ab9a14dd07135cb2d985cc7333200a38/687474703a2f2f692e696d6775722e636f6d2f614f63774877742e706e67 "File search Demo")
+![File search demo](https://ctrlpvim.github.io/ctrlp.vim/images/ctrlp.png "File search Demo")
 
 - Hit `Ctrl + p` to open file search menu, then start typing to get search results
 - Use `Ctrl + j/k` to navigate through search results
@@ -112,14 +118,14 @@ After multiple occurrences are selected, any action over the selection is approp
 - Start Live preview (it also autoscrolls as you work on the file): `:InstantMarkdownPreview`
 - Stop Live preview: `:InstantMarkdownStop`
 
-![Markdown Live Preview Demo](https://camo.githubusercontent.com/cacda2285542c691dcbeb892e608c2a884fcd340/68747470733a2f2f692e696d6775722e636f6d2f72374736464e412e676966)
+![Markdown Live Preview Demo](https://camo.githubusercontent.com/0f67dff7906712195c6d30db7161bf196ac34234fdc8a0c71413ad37de260500/68747470733a2f2f692e696d6775722e636f6d2f72374736464e412e676966)
 
 
 ##### Other small features:
 
 - flip function arguments/list elements/dictionary key-value pairs inline or stacked vertically: `<,> then a`
 
-![Wrap/Unwrap arguments](https://camo.githubusercontent.com/9a8e220911e514ce29198d9b7827c05085fb3e35/68747470733a2f2f666f6f736f66742e6e65742f70726f6a656374732f76696d2d617267777261702f696d672f64656d6f2e676966 "Wrap/Unwrap arguments")
+![Wrap/Unwrap arguments](https://git.foosoft.net/alex/vim-argwrap/media/branch/master/img/demo.gif "Wrap/Unwrap arguments")
 
 - remove trailing whitespace: `<,> then ss`
 - Show/Hide the file tree (NERD Tree): `<,> then N`
