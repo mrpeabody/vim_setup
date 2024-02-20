@@ -122,7 +122,6 @@ After multiple occurrences are selected, any action over the selection is approp
 ![Wrap/Unwrap arguments](https://camo.githubusercontent.com/9a8e220911e514ce29198d9b7827c05085fb3e35/68747470733a2f2f666f6f736f66742e6e65742f70726f6a656374732f76696d2d617267777261702f696d672f64656d6f2e676966 "Wrap/Unwrap arguments")
 
 - remove trailing whitespace: `<,> then ss`
-- add a comma/semicolon at the end of the line (detects automatically, works in NORMAL/INSERT modes): `<,> then ;`
 - Show/Hide the file tree (NERD Tree): `<,> then N`
 - Go to next/previous git change in code: `]c` / `[c`
 - Undo a git change (if the cursor on the changed line/area): `<,> then hu`
@@ -154,6 +153,8 @@ therefore it has some advanced features:
 - show symbol documentation: `<,> then d`
 - navigate to the location where a symbol is defined: `Ctrl + ]`
 - show location(s) where a symbol is referenced: `Ctrl + ^`
+- show/hide location(s) list: `<,> then q`
+- go to next/previous location in the list: `]q` / `[q`
 - refactor (change name of) a symbol under cursor: `<,> then e`
 
 **Python**:

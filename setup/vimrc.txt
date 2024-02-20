@@ -124,10 +124,10 @@ let g:ycm_semantic_triggers =  {
 
 
 " Enable some IDE-like features for JS / TS, Python, and Java
-autocmd FileType java,javascript,jsx,typescript,tsx,python,cpp nmap <silent> <C-]> :YcmCompleter GoToDefinition<CR>
-autocmd FileType java,javascript,jsx,typescript,tsx,python,cpp nmap <silent> <Leader>d :YcmCompleter GetDoc<CR>
-autocmd FileType java,javascript,jsx,typescript,tsx,python,cpp nmap <silent> <C-^> :YcmCompleter GoToReferences<CR>
-autocmd FileType java,javascript,jsx,typescript,tsx,python,cpp nmap <silent> <Leader>e :execute ':YcmCompleter RefactorRename ' . input('New Name: ')<CR>
+autocmd FileType java,javascript,jsx,typescript,tsx,python,cpp,cs nmap <silent> <C-]> :YcmCompleter GoToDefinition<CR>
+autocmd FileType java,javascript,jsx,typescript,tsx,python,cpp,cs nmap <silent> <Leader>d :YcmCompleter GetDoc<CR>
+autocmd FileType java,javascript,jsx,typescript,tsx,python,cpp,cs nmap <silent> <C-^> :YcmCompleter GoToReferences<CR>
+autocmd FileType java,javascript,jsx,typescript,tsx,python,cpp,cs nmap <silent> <Leader>e :execute ':YcmCompleter RefactorRename ' . input('New Name: ')<CR>
 
 " same for Go
 autocmd FileType go nmap <silent> <C-]> :GoDef<CR>
