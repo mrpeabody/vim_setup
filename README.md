@@ -16,8 +16,11 @@ Supported:
 
 1. Clone this repo anywhere on your machine
 2. Run **setup.sh**: `./setup.sh`
-3. If Golang support needed, run **setup.sh** with `--with-go`: `./setup.sh --with-go`
-   *Note: Golang must be installed prior*
+3. a. If Java support needed, run **setup.sh** with `--with-java`: `./setup.sh --with-java`
+   b. If C# support needed, run **setup.sh** with `--with-csharp`: `./setup.sh --with-csharp`
+   c. If Golang support needed, run **setup.sh** with `--with-go`: `./setup.sh --with-go`
+   d. Flags can be combined, for example: `./setup.sh --with-java --with-go`
+   *Note: Extra SDKs for these languages must be installed prior*
 4. Install and use one of the included patched fonts. The most popular dev fonts are included in the
 `fonts` directory, more can be found [here](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts). 
 Otherwise, in `~/.vimrc`, change the **g:font_patched** variable to **0** and comment out the `Plugin 'ryanoasis/vim-devicons'` line.
