@@ -14,6 +14,7 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-fugitive'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'junegunn/gv.vim'
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'tell-k/vim-autopep8', { 'for': 'python' }
@@ -160,7 +161,6 @@ let g:UltiSnipsSnippetDirectories=["CustomSnippets", "UltiSnips"]
 
 
 " clear search on enter
-" nnoremap <CR> :nohlsearch<CR>/<BS>
 nnoremap <silent> <CR> :nohlsearch<CR><CR>
 
 " quickfix list improvements
@@ -283,16 +283,7 @@ nmap <silent>[l :lprevious<CR>
 
 
 " Toggle vim line numbers
-function! NumberToggle()
-    if(&relativenumber == 1)
-        set norelativenumber
-        set number
-    else
-        set relativenumber
-    endif
-endfunc
-
-nmap <silent> <A-l> :call NumberToggle()<CR>
+nmap <silent> <C-l><C-l> :set invrelativenumber<CR>
 
 
 au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja.html
@@ -303,7 +294,7 @@ autocmd FileType javascriptreact,javascript,typescript,typescriptreact,tsx,jsx n
 
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 if (executable('pbcopy') || executable('xclip') || executable('xsel')) && has('clipboard')
-  set clipboard=unnamed
+    set clipboard^=unnamed,unnamedplus
 endif
 
 
@@ -350,10 +341,6 @@ let mapleader=","
 
 
 " Splits config
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
 set splitbelow
 set splitright
 
@@ -441,7 +428,7 @@ let ayucolor="dark"
 " gruvbox, toast, ayu, codedark, brogrammer, vim-monokai-tasty, onehalfdark, onehalflight, OceanicNext, OceanicNext2, one,
 " hybrid, predawn, zenburn, happy_hacking, amcolors, lucario, tender, py-darcula, xcode-default, railscasts, vimbrains,
 " codeschool, onedark, smyck, termschool
-colorscheme gruvbox
+colorscheme OceanicNext
 
 let g:oceanic_next_terminal_italic = 1
 let g:oceanic_next_terminal_bold = 1
@@ -774,7 +761,7 @@ let g:git_symbol = g:font_patched?"\ue0a0":""
 " srcery_drk, tender, wombat, hybrid
 
 let g:lightline = {
-      \ 'colorscheme': 'gruvbox',
+      \ 'colorscheme': 'oceanicnext2',
       \ 'mode_map': { 'c': 'NORMAL' },
       \ 'active': {
       \   'left': [['mode', 'paste'], ['fugitive', 'filename']],

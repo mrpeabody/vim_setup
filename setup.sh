@@ -6,10 +6,15 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
         sudo pacman --noconfirm -S vim git cmake gcc ctags curl base-devel
         sudo pacman --noconfirm -S python-pip python-wheel python-setuptools
     elif [ -f "/etc/redhat-release" ]; then
-	sudo dnf -y group install "Development Tools"
-	sudo dnf -y install g++ curl vim-enhanced git cmake
-	sudo dnf -y install python3-pip python3-devel python3-setuptools python3-wheel
+        sudo dnf -y upgrade --refresh
+        sudo dnf -y group install "Development Tools"
+        sudo dnf -y install g++ curl vim-enhanced git cmake
+        sudo dnf -y install python3-pip python3-devel python3-setuptools python3-wheel
+        if [[ $DISPLAY ]]; then 
+            echo "Consider running the following command to enable system clipboard support in VIM:\nsudo dnf -y install vim-X11 xsel"
+        fi
     else
+        sudo apt -y update
         sudo apt -y install vim-nox git build-essential build-essential cmake
         sudo apt install -y python-is-python3 python-dev-is-python3 python-setuptools python3-pip python3-wheel
         sudo apt install -y curl
