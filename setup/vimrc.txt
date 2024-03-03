@@ -52,15 +52,13 @@ Plug 'djoshea/vim-autoread'
 Plug 'milkypostman/vim-togglelist'
 
 " Extra colorschemes (optional -- comment if not needed)
+Plug 'morhetz/gruvbox'
 Plug 'mhartington/oceanic-next'
-Plug 'cocopon/lightline-hybrid.vim'
-Plug 'patstockwell/vim-monokai-tasty'
-Plug 'jacoborus/tender.vim'
-Plug 'marcopaganini/termschool-vim-theme'
-Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'tomasiser/vim-code-dark'
 Plug 'ayu-theme/ayu-vim'
-Plug 'morhetz/gruvbox'
+Plug 'jacoborus/tender.vim'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
+Plug 'patstockwell/vim-monokai-tasty'
 
 " Conceal and enable ANSI escape symbols
 Plug 'lambdalisue/vim-pager'
@@ -71,6 +69,18 @@ Plug 'ryanoasis/vim-devicons'
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
+
+
+" Color scheme for both VIM and the bottom status panel. Options are:
+" - gruvbox      (most popular)
+" - oceanicnext2 (recommended)
+" - codedark     (second best -- mimics the default VSCode theme)
+" - ayu          (very nice super dark theme)
+" - tender
+" - onehalfdark
+" - vim-monokai-tasty (clone of sublime text editor theme)
+let g:COLORSCHEME = 'gruvbox'
+
 
 " Modify g:font_patched to 0 if no patched font is installed
 let g:font_patched = 1
@@ -423,17 +433,13 @@ endif
 
 let g:codedark_italics=1
 let ayucolor="dark"
-
-" colorschemes already installed:
-" gruvbox, toast, ayu, codedark, brogrammer, vim-monokai-tasty, onehalfdark, onehalflight, OceanicNext, OceanicNext2, one,
-" hybrid, predawn, zenburn, happy_hacking, amcolors, lucario, tender, py-darcula, xcode-default, railscasts, vimbrains,
-" codeschool, onedark, smyck, termschool
-colorscheme OceanicNext
-
 let g:oceanic_next_terminal_italic = 1
 let g:oceanic_next_terminal_bold = 1
 let g:onedark_termcolors=256
 let g:one_allow_italics = 1
+
+execute 'colorscheme ' .. g:COLORSCHEME
+
 catch  | endtry
 
 " Highlight current line
@@ -753,15 +759,19 @@ let g:subseparator_right_symbol = g:font_patched?"\ue0b3":"|"
 let g:read_only_symbol = g:font_patched?"\ue0a2":"RO"
 let g:git_symbol = g:font_patched?"\ue0a0":""
 
-" Default status panel color theme: gruvbox.
-" Other options: 16color, Dracula, OldHope, PaperColor, Tomorrow, Tomorrow_Night, Tomorrow_Night_Blue, Tomorrow_Night_Bright,
-" Tomorrow_Night_Eighties, apprentice, ayu_dark, ayu_light, ayu_mirage, codedark, darcula, deus, gruvbox, jellybeans, landscape, 
-" materia, material, molokai, monokai_tasty, nord, oceanicnext2, oceanicnextlight, one, onehalfdark, onehalflight, powerline, 
-" powerlineish, selenized_black, selenized_dark, selenized_light, selenized_white, seoul256, simpleblack, solarized, 
-" srcery_drk, tender, wombat, hybrid
+
+let lightline_theme_map = {
+    \ 'gruvbox': 'gruvbox',
+    \ 'oceanicnext2': 'oceanicnext2',
+    \ 'codedark': 'codedark',
+    \ 'ayu': 'ayu_dark',
+    \ 'tender': 'tender',
+    \ 'onehalfdark': 'onehalfdark',
+    \ 'vim-monokai-tasty': 'monokai_tasty',
+\ }
 
 let g:lightline = {
-      \ 'colorscheme': 'oceanicnext2',
+      \ 'colorscheme': get(lightline_theme_map, g:COLORSCHEME, 'powerline'),
       \ 'mode_map': { 'c': 'NORMAL' },
       \ 'active': {
       \   'left': [['mode', 'paste'], ['fugitive', 'filename']],
