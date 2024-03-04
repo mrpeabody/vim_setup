@@ -44,7 +44,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 
         # copy fonts to a user directory
         mkdir -p ~/.local/share/fonts
-        cp -r setup/fonts/* ~/.local/share/fonts/.
+        cp -rf fonts/* ~/.local/share/fonts/.
     else
         sudo apt -y update
         sudo apt -y install vim-nox git build-essential build-essential cmake

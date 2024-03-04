@@ -59,6 +59,8 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'jacoborus/tender.vim'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'patstockwell/vim-monokai-tasty'
+Plug 'sainnhe/everforest'
+Plug 'cocopon/iceberg.vim'
 
 " Conceal and enable ANSI escape symbols
 Plug 'lambdalisue/vim-pager'
@@ -72,14 +74,16 @@ call plug#end()            " required
 
 
 " Color scheme for both VIM and the bottom status panel. Options are:
-" - gruvbox      (most popular)
-" - oceanicnext2 (recommended)
-" - codedark     (second best -- mimics the default VSCode theme)
-" - ayu          (very nice super dark theme)
-" - tender
-" - onehalfdark
-" - vim-monokai-tasty (clone of sublime text editor theme)
-let g:COLORSCHEME = 'gruvbox'
+" - gruvbox            (most popular)
+" - OceanicNext        (my personal favorite, default)
+" - everforest         (excellent theme for long coding sessions)
+" - codedark           (second best -- mimics the default VSCode theme)
+" - ayu                (very nice super dark theme)
+" - tender             (24-bit soft dark colorscheme, also has a terminal theme available)
+" - onehalfdark        (a nice clean dark theme)
+" - iceberg            (a well-designed, bluish color scheme)
+" - vim-monokai-tasty  (clone of sublime text editor theme)
+let g:COLORSCHEME = 'OceanicNext'
 
 
 " Modify g:font_patched to 0 if no patched font is installed
@@ -442,6 +446,7 @@ execute 'colorscheme ' .. g:COLORSCHEME
 
 catch  | endtry
 
+
 " Highlight current line
 set cursorline
 
@@ -761,17 +766,13 @@ let g:git_symbol = g:font_patched?"\ue0a0":""
 
 
 let lightline_theme_map = {
-    \ 'gruvbox': 'gruvbox',
-    \ 'oceanicnext2': 'oceanicnext2',
-    \ 'codedark': 'codedark',
+    \ 'OceanicNext': 'oceanicnext2',
     \ 'ayu': 'ayu_dark',
-    \ 'tender': 'tender',
-    \ 'onehalfdark': 'onehalfdark',
     \ 'vim-monokai-tasty': 'monokai_tasty',
 \ }
 
 let g:lightline = {
-      \ 'colorscheme': get(lightline_theme_map, g:COLORSCHEME, 'powerline'),
+      \ 'colorscheme': get(lightline_theme_map, g:COLORSCHEME, g:COLORSCHEME),
       \ 'mode_map': { 'c': 'NORMAL' },
       \ 'active': {
       \   'left': [['mode', 'paste'], ['fugitive', 'filename']],
