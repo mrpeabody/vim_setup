@@ -208,18 +208,28 @@ previous change.
 
 
 #### Neovim support ####
-This setup works great for Neovim as well. The easiest way to use the same settings for both apps is to make 
-symlinks for Neovim:
+This setup works great for Neovim as well. The easiest way to use the same settings for both apps is to configure the `nvim.vim`
+to utilize the `.vimrc` config.
+
+First, create the Neovim config directory:
 
 ```bash
-ln -s ~/.vim ~/.config/nvim
-ln -s ~/.vimrc ~/.config/nvim/init.vim
+mkdir -p ~/.config/nvim
 ```
 
-Neovim requires python package from PIP/PIP3 in order to function with this setup:
+In the `~/.config/nvim` directory, create the `nvim.vim` file with the following contents:
 
 ```bash
-pip install neovim
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+let &packpath=&runtimepath
+source ~/.vimrc
+```
+
+Then, Neovim requires a few extra packages from PIP and NPM in order to function with this setup:
+
+```bash
+pip install --user --upgrade pynvim
+npm install -g neovim
 ```
 
 To make Neovim work well with git (log pager, commit message editor, difftool, etc) -- in addition to the other git settings from above:

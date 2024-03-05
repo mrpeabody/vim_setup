@@ -454,10 +454,10 @@ set cursorline
 " Modify some highlighting
 let &t_Cs = "\e[4:3m"
 let &t_Ce = "\e[4:0m"
-hi SpellBad cterm=undercurl ctermul=red ctermfg=none ctermbg=none gui=undercurl
-hi SpellCap cterm=undercurl ctermul=yellow ctermfg=none ctermbg=none gui=undercurl guisp=#fac863
-hi SpellLocal cterm=undercurl ctermul=cyan ctermfg=none ctermbg=none gui=undercurl guisp=cyan
-hi SpellRare cterm=undercurl ctermul=darkmagenta ctermfg=none ctermbg=none gui=undercurl guisp=darkmagenta
+hi SpellBad cterm=undercurl ctermfg=none ctermbg=none gui=undercurl
+hi SpellCap cterm=undercurl ctermfg=none ctermbg=none gui=undercurl guisp=#fac863
+hi SpellLocal cterm=undercurl ctermfg=none ctermbg=none gui=undercurl guisp=cyan
+hi SpellRare cterm=undercurl ctermfg=none ctermbg=none gui=undercurl guisp=darkmagenta
 
 
 " Enable line numbers
