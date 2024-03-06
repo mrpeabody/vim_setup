@@ -105,6 +105,7 @@ npm list -g csslint &>/dev/null || npm install -g csslint
 npm list -g htmlhint &>/dev/null || npm install -g htmlhint
 npm list -g standard &>/dev/null || npm install -g standard
 npm list -g ts-standard@10.0.0 &>/dev/null || npm install -g ts-standard@10.0.0
+npm list -g pyright &>/dev/null || npm install -g pyright
 
 # copy required files
 cp setup/vimrc.txt ~/.vimrc
