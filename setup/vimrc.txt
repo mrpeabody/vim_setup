@@ -10,7 +10,7 @@ let g:polyglot_disabled = ['markdown', 'c', 'cpp']
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'Valloric/YouCompleteMe'
+Plug 'ycm-core/YouCompleteMe', { 'do': './install.py ARGS_TO_REPLACE' }
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-fugitive'
@@ -22,7 +22,7 @@ Plug 'raimondi/delimitmate'
 Plug 'yuezk/vim-js'
 Plug 'sheerun/vim-polyglot'
 Plug 'othree/csscomplete.vim'
-Plug 'Valloric/MatchTagAlways'
+" Plug 'Valloric/MatchTagAlways'
 Plug 'lepture/vim-jinja'
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }

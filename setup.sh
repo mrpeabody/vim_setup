@@ -31,7 +31,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
         sudo pacman --noconfirm -S vim git cmake gcc ctags curl base-devel
         sudo pacman --noconfirm -S python-pip python-wheel python-setuptools
     elif [ -f "/etc/redhat-release" ]; then
-        sudo dnf -y upgrade --refresh
+        sudo dnf makecache
         sudo dnf -y group install "Development Tools"
         sudo dnf -y install g++ curl vim-enhanced git cmake
         sudo dnf -y install python3-pip python3-devel python3-setuptools python3-wheel
@@ -47,7 +47,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
         cp -rf fonts/* ~/.local/share/fonts/.
     else
         sudo apt -y update
-        sudo apt -y install vim-nox git build-essential build-essential cmake
+        sudo apt -y install vim-nox git build-essential cmake
         sudo apt install -y python-is-python3 python-dev-is-python3 python-setuptools python3-pip python3-wheel
         sudo apt install -y curl
 
@@ -126,12 +126,7 @@ fi
 cp -r setup/dot_vim ~/.vim
 cp setup/csslintrc.txt ~/.csslintrc
 
-# setup vim plugin manager
-vim +"colorscheme OceanicNext2" +PlugInstall +qall
-
-# setup autocomplete plugin
-cd ~/.vim/plugged/YouCompleteMe
-
+# generate the Plug install command for the YouCompleteMe plugin
 INSTALL_ARGS="--clangd-completer --ts-completer"
 
 if [[ "$*" == *"--with-java"*  ]]; then
@@ -146,7 +141,14 @@ if [[ "$*" == *"--with-csharp"*  ]]; then
     INSTALL_ARGS+=" --cs-completer"
 fi
 
-./install.py $INSTALL_ARGS
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    sed -i '' "s/ARGS_TO_REPLACE/$INSTALL_ARGS/g" ~/.vimrc
+else
+    sed -i "s/ARGS_TO_REPLACE/$INSTALL_ARGS/g" ~/.vimrc
+fi
+
+# setup vim plugin manager
+vim +"colorscheme OceanicNext2" +PlugInstall +qall
 
 # everything is done
 echo 'Your vim setup is finished. Happy hacking!'
