@@ -34,6 +34,13 @@ if [[ ! "$*" == *"--skip-install"*  ]]; then
             sudo pacman --noconfirm -S vim git cmake gcc ctags curl base-devel
             sudo pacman --noconfirm -S python-pip python-wheel python-setuptools
             sudo pacman --noconfirm -S flake8 autopep8
+
+            if [[ $DISPLAY ]]; then 
+                echo; echo
+                echo "Consider running the following command to enable system clipboard support in VIM:"
+                echo "       sudo pacman -S gvim xsel"
+                echo; echo
+            fi
         elif [ -f "/etc/redhat-release" ]; then
             sudo dnf makecache
             sudo dnf -y group install "Development Tools"
