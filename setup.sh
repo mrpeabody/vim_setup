@@ -33,11 +33,13 @@ if [[ ! "$*" == *"--skip-install"*  ]]; then
         if [ -f "/etc/arch-release" ]; then
             sudo pacman --noconfirm -S vim git cmake gcc ctags curl base-devel
             sudo pacman --noconfirm -S python-pip python-wheel python-setuptools
+            sudo pacman --noconfirm -S flake8 autopep8
         elif [ -f "/etc/redhat-release" ]; then
             sudo dnf makecache
             sudo dnf -y group install "Development Tools"
             sudo dnf -y install g++ curl vim-enhanced git cmake
             sudo dnf -y install python3-pip python3-devel python3-setuptools python3-wheel
+            sudo dnf -y install python3-flake8 python3-autopep8
             if [[ $DISPLAY ]]; then 
                 echo; echo
                 echo "Consider running the following command to enable system clipboard support in VIM:"
@@ -45,25 +47,25 @@ if [[ ! "$*" == *"--skip-install"*  ]]; then
                 echo; echo
             fi
 
-            # copy fonts to a user directory
-            mkdir -p ~/.local/share/fonts
-            cp -rf fonts/* ~/.local/share/fonts/.
         else
             sudo apt -y update
             sudo apt -y install vim-nox git build-essential cmake
-            sudo apt install -y python-is-python3 python-dev-is-python3 python-setuptools python3-pip python3-wheel
+            sudo apt install -y python-is-python3 python-dev-is-python3 python3-setuptools python3-pip python3-wheel
+            sudo apt -y install flake8 python3-flake8 python3-autopep8
+            sudo apt -y install fonts-powerline
             sudo apt install -y curl
 
             if [[ $DISPLAY ]]; then 
                 echo; echo
                 echo "Consider running the following command to enable system clipboard support in VIM:"
-                echo "       sudo apt install -y vim-gtk xsel"
+                echo "       sudo apt install -y vim-gtk3 xsel"
                 echo; echo
             fi
         fi
 
-        pip install autopep8 --user
-        pip install flake8 --user
+        # copy fonts to a user directory
+        mkdir -p ~/.local/share/fonts
+        cp -rf fonts/* ~/.local/share/fonts/.
 
         # only install and set up NVM if it's not installed already
         if [[ ! -d "$HOME/.nvm" ]]; then
