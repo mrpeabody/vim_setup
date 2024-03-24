@@ -10,7 +10,7 @@ let g:polyglot_disabled = ['markdown', 'c', 'cpp']
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'ycm-core/YouCompleteMe', { 'do': './install.py ARGS_TO_REPLACE' }
+Plug 'ycm-core/YouCompleteMe', { 'commit': 'HEAD', 'do': './install.py ARGS_TO_REPLACE' }
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-fugitive'

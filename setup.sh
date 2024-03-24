@@ -26,9 +26,26 @@ if [[ "$1" == "--help"  || "$1" == "-h" ]]; then
     exit;
 fi
 
+# copy required files
+cp setup/vimrc.txt ~/.vimrc
+if [[ "$*" == *"--with-go"*  ]]; then
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        sed -i '' "s/\" Plug 'fatih\/vim-go'/Plug 'fatih\/vim-go'/g" ~/.vimrc
+    else
+        sed -i "s/\" Plug 'fatih\/vim-go'/Plug 'fatih\/vim-go'/g" ~/.vimrc
+    fi
+fi
 
+if [ -d "$HOME/.vim" ]; then
+    echo 'Cleaning up the old .vim directory...'
+    chmod -R 0755 ~/.vim
+    rm -rf ~/.vim
+fi
+cp -r setup/dot_vim ~/.vim
+cp setup/csslintrc.txt ~/.csslintrc
+
+# Install dependencies
 if [[ ! "$*" == *"--skip-install"*  ]]; then
-    # Install dependencies first
     if [[ "$OSTYPE" == "linux-gnu"* ]]; then
         if [ -f "/etc/arch-release" ]; then
             sudo pacman --noconfirm -S vim git cmake gcc ctags curl base-devel
@@ -44,16 +61,29 @@ if [[ ! "$*" == *"--skip-install"*  ]]; then
         elif [ -f "/etc/redhat-release" ]; then
             sudo dnf makecache
             sudo dnf -y group install "Development Tools"
-            sudo dnf -y install g++ curl vim-enhanced git cmake
-            sudo dnf -y install python3-pip python3-devel python3-setuptools python3-wheel
-            sudo dnf -y install python3-flake8 python3-autopep8
+            sudo dnf -y install tar g++ curl vim-enhanced git cmake
+
+            RH_VERSION="$(cat /etc/os-release | grep 'REDHAT_SUPPORT_PRODUCT_VERSION=' | cut -d '=' -f2 | cut -d '.' -f1 |  grep -Eo '[0-9]+')"
+
+            if [[ "$RH_VERSION" == "9" ]]; then
+                sudo dnf -y install python3-pip python3-devel python3-setuptools*
+                pip3 install --user flake8
+                pip3 install --user autopep8
+
+                # YCM plugin does not support older vim, so we change commit to an older version
+                sed -i "s/HEAD/d2abd1594f228de79a05257fc5d4fca5c9a7ead3/g" ~/.vimrc
+            # elif [[ "$RH_VERSION" == "8" ]]; then
+            else
+                sudo dnf -y install python3-pip python3-devel python3-setuptools python3-wheel
+                sudo dnf -y install python3-flake8 python3-autopep8
+            fi
+
             if [[ $DISPLAY ]]; then 
                 echo; echo
                 echo "Consider running the following command to enable system clipboard support in VIM:"
                 echo "       sudo dnf -y install vim-X11 xsel"
                 echo; echo
             fi
-
         else
             sudo apt -y update
             sudo apt -y install vim-nox git build-essential cmake
@@ -123,25 +153,6 @@ if [[ ! "$*" == *"--skip-install"*  ]]; then
     npm list -g ts-standard@10.0.0 &>/dev/null || npm install -g ts-standard@10.0.0
     npm list -g pyright &>/dev/null || npm install -g pyright
 fi
-
-
-# copy required files
-cp setup/vimrc.txt ~/.vimrc
-if [[ "$*" == *"--with-go"*  ]]; then
-    if [[ "$OSTYPE" == "darwin"* ]]; then
-        sed -i '' "s/\" Plug 'fatih\/vim-go'/Plug 'fatih\/vim-go'/g" ~/.vimrc
-    else
-        sed -i "s/\" Plug 'fatih\/vim-go'/Plug 'fatih\/vim-go'/g" ~/.vimrc
-    fi
-fi
-
-if [ -d "$HOME/.vim" ]; then
-    echo 'Cleaning up the old .vim directory...'
-    chmod -R 0755 ~/.vim
-    rm -rf ~/.vim
-fi
-cp -r setup/dot_vim ~/.vim
-cp setup/csslintrc.txt ~/.csslintrc
 
 # generate the Plug install command for the YouCompleteMe plugin
 INSTALL_ARGS="--clangd-completer --ts-completer"
