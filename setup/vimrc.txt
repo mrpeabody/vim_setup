@@ -311,7 +311,7 @@ au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja.html
 autocmd FileType javascriptreact,javascript,typescript,typescriptreact,tsx,jsx noremap <buffer> <F8> :ALEFix<cr>
 
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
-if (executable('pbcopy') || executable('xclip') || executable('xsel')) && has('clipboard')
+if (executable('pbcopy') || executable('xclip') || executable('xsel') || executable('wl-copy')) && has('clipboard')
     set clipboard^=unnamed,unnamedplus
 endif
 

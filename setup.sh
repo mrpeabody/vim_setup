@@ -55,18 +55,22 @@ if [[ ! "$*" == *"--skip-install"*  ]]; then
             if [[ $DISPLAY ]]; then 
                 echo; echo
                 echo "Consider running the following command to enable system clipboard support in VIM:"
-                echo "       sudo pacman -S gvim xsel"
+                if [[ $WAYLAND_DISPLAY ]]; then 
+                    echo "       sudo pacman -S gvim wl-clipboard"
+                else
+                    echo "       sudo pacman -S gvim xsel"
+                fi
                 echo; echo
             fi
         elif [ -f "/etc/redhat-release" ]; then
             sudo dnf makecache
             sudo dnf -y group install "Development Tools"
             sudo dnf -y install tar curl vim-enhanced git cmake
+            sudo dnf -y install gcc-c++
 
             RH_VERSION="$(cat /etc/os-release | grep 'REDHAT_SUPPORT_PRODUCT_VERSION=' | cut -d '=' -f2 | cut -d '.' -f1 |  grep -Eo '[0-9]+')"
 
             if [[ "$RH_VERSION" == "9" ]]; then
-                sudo dnf -y install g++
                 sudo dnf -y install python3-pip python3-devel python3-setuptools*
                 pip3 install --user flake8
                 pip3 install --user autopep8
@@ -75,7 +79,6 @@ if [[ ! "$*" == *"--skip-install"*  ]]; then
                 sed -i "s/HEAD/d2abd1594f228de79a05257fc5d4fca5c9a7ead3/g" ~/.vimrc
             elif [[ "$RH_VERSION" == "8" ]]; then
                 # it's close to impossible to support RH8 at this point, so that's the best I can do
-                sudo dnf -y install gcc-c++
                 sudo dnf -y install python3.11 python3.11-pip python3.11-devel python3.11-setuptools* python3.11-wheel python3.11-pip-wheel
                 sudo alternatives --set python /usr/bin/python3.11
                 sudo ln -s /usr/bin/pip3.11 /usr/bin/pip
@@ -85,7 +88,6 @@ if [[ ! "$*" == *"--skip-install"*  ]]; then
                 # YCM plugin does not support older vim, so we change commit to an older version
                 sed -i "s/HEAD/93956d747abd9f1ac438c219eb27e4ecd94cdb82/g" ~/.vimrc
             else
-                sudo dnf -y install g++
                 sudo dnf -y install python3-pip python3-devel python3-setuptools python3-wheel
                 sudo dnf -y install python3-flake8 python3-autopep8
             fi
@@ -93,7 +95,13 @@ if [[ ! "$*" == *"--skip-install"*  ]]; then
             if [[ $DISPLAY ]]; then 
                 echo; echo
                 echo "Consider running the following command to enable system clipboard support in VIM:"
-                echo "       sudo dnf -y install vim-X11 xsel"
+                if [[ $WAYLAND_DISPLAY ]]; then 
+                    echo "       sudo dnf -y install vim-X11 wl-clipboard"
+                else
+                    echo "       sudo dnf -y install vim-X11 xsel"
+                fi
+                echo; echo
+                echo "       sudo ln -s /usr/bin/vimx /usr/local/bin/vim"
                 echo; echo
             fi
         else
@@ -107,7 +115,11 @@ if [[ ! "$*" == *"--skip-install"*  ]]; then
             if [[ $DISPLAY ]]; then 
                 echo; echo
                 echo "Consider running the following command to enable system clipboard support in VIM:"
-                echo "       sudo apt install -y vim-gtk3 xsel"
+                if [[ $WAYLAND_DISPLAY ]]; then 
+                    echo "       sudo apt install -y vim-gtk3 wl-clipboard"
+                else
+                    echo "       sudo apt install -y vim-gtk3 xsel"
+                fi
                 echo; echo
             fi
         fi
