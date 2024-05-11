@@ -1,36 +1,42 @@
 ## Vim/Neovim automatic installation for most distros
 
-Supported:
+Supported OS/distros:
 
-- MacOS
-- Ubuntu and flavors
-- Debian
-- Mint
-- Arch
-- Manjaro
+- WSL ([Windows Terminal](https://apps.microsoft.com/detail/9n0dx20hk701?rtc=1&hl=en-us&gl=US) app is strongly recommended)
+- MacOS ([iTerm2](https://iterm2.com/) app is strongly recommended)
+- Debian / Ubuntu / Mint
 - Fedora
-- RedHat
-- CentOS
-- AlmaLinux
-- Rocky Linux
+- Arch / Manjaro
+- RedHat / CentOS / AlmaLinux / Rocky Linux
 
-1. Clone this repo anywhere on your machine
 
-2. Run **setup.sh**: `./setup.sh`
+### Installation
 
-3. Extra languages are supported:
-    - If Java support needed, run **setup.sh** with `--with-java`: `./setup.sh --with-java`
-    - If C# support needed, run **setup.sh** with `--with-csharp`: `./setup.sh --with-csharp`
-    - If Golang support needed, run **setup.sh** with `--with-go`: `./setup.sh --with-go`
-    - Flags can be combined, for example: `./setup.sh --with-java --with-go`
+1. Clone this repo anywhere on your machine (or [download](https://github.com/mrpeabody/vim_setup/archive/refs/heads/master.zip) the archive from here):
 
-   *Note: Extra SDKs for these languages must be installed prior*
+```bash
+git clone https://github.com/mrpeabody/vim_setup
+```
 
-4. Install and use one of the included patched fonts. The most popular dev fonts are included in the
+2. Run **setup.sh**:
+
+```bash
+cd vim_setup && ./setup.sh
+```
+
+> Optional Extra languages are supported:
+>    - If Java support needed, run **setup.sh** with `--with-java`: `./setup.sh --with-java`
+>    - If C# support needed, run **setup.sh** with `--with-csharp`: `./setup.sh --with-csharp`
+>    - If Golang support needed, run **setup.sh** with `--with-go`: `./setup.sh --with-go`
+>    - Flags can be combined, for example: `./setup.sh --with-java --with-go`
+>
+>   *Note: Extra SDKs for these languages must be installed prior*
+
+3. Install and use one of the included patched fonts. The most popular dev fonts are included in the
 `fonts` directory, more can be found [here](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts). 
 Otherwise, in `~/.vimrc`, change the **g:font_patched** variable to **0** and comment out the `Plugin 'ryanoasis/vim-devicons'` line.
 
-5. Enjoy your new fresh vim!
+4. Restart the terminal and enjoy your new fresh vim!
 
 
 ### Some Features
