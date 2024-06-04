@@ -22,7 +22,7 @@ Plug 'raimondi/delimitmate'
 Plug 'yuezk/vim-js'
 Plug 'sheerun/vim-polyglot'
 Plug 'othree/csscomplete.vim'
-" Plug 'Valloric/MatchTagAlways'
+Plug 'vitiral/MatchTagAlways', { 'branch': 'rawstring' }
 Plug 'lepture/vim-jinja'
 Plug 'SirVer/ultisnips'
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
