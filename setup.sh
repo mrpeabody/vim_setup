@@ -15,6 +15,7 @@ Help()
    echo "--with-go        Add optional Golang support."
    echo "--with-java      Add optional Java support."
    echo "--with-csharp    Add optional C# support."
+   echo "--with-rust      Add optional Rust support."
    echo
 }
 ################################################################################
@@ -33,6 +34,14 @@ if [[ "$*" == *"--with-go"*  ]]; then
         sed -i '' "s/\" Plug 'fatih\/vim-go'/Plug 'fatih\/vim-go'/g" ~/.vimrc
     else
         sed -i "s/\" Plug 'fatih\/vim-go'/Plug 'fatih\/vim-go'/g" ~/.vimrc
+    fi
+fi
+
+if [[ "$*" == *"--with-rust"*  ]]; then
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        sed -i '' "s/\" Plug 'rust-lang\/rust\.vim'/Plug 'rust-lang\/rust\.vim'/g" ~/.vimrc
+    else
+        sed -i "s/\" Plug 'rust-lang\/rust\.vim'/Plug 'rust-lang\/rust\.vim'/g" ~/.vimrc
     fi
 fi
 
@@ -191,6 +200,10 @@ fi
 
 if [[ "$*" == *"--with-csharp"*  ]]; then
     INSTALL_ARGS+=" --cs-completer"
+fi
+
+if [[ "$*" == *"--with-rust"*  ]]; then
+    INSTALL_ARGS+=" --rust-completer"
 fi
 
 if [[ "$OSTYPE" == "darwin"* ]]; then

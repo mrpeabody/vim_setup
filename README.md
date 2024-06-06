@@ -28,6 +28,7 @@ cd vim_setup && ./setup.sh
 >    - If Java support needed, run **setup.sh** with `--with-java`: `./setup.sh --with-java`
 >    - If C# support needed, run **setup.sh** with `--with-csharp`: `./setup.sh --with-csharp`
 >    - If Golang support needed, run **setup.sh** with `--with-go`: `./setup.sh --with-go`
+>    - If Rust support needed, run **setup.sh** with `--with-rust`: `./setup.sh --with-rust`
 >    - Flags can be combined, for example: `./setup.sh --with-java --with-go`
 >
 >   *Note: Extra SDKs for these languages must be installed prior*
