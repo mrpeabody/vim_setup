@@ -374,7 +374,9 @@ nnoremap <silent> - :resize +5<cr>
 
 
 " Hit f3 in order to have a 'normal' paste in the insert mode
-set pastetoggle=<F3>
+if !has('nvim')
+    set pastetoggle=<F3>
+endif
 
 
 " Disable arrow keys in both insert and normal mode
