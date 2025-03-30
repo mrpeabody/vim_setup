@@ -50,8 +50,8 @@ Otherwise, in `~/.vimrc`, change the **g:font_patched** variable to **0** and co
 ##### Scrolling through the code:
 - Moves screen up one line: `Ctrl + y` 
 - Moves screen down one line: `Ctrl + e`
-- Moves screen up ½ page: `Ctrl + u`
-- Moves screen down ½ page: `Ctrl + d`
+- Moves screen up Â½ page: `Ctrl + u`
+- Moves screen down Â½ page: `Ctrl + d`
 - Moves screen up one page: `Ctrl + b`
 - Moves screen down one page: `Ctrl + f`
 
@@ -98,9 +98,9 @@ After multiple occurrences are selected, any action over the selection is approp
 - Move current line/selection up: `Alt + k`
 - Move current line/selection down: `Alt + j`
 
-**Note**: if your ALT key is not working, look [below](#markdown-header-alt-key) for the solution.
+**Note**: if your ALT key is not working, look [below](#alt-key) for the solution.
 
-![Demo](https://camo.githubusercontent.com/a00fcaf572f3043d793c43a8bdc459d682e4fb84e8af29161ce2278f802b8b44/687474703a2f2f692e696d6775722e636f6d2f524d76384b734a2e676966 "Moving line[s]")
+![Demo](https://camo.githubusercontent.com/692e9921774e6b4ab43c06bd19dce6b6ea411a9eeff86b70bb522e1e3ce269f3/687474703a2f2f692e696d6775722e636f6d2f524d76384b734a2e676966 "Moving line[s]")
 
 
 ##### Code structure view (just like in PyCharm) #####
@@ -125,14 +125,14 @@ After multiple occurrences are selected, any action over the selection is approp
 - Start Live preview (it also autoscrolls as you work on the file): `:InstantMarkdownPreview`
 - Stop Live preview: `:InstantMarkdownStop`
 
-![Markdown Live Preview Demo](https://camo.githubusercontent.com/0f67dff7906712195c6d30db7161bf196ac34234fdc8a0c71413ad37de260500/68747470733a2f2f692e696d6775722e636f6d2f72374736464e412e676966)
+![Markdown Live Preview Demo](https://i.imgur.com/r7G6FNA.gif)
 
 
 ##### Other small features:
 
 - flip function arguments/list elements/dictionary key-value pairs inline or stacked vertically: `<,> then a`
 
-![Wrap/Unwrap arguments](https://git.foosoft.net/alex/vim-argwrap/media/branch/master/img/demo.gif "Wrap/Unwrap arguments")
+![Wrap/Unwrap arguments](https://git.sr.ht/~foosoft/vim-argwrap/blob/master/img/demo.gif "Wrap/Unwrap arguments")
 
 - remove trailing whitespace: `<,> then ss`
 - Show/Hide the file tree (NERD Tree): `<,> then N`
