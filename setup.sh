@@ -29,21 +29,6 @@ fi
 
 # copy required files
 cp setup/vimrc.txt ~/.vimrc
-if [[ "$*" == *"--with-go"*  ]]; then
-    if [[ "$OSTYPE" == "darwin"* ]]; then
-        sed -i '' "s/\" Plug 'fatih\/vim-go'/Plug 'fatih\/vim-go'/g" ~/.vimrc
-    else
-        sed -i "s/\" Plug 'fatih\/vim-go'/Plug 'fatih\/vim-go'/g" ~/.vimrc
-    fi
-fi
-
-if [[ "$*" == *"--with-rust"*  ]]; then
-    if [[ "$OSTYPE" == "darwin"* ]]; then
-        sed -i '' "s/\" Plug 'rust-lang\/rust\.vim'/Plug 'rust-lang\/rust\.vim'/g" ~/.vimrc
-    else
-        sed -i "s/\" Plug 'rust-lang\/rust\.vim'/Plug 'rust-lang\/rust\.vim'/g" ~/.vimrc
-    fi
-fi
 
 if [ -d "$HOME/.vim" ]; then
     echo 'Cleaning up the old .vim directory...'
@@ -57,36 +42,38 @@ cp setup/csslintrc.txt ~/.csslintrc
 if [[ ! "$*" == *"--skip-install"*  ]]; then
     if [[ "$OSTYPE" == "linux-gnu"* ]]; then
         if [ -f "/etc/arch-release" ]; then
-            sudo pacman --noconfirm -S vim git cmake gcc ctags curl base-devel
+            sudo pacman --noconfirm -S git cmake gcc ctags curl base-devel
             sudo pacman --noconfirm -S python-pip python-wheel python-setuptools
             sudo pacman --noconfirm -S flake8 autopep8
 
             if [[ $DISPLAY ]]; then 
-                echo; echo
-                echo "Consider running the following command to enable system clipboard support in VIM:"
                 if [[ $WAYLAND_DISPLAY ]]; then 
-                    echo "       sudo pacman -S gvim wl-clipboard"
+                    sudo pacman --noconfirm -S gvim wl-clipboard
                 else
-                    echo "       sudo pacman -S gvim xsel"
+                    sudo pacman --noconfirm -S gvim xsel
                 fi
-                echo; echo
+            else
+                sudo pacman --noconfirm -S vim
             fi
         elif [ -f "/etc/redhat-release" ]; then
             sudo dnf makecache
-            sudo dnf -y group install "Development Tools"
             sudo dnf -y install tar curl vim-enhanced git cmake
             sudo dnf -y install gcc-c++
 
             RH_VERSION="$(cat /etc/os-release | grep 'REDHAT_SUPPORT_PRODUCT_VERSION=' | cut -d '=' -f2 | cut -d '.' -f1 |  grep -Eo '[0-9]+')"
 
             if [[ "$RH_VERSION" == "9" ]]; then
+                sudo dnf -y group install "Development Tools"
                 sudo dnf -y install python3-pip python3-devel python3-setuptools*
                 pip3 install --user flake8
                 pip3 install --user autopep8
 
                 # YCM plugin does not support older vim, so we change commit to an older version
+                cp setup/vimrc_rh.txt ~/.vimrc
                 sed -i "s/HEAD/d2abd1594f228de79a05257fc5d4fca5c9a7ead3/g" ~/.vimrc
             elif [[ "$RH_VERSION" == "8" ]]; then
+                sudo dnf -y group install "Development Tools"
+
                 # it's close to impossible to support RH8 at this point, so that's the best I can do
                 sudo dnf -y install python3.11 python3.11-pip python3.11-devel python3.11-setuptools* python3.11-wheel python3.11-pip-wheel
                 sudo alternatives --set python /usr/bin/python3.11
@@ -95,8 +82,10 @@ if [[ ! "$*" == *"--skip-install"*  ]]; then
                 pip install --user autopep8
 
                 # YCM plugin does not support older vim, so we change commit to an older version
+                cp setup/vimrc_rh.txt ~/.vimrc
                 sed -i "s/HEAD/93956d747abd9f1ac438c219eb27e4ecd94cdb82/g" ~/.vimrc
             else
+                sudo dnf -y group install "development-tools"
                 sudo dnf -y install python3-pip python3-devel python3-setuptools python3-wheel
                 sudo dnf -y install python3-flake8 python3-autopep8
             fi
@@ -139,7 +128,7 @@ if [[ ! "$*" == *"--skip-install"*  ]]; then
 
         # only install and set up NVM if it's not installed already
         if [[ ! -d "$HOME/.nvm" ]]; then
-            curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+            curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash
             export NVM_DIR=$HOME/.nvm
             source $NVM_DIR/nvm.sh
             nvm install --lts
@@ -167,7 +156,7 @@ if [[ ! "$*" == *"--skip-install"*  ]]; then
 
         # only install and set up NVM if it's not installed already
         if [[ ! -d "$HOME/.nvm" ]]; then
-            curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | zsh
+            curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | zsh
             export NVM_DIR=$HOME/.nvm
             source $NVM_DIR/nvm.sh
             nvm install --lts
@@ -204,6 +193,22 @@ fi
 
 if [[ "$*" == *"--with-rust"*  ]]; then
     INSTALL_ARGS+=" --rust-completer"
+fi
+
+if [[ "$*" == *"--with-go"*  ]]; then
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        sed -i '' "s/\" Plug 'fatih\/vim-go'/Plug 'fatih\/vim-go'/g" ~/.vimrc
+    else
+        sed -i "s/\" Plug 'fatih\/vim-go'/Plug 'fatih\/vim-go'/g" ~/.vimrc
+    fi
+fi
+
+if [[ "$*" == *"--with-rust"*  ]]; then
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        sed -i '' "s/\" Plug 'rust-lang\/rust\.vim'/Plug 'rust-lang\/rust\.vim'/g" ~/.vimrc
+    else
+        sed -i "s/\" Plug 'rust-lang\/rust\.vim'/Plug 'rust-lang\/rust\.vim'/g" ~/.vimrc
+    fi
 fi
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
