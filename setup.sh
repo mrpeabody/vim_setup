@@ -44,7 +44,7 @@ if [[ ! "$*" == *"--skip-install"*  ]]; then
         if [ -f "/etc/arch-release" ]; then
             sudo pacman --noconfirm -S git cmake gcc ctags curl base-devel
             sudo pacman --noconfirm -S python-pip python-wheel python-setuptools
-            sudo pacman --noconfirm -S flake8 autopep8
+            sudo pacman --noconfirm -S python-flake8 autopep8
 
             if [[ $DISPLAY ]]; then 
                 if [[ $WAYLAND_DISPLAY ]]; then 
