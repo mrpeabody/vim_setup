@@ -1,10 +1,32 @@
 " Make Vim more useful
 set nocompatible
-set lazyredraw
+set smoothscroll
 
 " allow custom local vim configs with limited options
 set exrc
 set secure
+
+" Styled and colored underline support
+let &t_AU = "\e[58:5:%dm"
+let &t_8u = "\e[58:2:%lu:%lu:%lum"
+let &t_Us = "\e[4:2m"
+let &t_Cs = "\e[4:3m"
+let &t_ds = "\e[4:4m"
+let &t_Ds = "\e[4:5m"
+let &t_Ce = "\e[4:0m"
+" Strikethrough
+let &t_Ts = "\e[9m"
+let &t_Te = "\e[29m"
+" Truecolor support
+let &t_8f = "\e[38:2:%lu:%lu:%lum"
+let &t_8b = "\e[48:2:%lu:%lu:%lum"
+let &t_RF = "\e]10;?\e\\"
+let &t_RB = "\e]11;?\e\\"
+" Bracketed paste
+let &t_BE = "\e[?2004h"
+let &t_BD = "\e[?2004l"
+let &t_PS = "\e[200~"
+let &t_PE = "\e[201~"
 
 let g:polyglot_disabled = ['markdown', 'c', 'cpp']
 
@@ -84,7 +106,7 @@ call plug#end()            " required
 " - onehalfdark        (a nice clean dark theme)
 " - iceberg            (a well-designed, bluish color scheme)
 " - vim-monokai-tasty  (clone of sublime text editor theme)
-let g:COLORSCHEME = 'OceanicNext'
+let g:COLORSCHEME = 'everforest'
 
 
 " Modify g:font_patched to 0 if no patched font is installed
