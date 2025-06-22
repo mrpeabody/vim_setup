@@ -2,20 +2,42 @@
   "suggest.noselect": true,
   "suggest.enablePreselect": false,
   "suggest.autoTrigger": "always",
-  "suggest.minTriggerInputLength": 1,
+  "suggest.minTriggerInputLength": 2,
   "suggest.snippetIndicator": "",
   "suggest.detailField": "abbr",
   "inlayHint.display": false,
 
   "diagnostic.enable": true,
   "diagnostic.virtualText": false,
+  "diagnostic.enableSign": true,
+  "diagnostic.enableHighlightLineNumber": true,
+  "diagnostic.warningSign": ">>",
 
   "coc.preferences.useQuickfixForLocations": true,
   "coc.preferences.jumpCommand": "edit",
 
   "signature.preferShownAbove": false,
 
+  "eslint.rules.customizations": [
+    {
+      "rule": "*",
+      "severity": "warn"
+    },
+    {
+      "rule": "eqeqeq",
+      "severity": "error"
+    }
+  ],
+
+  "tsserver.reportStyleChecksAsWarnings": true,
   "python.pythonPath": "/usr/bin/python3",
+  "python.linting.flake8Enabled": true,
+  "python.linting.flake8CategorySeverity.E": "Warning",
+  "python.linting.flake8CategorySeverity.F": "Warning",
+  "python.linting.flake8Args": [
+      "--max-line-length=120",
+      "--ignore=E402,F841,F401,E302,E305"
+  ],
 
   "clangd.path": "clangd",
   "clangd.arguments": [
@@ -26,5 +48,5 @@
 
   "coc.source.buffer.enable": true,
 
-  "snippets.ultisnips.directories": ["UltiSnips", "my_snippets"]
+  "snippets.ultisnips.directories": ["UltiSnips", "CustomSnippets"],
 }

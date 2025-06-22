@@ -161,15 +161,14 @@ if [[ ! "$*" == *"--skip-install"*  ]]; then
 
     npm list -g typescript &>/dev/null || npm install -g typescript
     npm list -g instant-markdown-d &>/dev/null || npm install -g instant-markdown-d
-    npm list -g csslint &>/dev/null || npm install -g csslint
-    npm list -g htmlhint &>/dev/null || npm install -g htmlhint
     npm list -g standard &>/dev/null || npm install -g standard
+    npm list -g eslint &>/dev/null || npm install -g eslint
     npm list -g ts-standard@10.0.0 &>/dev/null || npm install -g ts-standard@10.0.0
     npm list -g pyright &>/dev/null || npm install -g pyright
 fi
 
 # generate the Plug install command for the CoC plugin
-INSTALL_ARGS="coc-json coc-tsserver coc-clangd coc-pyright coc-snippets"
+INSTALL_ARGS=""
 
 if [[ "$*" == *"--with-java"*  ]]; then
     INSTALL_ARGS+=" coc-java"
@@ -179,13 +178,7 @@ if [[ "$*" == *"--with-csharp"*  ]]; then
     INSTALL_ARGS+=" coc-omnisharp"
 fi
 
-if [[ "$*" == *"--with-rust"*  ]]; then
-    INSTALL_ARGS+=" coc-rust-analyzer"
-fi
-
 if [[ "$*" == *"--with-go"*  ]]; then
-    INSTALL_ARGS+=" coc-go"
-
     if [[ "$OSTYPE" == "darwin"* ]]; then
         sed -i '' "s/\" Plug 'fatih\/vim-go'/Plug 'fatih\/vim-go'/g" ~/.vimrc
     else
@@ -194,6 +187,8 @@ if [[ "$*" == *"--with-go"*  ]]; then
 fi
 
 if [[ "$*" == *"--with-rust"*  ]]; then
+    INSTALL_ARGS+=" coc-rust-analyzer"
+    
     if [[ "$OSTYPE" == "darwin"* ]]; then
         sed -i '' "s/\" Plug 'rust-lang\/rust\.vim'/Plug 'rust-lang\/rust\.vim'/g" ~/.vimrc
     else
@@ -205,7 +200,9 @@ fi
 vim +"colorscheme OceanicNext2" +PlugInstall +qall
 
 # setup CoC
-vim -c "colorscheme OceanicNext2" -c "CocInstall -sync $INSTALL_ARGS|q"
+if [ -n "$INSTALL_ARGS" ]; then
+  vim -c "colorscheme OceanicNext2" -c "CocInstall -sync $INSTALL_ARGS|q"
+fi
 
 # everything is done
 echo 'Your vim setup is finished. Happy hacking!'

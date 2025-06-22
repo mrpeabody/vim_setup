@@ -33,6 +33,7 @@ let g:polyglot_disabled = ['markdown', 'c', 'cpp']
 call plug#begin('~/.vim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'josa42/vim-lightline-coc'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-fugitive'
@@ -56,7 +57,6 @@ Plug 'rdolgushin/gitignore.vim'
 Plug 'matze/vim-move'
 Plug 'rhysd/clever-f.vim'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'dense-analysis/ale'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'AndrewRadev/splitjoin.vim'
@@ -119,7 +119,21 @@ vnoremap <silent> <C-g> :MultipleCursorsFind <C-R>/<CR>
 
 " CoC completion engine settings
 
-" Use <TAB> and <S-TAB> to navigate completion menu like YCM
+let g:coc_global_extensions = [
+            \    'coc-json',
+            \    'coc-eslint',
+            \    'coc-tsserver',
+            \    'coc-css',
+            \    'coc-cmake',
+            \    'coc-clangd',
+            \    'coc-pyright',
+            \    'coc-snippets',
+            \    'coc-git',
+            \    'coc-sh',
+            \    'coc-vimlsp'
+            \]
+
+" Use <TAB> and <S-TAB> to navigate completion menu
 inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <silent><expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
@@ -129,23 +143,21 @@ autocmd ColorScheme * hi! link PmenuSel Visual
 " Use <c-space> to trigger completion
 inoremap <silent><expr> <c-space> coc#refresh()
 
-" Show documentation in preview window
-nnoremap <silent> K :call CocActionAsync('doHover')<CR>
+" Highlight the symbol and its references when holding the cursor
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" Go to definition, type definition, references
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gr <Plug>(coc-references)
-nmap <silent> gi <Plug>(coc-implementation)
+" " Enable some IDE-like features for JS / TS, Python, and Java
+autocmd FileType java,javascript,jsx,typescript,tsx,python,cpp,cs nmap <silent> <Leader>d :call CocActionAsync('doHover')<CR>
+autocmd FileType java,javascript,jsx,typescript,tsx,python,cpp,cs nmap <silent> gd <Plug>(coc-definition)
+autocmd FileType java,javascript,jsx,typescript,tsx,python,cpp,cs nmap <silent> gi <Plug>(coc-implementation)
+autocmd FileType java,javascript,jsx,typescript,tsx,python,cpp,cs nmap <silent> gr <Plug>(coc-references)
+autocmd FileType java,javascript,jsx,typescript,tsx,python,cpp,cs nmap <silent> <Leader>e <Plug>(coc-rename)
 
-" Format current buffer
-nmap <leader>f  <Plug>(coc-format)
-
-" Rename symbol
-nmap <leader>rn <Plug>(coc-rename)
-
-" Fix current issue
-nmap <leader>qf <Plug>(coc-fix-current)
+" same for Go
+autocmd FileType go nmap <silent> gd :GoDef<CR>
+autocmd FileType go nmap <silent> <Leader>d :GoDoc<CR>
+autocmd FileType go nmap <silent> gr :GoReferrers<CR>
+autocmd FileType go nmap <silent> <Leader>e :GoRename<CR>
 
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server
@@ -158,54 +170,6 @@ omap ic <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
-" Run the Code Lens action on the current line
-" nmap <leader>cl  <Plug>(coc-codelens-action)
-
-" YouCompleteMe settings
-" let g:ycm_add_preview_to_completeopt = 0
-" set completeopt-=preview
-" let g:ycm_autoclose_preview_window_after_completion = 1
-" let g:ycm_confirm_extra_conf = 0
-" let g:AutoPairsUseInsertedCount = 1
-" let g:ycm_complete_in_comments = 1
-" let g:ycm_min_num_of_chars_for_completion = 2
-" let g:ycm_seed_identifiers_with_syntax = 1
-" let g:ycm_show_diagnostics_ui = 0
-" let g:ycm_auto_hover = ''
-
-
-" if !exists("g:ycm_semantic_triggers")
-"     let g:ycm_semantic_triggers = {}
-" endif
-" let g:ycm_semantic_triggers =  {
-"             \   'c,cpp' : ['->', '.', '::', 're!(?=[a-zA-Z_]{5})'],
-"             \   'objc' : ['->', '.'],
-"             \   'ocaml' : ['.', '#'],
-"             \   'objcpp' : ['->', '.', '::'],
-"             \   'perl' : ['->'],
-"             \   'php' : ['->', '::', '"', "'", 'use ', 'namespace ', '\'],
-"             \   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir' : ['.'],
-"             \   'html,xml': ['<', '"', '</', ' '],
-"             \   'vim' : ['re![_a-za-z]+[_\w]*\.'],
-"             \   'ruby' : ['.', '::'],
-"             \   'lua' : ['.', ':'],
-"             \   'erlang' : [':'],
-"             \   'haskell' : ['.', 're!.']
-"             \ }
-
-
-" " Enable some IDE-like features for JS / TS, Python, and Java
-" autocmd FileType java,javascript,jsx,typescript,tsx,python,cpp,cs nmap <silent> <C-]> :YcmCompleter GoToDefinition<CR>
-" autocmd FileType java,javascript,jsx,typescript,tsx,python,cpp,cs nmap <silent> <Leader>d :YcmCompleter GetDoc<CR>
-" autocmd FileType java,javascript,jsx,typescript,tsx,python,cpp,cs nmap <silent> <C-^> :YcmCompleter GoToReferences<CR>
-" autocmd FileType java,javascript,jsx,typescript,tsx,python,cpp,cs nmap <silent> <Leader>e :execute ':YcmCompleter RefactorRename ' . input('New Name: ')<CR>
-
-" same for Go
-autocmd FileType go nmap <silent> <C-]> :GoDef<CR>
-autocmd FileType go nmap <silent> <Leader>d :GoDoc<CR>
-autocmd FileType go nmap <silent> <C-^> :GoReferrers<CR>
-autocmd FileType go nmap <silent> <Leader>e :GoRename<CR>
-
 
 " Git Gutter settings
 if exists('&signcolumn')  " Vim 7.4.2201
@@ -214,11 +178,6 @@ else
   let g:gitgutter_sign_column_always = 1
 endif
 set updatetime=100
-
-
-" make YCM compatible with UltiSnips
-" let g:ycm_key_list_select_completion=[]
-" let g:ycm_key_list_previous_completion=[]
 
 
 " Ultisnips settings
@@ -249,9 +208,6 @@ function! ToggleQuickFix()
 endfunction
 
 nnoremap <silent> <leader>q :call ToggleQuickFix()<cr>
-
-" keep the window open on the YcmQuickFixOpened event
-" autocmd User YcmQuickFixOpened autocmd! ycmquickfix WinLeave
 
 " text alignment settings
 let g:lion_squeeze_spaces = 1
@@ -297,57 +253,9 @@ let g:go_metalinter_autosave = 0
 let g:go_imports_autosave = 0
 autocmd FileType go noremap <buffer> <F8> :GoFmt<CR>
 
-
-" Ale (autolinting) settings
-let g:ale_virtualtext_cursor = 'disabled'
-let g:ale_sign_column_always = 1
-let g:ale_sign_error = '>>'
-let g:ale_sign_warning = '>>'
-
-augroup OnStopLintingGroup
-    autocmd!
-    autocmd User ALEJobStarted call lightline#update()
-    autocmd User ALELintPost call lightline#update()
-    autocmd User ALEFixPost call lightline#update()
-augroup END
-
-let g:ale_python_flake8_options = '--ignore=W391,F821,F403 --max-line-length=120'
-let g:ale_completion_enabled = 0
-
-
-" nmap <silent>[e <Plug>(ale_previous_wrap)
-" nmap <silent>]e <Plug>(ale_next_wrap)
+" Jump next/previous diagnostic issue (error/warning/info/hint)
 nmap <silent> [e <Plug>(coc-diagnostic-prev)
 nmap <silent> ]e <Plug>(coc-diagnostic-next)
-
-
-let g:ale_typescript_standard_use_global = 1
-let g:ale_typescript_standard_executable = 'ts-standard'
-let g:ale_typescript_standard_options = '--stdin-filename %s'
-
-let g:ale_python_pyright_use_global = 1
-let g:ale_python_pyright_auto_pipenv = 1
-let g:ale_python_pyright_auto_poetry = 1
-
-let g:ale_linters = {
-\   'go': ['revive', 'gopls'],
-\   'python': ['pyright', 'flake8'],
-\   'javascript': ['standard', 'tsserver'],
-\   'typescript': ['standard', 'tsserver'],
-\   'typescriptreact': ['standard', 'tsserver'],
-\   'javascriptreact': ['standard', 'tsserver'],
-\}
-
-
-let g:ale_fixers = {
-\   'typescript': ['standard'],
-\   'javascript': ['standard'],
-\   'typescriptreact': ['standard'],
-\   'javascriptreact': ['standard'],
-\}
-
-let g:ale_lint_on_text_changed = 'normal'
-let g:ale_lint_on_insert_leave = 1
 
 " QuickFix / Location list settings
 nmap <script> <silent> <leader>l :call ToggleLocationList()<CR>
@@ -366,7 +274,7 @@ au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja.html
 
 
 " Automatically fix according to (ts-)standard
-autocmd FileType javascriptreact,javascript,typescript,typescriptreact,tsx,jsx noremap <buffer> <F8> :ALEFix<cr>
+autocmd FileType javascriptreact,javascript,typescript,typescriptreact,tsx,jsx nnoremap <silent> <buffer> <F8> :CocCommand eslint.executeAutofix<CR>
 
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 if (executable('pbcopy') || executable('xclip') || executable('xsel') || executable('wl-copy')) && has('clipboard')
@@ -838,7 +746,7 @@ let g:lightline = {
       \ 'mode_map': { 'c': 'NORMAL' },
       \ 'active': {
       \   'left': [['mode', 'paste'], ['fugitive', 'filename']],
-      \   'right': [['coc_error', 'coc_warning', 'lineinfo', 'percent'], [ 'fileformat', 'fileencoding', 'filetype' ]]
+      \   'right': [['coc_errors', 'coc_warnings', 'coc_hints', 'coc_info', 'lineinfo', 'percent'], [ 'fileformat', 'fileencoding', 'filetype' ]]
       \ },
       \ 'inactive': {
       \   'left': [['filename']],
@@ -856,57 +764,20 @@ let g:lightline = {
       \   'mode': 'LightLineMode'
       \ },
       \ 'component_expand': {
-      \   'coc_warning': 'CocGetWarningStatusLine',
-      \   'coc_error': 'CocGetErrorStatusLine'
+      \   'coc_warnings': 'lightline#coc#warnings',
+      \   'coc_errors': 'lightline#coc#errors',
+      \   'coc_info': 'lightline#coc#info',
+      \   'coc_hints': 'lightline#coc#hints'
       \ },
       \ 'component_type': {
-      \   'coc_warning': 'warning',
-      \   'coc_error': 'error'
+      \   'coc_warnings': 'warning',
+      \   'coc_errors': 'error',
+      \   'coc_info': 'info',
+      \   'coc_hints': 'warning',
       \ },
       \ 'separator': { 'left': g:separator_left_symbol, 'right': g:separator_right_symbol},
       \ 'subseparator': { 'left':g:subseparator_left_symbol, 'right': g:subseparator_right_symbol}
       \ }
-
-function! ALEGetWarningStatusLine()
-    let l:counts = ale#statusline#Count(bufnr(''))
-    let l:all_errors = l:counts.error + l:counts.style_error
-    let l:all_non_errors = l:counts.total - l:all_errors
-    return l:all_non_errors == 0 ? '' : printf('⚠ %d', l:all_non_errors)
-endfunction
-
-function! ALEGetErrorStatusLine()
-    let l:counts = ale#statusline#Count(bufnr(''))
-    let l:all_errors = l:counts.error + l:counts.style_error
-    return l:all_errors == 0 ? '' : printf('✗ %d', l:all_errors)
-endfunction
-
-function! CocGetWarningStatusLine() abort
-  let diags = coc#util#get_diagnostics(bufnr(''))
-  if empty(diags)
-    return ''
-  endif
-  let count_non_errors = 0
-  for d in diags
-    if d['severity'] == 2 || d['severity'] == 3
-      let count_non_errors += 1
-    endif
-  endfor
-  return count_non_errors == 0 ? '' : printf('⚠ %d', count_non_errors)
-endfunction
-
-function! CocGetErrorStatusLine() abort
-  let diags = coc#util#get_diagnostics(bufnr(''))
-  if empty(diags)
-    return ''
-  endif
-  let count_errors = 0
-  for d in diags
-    if d['severity'] == 1
-      let count_errors += 1
-    endif
-  endfor
-  return count_errors == 0 ? '' : printf('✗ %d', count_errors)
-endfunction
 
 function! LightLineLineinfo()
     return winwidth(0) > 50 ? line('.').':'.virtcol('.') : ''
