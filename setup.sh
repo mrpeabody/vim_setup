@@ -42,18 +42,18 @@ cp setup/csslintrc.txt ~/.csslintrc
 if [[ ! "$*" == *"--skip-install"*  ]]; then
     if [[ "$OSTYPE" == "linux-gnu"* ]]; then
         if [ -f "/etc/arch-release" ]; then
-            sudo pacman --noconfirm -S git cmake gcc ctags curl base-devel
-            sudo pacman --noconfirm -S python-pip python-wheel python-setuptools
-            sudo pacman --noconfirm -S python-flake8 autopep8
+            sudo pacman --noconfirm --needed -S git cmake gcc ctags curl base-devel
+            sudo pacman --noconfirm --needed -S python-pip python-wheel python-setuptools
+            sudo pacman --noconfirm --needed -S python-flake8 autopep8
 
             if [[ $DISPLAY ]]; then 
                 if [[ $WAYLAND_DISPLAY ]]; then 
-                    sudo pacman --noconfirm -S gvim wl-clipboard
+                    sudo pacman --noconfirm --needed -S gvim wl-clipboard
                 else
-                    sudo pacman --noconfirm -S gvim xsel
+                    sudo pacman --noconfirm --needed -S gvim xsel
                 fi
             else
-                sudo pacman --noconfirm -S vim
+                sudo pacman --noconfirm --needed -S vim
             fi
         elif [ -f "/etc/redhat-release" ]; then
             sudo dnf makecache
@@ -205,7 +205,7 @@ fi
 vim +"colorscheme OceanicNext2" +PlugInstall +qall
 
 # setup CoC
-vim -c "colorscheme OceanicNext2" -c "CocInstall $INSTALL_ARGS" -c "qall"
+vim -c "colorscheme OceanicNext2" -c "CocInstall -sync $INSTALL_ARGS|q"
 
 # everything is done
 echo 'Your vim setup is finished. Happy hacking!'
