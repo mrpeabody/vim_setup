@@ -32,7 +32,7 @@ let g:polyglot_disabled = ['markdown', 'c', 'cpp']
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'ycm-core/YouCompleteMe', { 'do': './install.py ARGS_TO_REPLACE' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-fugitive'
@@ -116,56 +116,89 @@ let g:font_patched = 1
 nnoremap <silent> <C-g> :MultipleCursorsFind <C-R>/<CR>
 vnoremap <silent> <C-g> :MultipleCursorsFind <C-R>/<CR>
 
-function Multiple_cursors_before()
-    call youcompleteme#DisableCursorMovedAutocommands()
-    let s:old_ycm_whitelist = g:ycm_filetype_whitelist
-    let g:ycm_filetype_whitelist = {}
-endfunction
 
-function Multiple_cursors_after()
-    call youcompleteme#EnableCursorMovedAutocommands()
-    let g:ycm_filetype_whitelist = s:old_ycm_whitelist
-endfunction
+" CoC completion engine settings
 
+" Use <TAB> and <S-TAB> to navigate completion menu like YCM
+inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <silent><expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+
+" fix some highlights
+autocmd ColorScheme * hi! link PmenuSel Visual
+
+" Use <c-space> to trigger completion
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Show documentation in preview window
+nnoremap <silent> K :call CocActionAsync('doHover')<CR>
+
+" Go to definition, type definition, references
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gi <Plug>(coc-implementation)
+
+" Format current buffer
+nmap <leader>f  <Plug>(coc-format)
+
+" Rename symbol
+nmap <leader>rn <Plug>(coc-rename)
+
+" Fix current issue
+nmap <leader>qf <Plug>(coc-fix-current)
+
+" Map function and class text objects
+" NOTE: Requires 'textDocument.documentSymbol' support from the language server
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
+
+" Run the Code Lens action on the current line
+" nmap <leader>cl  <Plug>(coc-codelens-action)
 
 " YouCompleteMe settings
-let g:ycm_add_preview_to_completeopt = 0
-set completeopt-=preview
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_confirm_extra_conf = 0
-let g:AutoPairsUseInsertedCount = 1
-let g:ycm_complete_in_comments = 1
-let g:ycm_min_num_of_chars_for_completion = 2
-let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_show_diagnostics_ui = 0
-let g:ycm_auto_hover = ''
+" let g:ycm_add_preview_to_completeopt = 0
+" set completeopt-=preview
+" let g:ycm_autoclose_preview_window_after_completion = 1
+" let g:ycm_confirm_extra_conf = 0
+" let g:AutoPairsUseInsertedCount = 1
+" let g:ycm_complete_in_comments = 1
+" let g:ycm_min_num_of_chars_for_completion = 2
+" let g:ycm_seed_identifiers_with_syntax = 1
+" let g:ycm_show_diagnostics_ui = 0
+" let g:ycm_auto_hover = ''
 
 
-if !exists("g:ycm_semantic_triggers")
-    let g:ycm_semantic_triggers = {}
-endif
-let g:ycm_semantic_triggers =  {
-            \   'c,cpp' : ['->', '.', '::', 're!(?=[a-zA-Z_]{5})'],
-            \   'objc' : ['->', '.'],
-            \   'ocaml' : ['.', '#'],
-            \   'objcpp' : ['->', '.', '::'],
-            \   'perl' : ['->'],
-            \   'php' : ['->', '::', '"', "'", 'use ', 'namespace ', '\'],
-            \   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir' : ['.'],
-            \   'html,xml': ['<', '"', '</', ' '],
-            \   'vim' : ['re![_a-za-z]+[_\w]*\.'],
-            \   'ruby' : ['.', '::'],
-            \   'lua' : ['.', ':'],
-            \   'erlang' : [':'],
-            \   'haskell' : ['.', 're!.']
-            \ }
+" if !exists("g:ycm_semantic_triggers")
+"     let g:ycm_semantic_triggers = {}
+" endif
+" let g:ycm_semantic_triggers =  {
+"             \   'c,cpp' : ['->', '.', '::', 're!(?=[a-zA-Z_]{5})'],
+"             \   'objc' : ['->', '.'],
+"             \   'ocaml' : ['.', '#'],
+"             \   'objcpp' : ['->', '.', '::'],
+"             \   'perl' : ['->'],
+"             \   'php' : ['->', '::', '"', "'", 'use ', 'namespace ', '\'],
+"             \   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir' : ['.'],
+"             \   'html,xml': ['<', '"', '</', ' '],
+"             \   'vim' : ['re![_a-za-z]+[_\w]*\.'],
+"             \   'ruby' : ['.', '::'],
+"             \   'lua' : ['.', ':'],
+"             \   'erlang' : [':'],
+"             \   'haskell' : ['.', 're!.']
+"             \ }
 
 
-" Enable some IDE-like features for JS / TS, Python, and Java
-autocmd FileType java,javascript,jsx,typescript,tsx,python,cpp,cs nmap <silent> <C-]> :YcmCompleter GoToDefinition<CR>
-autocmd FileType java,javascript,jsx,typescript,tsx,python,cpp,cs nmap <silent> <Leader>d :YcmCompleter GetDoc<CR>
-autocmd FileType java,javascript,jsx,typescript,tsx,python,cpp,cs nmap <silent> <C-^> :YcmCompleter GoToReferences<CR>
-autocmd FileType java,javascript,jsx,typescript,tsx,python,cpp,cs nmap <silent> <Leader>e :execute ':YcmCompleter RefactorRename ' . input('New Name: ')<CR>
+" " Enable some IDE-like features for JS / TS, Python, and Java
+" autocmd FileType java,javascript,jsx,typescript,tsx,python,cpp,cs nmap <silent> <C-]> :YcmCompleter GoToDefinition<CR>
+" autocmd FileType java,javascript,jsx,typescript,tsx,python,cpp,cs nmap <silent> <Leader>d :YcmCompleter GetDoc<CR>
+" autocmd FileType java,javascript,jsx,typescript,tsx,python,cpp,cs nmap <silent> <C-^> :YcmCompleter GoToReferences<CR>
+" autocmd FileType java,javascript,jsx,typescript,tsx,python,cpp,cs nmap <silent> <Leader>e :execute ':YcmCompleter RefactorRename ' . input('New Name: ')<CR>
 
 " same for Go
 autocmd FileType go nmap <silent> <C-]> :GoDef<CR>
@@ -184,8 +217,8 @@ set updatetime=100
 
 
 " make YCM compatible with UltiSnips
-let g:ycm_key_list_select_completion=[]
-let g:ycm_key_list_previous_completion=[]
+" let g:ycm_key_list_select_completion=[]
+" let g:ycm_key_list_previous_completion=[]
 
 
 " Ultisnips settings
@@ -218,7 +251,7 @@ endfunction
 nnoremap <silent> <leader>q :call ToggleQuickFix()<cr>
 
 " keep the window open on the YcmQuickFixOpened event
-autocmd User YcmQuickFixOpened autocmd! ycmquickfix WinLeave
+" autocmd User YcmQuickFixOpened autocmd! ycmquickfix WinLeave
 
 " text alignment settings
 let g:lion_squeeze_spaces = 1
@@ -282,8 +315,10 @@ let g:ale_python_flake8_options = '--ignore=W391,F821,F403 --max-line-length=120
 let g:ale_completion_enabled = 0
 
 
-nmap <silent>[e <Plug>(ale_previous_wrap)
-nmap <silent>]e <Plug>(ale_next_wrap)
+" nmap <silent>[e <Plug>(ale_previous_wrap)
+" nmap <silent>]e <Plug>(ale_next_wrap)
+nmap <silent> [e <Plug>(coc-diagnostic-prev)
+nmap <silent> ]e <Plug>(coc-diagnostic-next)
 
 
 let g:ale_typescript_standard_use_global = 1
@@ -353,9 +388,9 @@ let delimitMate_expand_space = 1
 let delimitMate_nesting_quotes = ['"','`']
 let delimitMate_expand_inside_quotes = 1
 let delimitMate_balance_matchpairs = 1
-imap <silent> <BS> <C-R>=YcmOnDeleteChar()<CR><Plug>delimitMateBS
+imap <silent> <BS> <C-R>=CoCOnDeleteChar()<CR><Plug>delimitMateBS
 
-function! YcmOnDeleteChar()
+function! CoCOnDeleteChar()
   if pumvisible()
     return "\<C-y>"
   endif
@@ -481,8 +516,6 @@ set cursorline
 
 
 " Modify some highlighting
-let &t_Cs = "\e[4:3m"
-let &t_Ce = "\e[4:0m"
 hi SpellBad cterm=undercurl ctermfg=none ctermbg=none gui=undercurl
 hi SpellCap cterm=undercurl ctermfg=none ctermbg=none gui=undercurl guisp=#fac863
 hi SpellLocal cterm=undercurl ctermfg=none ctermbg=none gui=undercurl guisp=cyan
@@ -805,7 +838,7 @@ let g:lightline = {
       \ 'mode_map': { 'c': 'NORMAL' },
       \ 'active': {
       \   'left': [['mode', 'paste'], ['fugitive', 'filename']],
-      \   'right': [['ale_error', 'ale_warning', 'lineinfo', 'percent'], [ 'fileformat', 'fileencoding', 'filetype' ]]
+      \   'right': [['coc_error', 'coc_warning', 'lineinfo', 'percent'], [ 'fileformat', 'fileencoding', 'filetype' ]]
       \ },
       \ 'inactive': {
       \   'left': [['filename']],
@@ -823,12 +856,12 @@ let g:lightline = {
       \   'mode': 'LightLineMode'
       \ },
       \ 'component_expand': {
-      \   'ale_warning': 'ALEGetWarningStatusLine',
-      \   'ale_error': 'ALEGetErrorStatusLine'
+      \   'coc_warning': 'CocGetWarningStatusLine',
+      \   'coc_error': 'CocGetErrorStatusLine'
       \ },
       \ 'component_type': {
-      \   'ale_warning': 'warning',
-      \   'ale_error': 'error'
+      \   'coc_warning': 'warning',
+      \   'coc_error': 'error'
       \ },
       \ 'separator': { 'left': g:separator_left_symbol, 'right': g:separator_right_symbol},
       \ 'subseparator': { 'left':g:subseparator_left_symbol, 'right': g:subseparator_right_symbol}
@@ -845,6 +878,34 @@ function! ALEGetErrorStatusLine()
     let l:counts = ale#statusline#Count(bufnr(''))
     let l:all_errors = l:counts.error + l:counts.style_error
     return l:all_errors == 0 ? '' : printf('✗ %d', l:all_errors)
+endfunction
+
+function! CocGetWarningStatusLine() abort
+  let diags = coc#util#get_diagnostics(bufnr(''))
+  if empty(diags)
+    return ''
+  endif
+  let count_non_errors = 0
+  for d in diags
+    if d['severity'] == 2 || d['severity'] == 3
+      let count_non_errors += 1
+    endif
+  endfor
+  return count_non_errors == 0 ? '' : printf('⚠ %d', count_non_errors)
+endfunction
+
+function! CocGetErrorStatusLine() abort
+  let diags = coc#util#get_diagnostics(bufnr(''))
+  if empty(diags)
+    return ''
+  endif
+  let count_errors = 0
+  for d in diags
+    if d['severity'] == 1
+      let count_errors += 1
+    endif
+  endfor
+  return count_errors == 0 ? '' : printf('✗ %d', count_errors)
 endfunction
 
 function! LightLineLineinfo()

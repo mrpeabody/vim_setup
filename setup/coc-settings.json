@@ -1,0 +1,30 @@
+{
+  "suggest.noselect": true,
+  "suggest.enablePreselect": false,
+  "suggest.autoTrigger": "always",
+  "suggest.minTriggerInputLength": 1,
+  "suggest.snippetIndicator": "",
+  "suggest.detailField": "abbr",
+  "inlayHint.display": false,
+
+  "diagnostic.enable": true,
+  "diagnostic.virtualText": false,
+
+  "coc.preferences.useQuickfixForLocations": true,
+  "coc.preferences.jumpCommand": "edit",
+
+  "signature.preferShownAbove": false,
+
+  "python.pythonPath": "/usr/bin/python3",
+
+  "clangd.path": "clangd",
+  "clangd.arguments": [
+    "--background-index",
+    "--header-insertion=never",
+    "--completion-style=detailed"
+  ],
+
+  "coc.source.buffer.enable": true,
+
+  "snippets.ultisnips.directories": ["UltiSnips", "my_snippets"]
+}

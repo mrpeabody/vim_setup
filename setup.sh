@@ -67,10 +67,6 @@ if [[ ! "$*" == *"--skip-install"*  ]]; then
                 sudo dnf -y install python3-pip python3-devel python3-setuptools*
                 pip3 install --user flake8
                 pip3 install --user autopep8
-
-                # YCM plugin does not support older vim, so we change commit to an older version
-                cp setup/vimrc_rh.txt ~/.vimrc
-                sed -i "s/HEAD/d2abd1594f228de79a05257fc5d4fca5c9a7ead3/g" ~/.vimrc
             elif [[ "$RH_VERSION" == "8" ]]; then
                 sudo dnf -y group install "Development Tools"
 
@@ -80,10 +76,6 @@ if [[ ! "$*" == *"--skip-install"*  ]]; then
                 sudo ln -s /usr/bin/pip3.11 /usr/bin/pip
                 pip install --user flake8
                 pip install --user autopep8
-
-                # YCM plugin does not support older vim, so we change commit to an older version
-                cp setup/vimrc_rh.txt ~/.vimrc
-                sed -i "s/HEAD/93956d747abd9f1ac438c219eb27e4ecd94cdb82/g" ~/.vimrc
             else
                 sudo dnf -y group install "development-tools"
                 sudo dnf -y install python3-pip python3-devel python3-setuptools python3-wheel
@@ -176,26 +168,24 @@ if [[ ! "$*" == *"--skip-install"*  ]]; then
     npm list -g pyright &>/dev/null || npm install -g pyright
 fi
 
-# generate the Plug install command for the YouCompleteMe plugin
-INSTALL_ARGS="--clangd-completer --ts-completer"
+# generate the Plug install command for the CoC plugin
+INSTALL_ARGS="coc-json coc-tsserver coc-clangd coc-pyright coc-snippets"
 
 if [[ "$*" == *"--with-java"*  ]]; then
-    INSTALL_ARGS+=" --java-completer"
-fi
-
-if [[ "$*" == *"--with-go"*  ]]; then
-    INSTALL_ARGS+=" --go-completer"
+    INSTALL_ARGS+=" coc-java"
 fi
 
 if [[ "$*" == *"--with-csharp"*  ]]; then
-    INSTALL_ARGS+=" --cs-completer"
+    INSTALL_ARGS+=" coc-omnisharp"
 fi
 
 if [[ "$*" == *"--with-rust"*  ]]; then
-    INSTALL_ARGS+=" --rust-completer"
+    INSTALL_ARGS+=" coc-rust-analyzer"
 fi
 
 if [[ "$*" == *"--with-go"*  ]]; then
+    INSTALL_ARGS+=" coc-go"
+
     if [[ "$OSTYPE" == "darwin"* ]]; then
         sed -i '' "s/\" Plug 'fatih\/vim-go'/Plug 'fatih\/vim-go'/g" ~/.vimrc
     else
@@ -211,14 +201,11 @@ if [[ "$*" == *"--with-rust"*  ]]; then
     fi
 fi
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    sed -i '' "s/ARGS_TO_REPLACE/$INSTALL_ARGS/g" ~/.vimrc
-else
-    sed -i "s/ARGS_TO_REPLACE/$INSTALL_ARGS/g" ~/.vimrc
-fi
-
 # setup vim plugin manager
 vim +"colorscheme OceanicNext2" +PlugInstall +qall
+
+# setup CoC
+vim -c "colorscheme OceanicNext2" -c "CocInstall $INSTALL_ARGS" -c "qall"
 
 # everything is done
 echo 'Your vim setup is finished. Happy hacking!'
