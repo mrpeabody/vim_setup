@@ -11,7 +11,10 @@
   "diagnostic.virtualText": false,
   "diagnostic.enableSign": true,
   "diagnostic.enableHighlightLineNumber": true,
-  "diagnostic.warningSign": ">>",
+  "diagnostic.errorSign": "X",
+  "diagnostic.warningSign": "⚠",
+  "diagnostic.infoSign": "\uf449",
+  "diagnostic.hintSign": "\uf432",
 
   "coc.preferences.useQuickfixForLocations": true,
   "coc.preferences.jumpCommand": "edit",

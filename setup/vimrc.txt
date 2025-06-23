@@ -734,6 +734,10 @@ let g:subseparator_right_symbol = g:font_patched?"\ue0b3":"|"
 let g:read_only_symbol = g:font_patched?"\ue0a2":"RO"
 let g:git_symbol = g:font_patched?"\ue0a0":""
 
+let g:lightline#coc#indicator_warnings = g:font_patched?"\uf071 ":"*"
+let g:lightline#coc#indicator_errors = "X "
+let g:lightline#coc#indicator_info = g:font_patched?"\uf05a ":"i"
+let g:lightline#coc#indicator_hints = g:font_patched?"\uf432 ":"~"
 
 let lightline_theme_map = {
     \ 'OceanicNext': 'oceanicnext2',
