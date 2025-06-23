@@ -171,7 +171,7 @@ fi
 INSTALL_ARGS=""
 
 if [[ "$*" == *"--with-java"*  ]]; then
-    INSTALL_ARGS+=" coc-java"
+    INSTALL_ARGS+=" coc-java coc-xml"
 fi
 
 if [[ "$*" == *"--with-csharp"*  ]]; then

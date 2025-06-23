@@ -3,7 +3,7 @@
 Supported OS/distros:
 
 - WSL ([Windows Terminal](https://apps.microsoft.com/detail/9n0dx20hk701?rtc=1&hl=en-us&gl=US) app is strongly recommended)
-- MacOS ([iTerm2](https://iterm2.com/) app is strongly recommended)
+- MacOS ([Kitty](https://sw.kovidgoyal.net/kitty/) app is strongly recommended)
 - Debian / Ubuntu / Mint
 - Fedora
 - Arch / Manjaro
@@ -151,10 +151,9 @@ therefore it has some advanced features:
 
 - Full Support of **PEP8** (auto indentation, beautify)
 - Syntax validation, including formatting recommendations
-- Autocomplete using **Python** Jedi (IDE), including function signatures and argument hints
+- Autocomplete using **Python** `pyright`, a MS-created engine that is used in VSCode.
 - IDE-level support of **TypeScript** **Go**, including function signatures and type-awareness
 - Smart JavaScript/JSON/JSX/HTML/CSS Indentation
-- Out-of-the-Box support of main **JavaScript** libraries (autocomplete, syntax, etc)
 - Large collection of **Python** and **JavaScript/TypeScript/Go** snippets
 
 
@@ -164,8 +163,9 @@ therefore it has some advanced features:
 
 - fully format the whole file: `F8` (except **Java** and **C/C++**)
 - show symbol documentation: `<,> then d`
-- navigate to the location where a symbol is defined: `Ctrl + ]`
-- show location(s) where a symbol is referenced: `Ctrl + ^`
+- navigate to the location where a symbol is defined: `gd`
+- navigate to the implementation of a class/function: `gi`
+- show location(s) where a symbol is referenced: `gr`
 - show/hide location(s) list: `<,> then q`
 - go to next/previous location in the list: `]q` / `[q`
 - refactor (change name of) a symbol under cursor: `<,> then e`
@@ -188,6 +188,7 @@ In order for **ALT** key to work on Mac, do the following:
 
 - iTerm2: `Preferences -> Profiles -> Keys -> Left option key acts as:` set to `+Esc`
 - Terminal: `Preferences -> Profiles -> Use Option as Meta key` check
+- Kitty: just works
 
 
 #### vim as a git diff/merge tool ####
@@ -224,7 +225,7 @@ First, create the Neovim config directory:
 mkdir -p ~/.config/nvim
 ```
 
-In the `~/.config/nvim` directory, create the `nvim.vim` file with the following contents:
+In the `~/.config/nvim` directory, create the `init.vim` file with the following contents:
 
 ```bash
 set runtimepath^=~/.vim runtimepath+=~/.vim/after

@@ -49,6 +49,9 @@
     "--completion-style=detailed"
   ],
 
+  "xml.format.enabled": true,
+  "xml.format.spaceBeforeEmptyCloseTag": true,
+
   "coc.source.buffer.enable": true,
 
   "snippets.ultisnips.directories": ["UltiSnips", "CustomSnippets"],

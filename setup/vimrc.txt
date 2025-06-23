@@ -28,6 +28,7 @@ let &t_BD = "\e[?2004l"
 let &t_PS = "\e[200~"
 let &t_PE = "\e[201~"
 
+" disable polyglot for some languages
 let g:polyglot_disabled = ['markdown', 'c', 'cpp']
 
 call plug#begin('~/.vim/plugged')
@@ -273,8 +274,9 @@ nmap <silent> <C-t><C-t> :set invrelativenumber<CR>
 au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja.html
 
 
-" Automatically fix according to (ts-)standard
+" Automatically fix / format code
 autocmd FileType javascriptreact,javascript,typescript,typescriptreact,tsx,jsx nnoremap <silent> <buffer> <F8> :CocCommand eslint.executeAutofix<CR>
+autocmd FileType xml,html nnoremap <silent> <buffer> <F8> :CocCommand editor.action.formatDocument<CR>
 
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 if (executable('pbcopy') || executable('xclip') || executable('xsel') || executable('wl-copy')) && has('clipboard')
